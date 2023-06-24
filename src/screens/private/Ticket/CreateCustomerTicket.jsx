@@ -16,8 +16,8 @@ import ToastMessage from "../../../helpers/ToastMessage";
 
 const CreateCustomerTicket = () => {
   let params = new URLSearchParams(window.location.search);
-  let clientApp = params.get("clientApp");
-  let shunnoID = params.get("shunnoID");
+  let clientApp = "netfee";
+  let netfeeID = params.get("netfeeID");
 
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -32,7 +32,7 @@ const CreateCustomerTicket = () => {
     name: "",
     mobile: "",
     clientApp,
-    shunnoID,
+    shunnoID: netfeeID,
     description: "",
     subject: "",
     departmentID: "",
@@ -69,17 +69,14 @@ const CreateCustomerTicket = () => {
           .string()
           .required(t("department is required"))
           .matches(/^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i, "must mongo id"),
-        description: yup
-          .string()
-          .required()
-          .required(t("description is required")),
+        description: yup.string().required(t("description is required")),
       })
     ),
   });
 
   useEffect(() => {
-    if (!shunnoID || !clientApp) {
-      ToastMessage.errorMessage("shunnoId and client app are required");
+    if (!netfeeID || netfeeID.length !== 4) {
+      ToastMessage.errorMessage("invalid netfee id");
     }
   }, []);
 
@@ -104,7 +101,7 @@ const CreateCustomerTicket = () => {
                 Ticket created successfully{" "}
                 <b className="">
                   <Link
-                    to={`/support-ticket/tickets/${createData?.data}?shunnoID=${shunnoID}&clientApp=${clientApp}`}
+                    to={`/support-ticket/tickets/${createData?.data}?netfeeID=${netfeeID}&clientApp=${clientApp}`}
                   >
                     Your unique ticket link is this.
                   </Link>
@@ -124,7 +121,8 @@ const CreateCustomerTicket = () => {
                         <Row className="text-start">
                           <Col sm={6}>
                             <Form.Group className="mb-3" controlId="name">
-                              <Form.Label>{t("name")}</Form.Label>
+                              <Form.Label>{t("name")}</Form.Label>{" "}
+                              <span className="text-danger">*</span>
                               <Controller
                                 control={control}
                                 name="name"
@@ -152,6 +150,7 @@ const CreateCustomerTicket = () => {
                           <Col sm={6}>
                             <Form.Group className="mb-3" controlId="mobile">
                               <Form.Label>{t("mobile")}</Form.Label>
+                              <span className="text-danger">*</span>
                               <Controller
                                 control={control}
                                 name="mobile"
@@ -179,6 +178,7 @@ const CreateCustomerTicket = () => {
                           <Col sm={6}>
                             <Form.Group className="mb-3" controlId="subject">
                               <Form.Label>{t("subject")}</Form.Label>
+                              <span className="text-danger">*</span>
                               <Controller
                                 control={control}
                                 name="subject"
@@ -209,6 +209,7 @@ const CreateCustomerTicket = () => {
                               controlId="departmentID"
                             >
                               <Form.Label>{t("department")}</Form.Label>
+                              <span className="text-danger">*</span>
                               <Controller
                                 control={control}
                                 name="departmentID"
@@ -252,6 +253,7 @@ const CreateCustomerTicket = () => {
                               controlId="description"
                             >
                               <Form.Label>{t("description")}</Form.Label>
+                              <span className="text-danger">*</span>
                               <Controller
                                 control={control}
                                 name="description"

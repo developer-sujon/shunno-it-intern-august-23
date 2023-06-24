@@ -1,21 +1,24 @@
 //External lib imports
-import { useEffect } from 'react';
-import { Card, Col, Form, Row, Spinner } from 'react-bootstrap';
-import { useDispatch, useSelector } from 'react-redux';
-import { useForm, Controller } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useTranslation } from 'react-i18next';
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from "react";
+import { Card, Col, Form, Row, Spinner } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 //Internal lib imports
-import AppNavigation from '../components/AppNavigation';
-import { useLoginMutation } from '../redux/services/authService';
-import { setLogin } from '../redux/slice/authReducer';
-import * as authValidation from '../validation/auth.validation';
+import AppNavigation from "../components/AppNavigation";
+import { useLoginMutation } from "../redux/services/authService";
+import { setLogin } from "../redux/slice/authReducer";
+import * as authValidation from "../validation/auth.validation";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const [login, { isLoading: loginLoading, data: loginData, isSuccess: loginSuccess }] = useLoginMutation();
+  const [
+    login,
+    { isLoading: loginLoading, data: loginData, isSuccess: loginSuccess },
+  ] = useLoginMutation();
   const { t } = useTranslation();
   const navigate = useNavigate();
 
@@ -27,10 +30,10 @@ const Login = () => {
     reset,
     formState: { errors },
   } = useForm({
-    mode: 'onChange',
+    mode: "onChange",
     defaultValues: {
-      mobile: '01772703036',
-      password: 'pass1234',
+      mobile: "",
+      password: "",
     },
     resolver: yupResolver(authValidation.login),
   });
@@ -54,7 +57,7 @@ const Login = () => {
 
   useEffect(() => {
     if (accessToken) {
-      navigate('/');
+      navigate("/");
     }
   }, [accessToken]);
 
@@ -76,7 +79,9 @@ const Login = () => {
                           control={control}
                           name="mobile"
                           defaultValue=""
-                          render={({ field: { onChange, onBlur, value, ref } }) => (
+                          render={({
+                            field: { onChange, onBlur, value, ref },
+                          }) => (
                             <Form.Control
                               onChange={onChange}
                               value={value}
@@ -87,7 +92,11 @@ const Login = () => {
                             />
                           )}
                         />
-                        {errors.mobile && <Form.Text className="text-danger">{errors.mobile.message}</Form.Text>}
+                        {errors.mobile && (
+                          <Form.Text className="text-danger">
+                            {errors.mobile.message}
+                          </Form.Text>
+                        )}
                       </Form.Group>
                       <Form.Group className="mb-3" controlId="Password">
                         <Form.Label>Password</Form.Label>
@@ -95,7 +104,9 @@ const Login = () => {
                           control={control}
                           name="password"
                           defaultValue=""
-                          render={({ field: { onChange, onBlur, value, ref } }) => (
+                          render={({
+                            field: { onChange, onBlur, value, ref },
+                          }) => (
                             <Form.Control
                               onChange={onChange}
                               value={value}
@@ -106,11 +117,22 @@ const Login = () => {
                             />
                           )}
                         />
-                        {errors.password && <Form.Text className="text-danger">{errors.password.message}</Form.Text>}
+                        {errors.password && (
+                          <Form.Text className="text-danger">
+                            {errors.password.message}
+                          </Form.Text>
+                        )}
                       </Form.Group>
                       <div className="d-grid">
-                        <button className="btn btn-primary btn-block login-btn mt-2" type="submit">
-                          {loginLoading ? <Spinner size="sm" color="light" /> : t('Sign in')}
+                        <button
+                          className="btn btn-primary btn-block login-btn mt-2"
+                          type="submit"
+                        >
+                          {loginLoading ? (
+                            <Spinner size="sm" color="light" />
+                          ) : (
+                            t("Sign in")
+                          )}
                         </button>
                       </div>
                     </Form>

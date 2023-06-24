@@ -1,14 +1,18 @@
 //External Lib Import
-import React from 'react';
-import Moment from 'react-moment';
+import React from "react";
+import Moment from "react-moment";
 
-const DateFormatter = (date) => {
+const DateFormatter = ({ date }) => {
+  console.log(date);
   return (
     <>
       <Moment format="D MMM YYYY" withTitle>
         {date}
-      </Moment>{' '}
+      </Moment>
       <br />
+      <small>
+        <Moment format="hh:mm A">{date}</Moment>
+      </small>
     </>
   );
 };

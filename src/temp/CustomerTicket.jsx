@@ -1,15 +1,25 @@
 //External lib imports
-import { Row, Col, Container, Button, Card, ListGroup, Badge, OverlayTrigger, Tooltip } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
-import { AiOutlineEdit } from 'react-icons/ai';
+import {
+  Row,
+  Col,
+  Container,
+  Button,
+  Card,
+  ListGroup,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
+} from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+import { AiOutlineEdit } from "react-icons/ai";
 
 //Internal lib imports
-import AppNavigation from '../components/AppNavigation';
-import { useTicketListQuery } from '../redux/services/ticketService';
-import Table from '../components/Table/Table';
-import { BsFillReplyFill, BsTrash } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import DateFormatter from '../utils/DateFormatter';
+import AppNavigation from "../components/AppNavigation";
+import { useTicketListQuery } from "../redux/services/ticketService";
+import Table from "../components/Table/Table";
+import { BsFillReplyFill, BsTrash } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import DateFormatter from "../utils/DateFormatter";
 
 const CustomerTicket = () => {
   const { t } = useTranslation();
@@ -19,27 +29,27 @@ const CustomerTicket = () => {
 
   const columns = [
     {
-      Header: '#',
+      Header: "#",
       accessor: (_, index) => index + 1,
       sort: true,
     },
     {
-      Header: t('subject'),
+      Header: t("subject"),
       accessor: (d) => d?.subject,
       sort: true,
     },
     {
-      Header: t('create date'),
-      accessor: (d) => DateFormatter(d?.createdAt),
+      Header: t("create date"),
+      accessor: (d) => <DateFormatter date={d?.createdAt} />,
       sort: true,
     },
     {
-      Header: t('update date'),
-      accessor: (d) => DateFormatter(d?.updatedAt),
+      Header: t("update date"),
+      accessor: (d) => <DateFormatter date={d?.updatedAt} />,
       sort: true,
     },
     {
-      Header: t('status'),
+      Header: t("status"),
       accessor: (d) => (
         <div className="bodySmall">
           <Badge bg="primary" pill>
@@ -50,16 +60,20 @@ const CustomerTicket = () => {
       sort: true,
     },
     {
-      Header: t('action'),
+      Header: t("action"),
       accessor: (d) => (
         <div className="bodySmall">
           <OverlayTrigger
             placement="top"
             delay={{ show: 250, hide: 400 }}
-            overlay={<Tooltip id="button-tooltip">{t('replay')}</Tooltip>}
+            overlay={<Tooltip id="button-tooltip">{t("reply")}</Tooltip>}
           >
             <Link to={`/customer-ticket-reply?id=${d?.id}`}>
-              <Button variant="primary" style={{ padding: '5px 10px' }} className="me-1">
+              <Button
+                variant="primary"
+                style={{ padding: "5px 10px" }}
+                className="me-1"
+              >
                 <BsFillReplyFill />
               </Button>
             </Link>
@@ -71,19 +85,19 @@ const CustomerTicket = () => {
 
   const sizePerPageList = [
     {
-      text: '5',
+      text: "5",
       value: 5,
     },
     {
-      text: '10',
+      text: "10",
       value: 10,
     },
     {
-      text: '25',
+      text: "25",
       value: 25,
     },
     {
-      text: 'All',
+      text: "All",
       value: data?.length,
     },
   ];
@@ -93,16 +107,16 @@ const CustomerTicket = () => {
       <div className="auth-content">
         <div className="auth-wrapper">
           <div className="auth-content">
-            <AppNavigation title={t('create ticket')} />
+            <AppNavigation title={t("create ticket")} />
             <div className="mt-3">
               <Card>
                 <Card.Body>
                   <Row>
                     <Col className="d-flex justify-content-between p-2" sm={12}>
-                      <h5>{t('my tickets')}</h5>
-                      <Link to={'/customer/create-ticket'}>
+                      <h5>{t("my tickets")}</h5>
+                      <Link to={"/customer/create-ticket"}>
                         <Button size="sm" variant="primary">
-                          {t('create ticket')}
+                          {t("create ticket")}
                         </Button>
                       </Link>
                     </Col>
@@ -117,7 +131,7 @@ const CustomerTicket = () => {
                           pagination={true}
                         />
                       ) : (
-                        t('No Data Found')
+                        t("No Data Found")
                       )}
                     </Col>
                   </Row>

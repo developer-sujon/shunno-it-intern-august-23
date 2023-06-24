@@ -120,5 +120,8 @@
   "name of the Category": "ক্যাটাগরি নাম",
   "the category is public": "এই ক্যাটাগরি পাবলিক",
   "no data found": "কোন তথ্য পাওয়া যায়নি",
-  "update date": "আপডেট তারিখ"
+  "update date": "আপডেট তারিখ",
+  "ticket id": "টিকিট আইডি",
+  "reply": "উত্তর",
+  "ticketID is required": "টিকিট আইডি প্রয়োজন"
 }

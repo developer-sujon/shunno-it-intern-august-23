@@ -1,21 +1,25 @@
 //External Lib Import
-import { useEffect, useState } from 'react';
-import { Container, Navbar } from 'react-bootstrap';
-import { AiOutlineLogout, AiOutlineMenuUnfold, AiOutlineUser } from 'react-icons/ai';
-import { BsArrowsFullscreen } from 'react-icons/bs';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { NavLink } from 'react-router-dom';
+import { useEffect, useState } from "react";
+import { Container, Navbar } from "react-bootstrap";
+import {
+  AiOutlineLogout,
+  AiOutlineMenuUnfold,
+  AiOutlineUser,
+} from "react-icons/ai";
+import { BsArrowsFullscreen } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 //Internal Lib Import
-import Logo from '../assets/images/logo.png';
-import { useProfileDetailsQuery } from '../redux/services/profileService';
-import defaultUserAvatar from '../assets/images/user.png';
-import { setLogout } from '../redux/slice/authReducer';
-import { useTranslation } from 'react-i18next';
-import LanguageDropdown from '../components/languageDropdown';
+import Logo from "../assets/images/logo.png";
+import { useProfileDetailsQuery } from "../redux/services/profileService";
+import defaultUserAvatar from "../assets/images/user.png";
+import { setLogout } from "../redux/slice/authReducer";
+import { useTranslation } from "react-i18next";
+import LanguageDropdown from "../components/languageDropdown";
 
-const Navigation = ({ openMenu, setOpenMenu, title = 'Home' }) => {
+const Navigation = ({ openMenu, setOpenMenu, title = "Home" }) => {
   const { t } = useTranslation();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
@@ -47,13 +51,21 @@ const Navigation = ({ openMenu, setOpenMenu, title = 'Home' }) => {
 
   const { data: profileDetails } = useProfileDetailsQuery();
 
+  const logout = () => {
+    const result = dispatch(setLogout());
+    if (result) window.location.reload();
+  };
+
   return (
     <>
       <title>{title}</title>
       <Navbar className="fixed-top px-0 shadow-sm ">
         <Container fluid={true}>
           <Navbar.Brand>
-            <button className="icon-nav m-0 h5 btn btn-link" onClick={() => setOpenMenu(!openMenu)}>
+            <button
+              className="icon-nav m-0 h5 btn btn-link"
+              onClick={() => setOpenMenu(!openMenu)}
+            >
               <AiOutlineMenuUnfold />
             </button>
             <Link to="/">
@@ -65,7 +77,10 @@ const Navigation = ({ openMenu, setOpenMenu, title = 'Home' }) => {
             <div>
               <LanguageDropdown />
             </div>
-            <button className="mx-2 icon-nav h6 px-3 btn btn-link" onClick={FullScreen}>
+            <button
+              className="mx-2 icon-nav h6 px-3 btn btn-link"
+              onClick={FullScreen}
+            >
               <BsArrowsFullscreen />
             </button>
 
@@ -77,7 +92,13 @@ const Navigation = ({ openMenu, setOpenMenu, title = 'Home' }) => {
                   alt={profileDetails?.email}
                   onClick={() => setOpenDropdown(!openDropdown)}
                 />
-                <div className={openDropdown ? 'user-dropdown-content d-block' : 'user-dropdown-content'}>
+                <div
+                  className={
+                    openDropdown
+                      ? "user-dropdown-content d-block"
+                      : "user-dropdown-content"
+                  }
+                >
                   <div className="mt-4 text-center">
                     <img
                       className="icon-nav-img"
@@ -90,10 +111,14 @@ const Navigation = ({ openMenu, setOpenMenu, title = 'Home' }) => {
                   {/* <NavLink to="/profile" className={({ isActive }) => (isActive ? 'link-item-active' : 'link-item')}>
                     <AiOutlineUser className="link-item-icon" />
                     <span className="link-item-caption">{t('profile')}</span>
-                  </NavLink> */}{' '}
-                  <span onClick={() => dispatch(setLogout())} className="link-item" style={{ cursor: 'pointer' }}>
+                  </NavLink> */}{" "}
+                  <span
+                    onClick={logout}
+                    className="link-item"
+                    style={{ cursor: "pointer" }}
+                  >
                     <AiOutlineLogout className="link-item-icon" />
-                    <span className="link-item-caption">{t('logout')}</span>
+                    <span className="link-item-caption">{t("logout")}</span>
                   </span>
                 </div>
               </div>

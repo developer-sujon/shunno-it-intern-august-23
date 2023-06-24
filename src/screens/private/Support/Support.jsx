@@ -1,15 +1,26 @@
 //External lib imports
-import { Row, Col, Container, Button, Card, ListGroup, Badge, OverlayTrigger, Tooltip, Spinner } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
-import { AiOutlineEdit } from 'react-icons/ai';
+import {
+  Row,
+  Col,
+  Container,
+  Button,
+  Card,
+  ListGroup,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
+  Spinner,
+} from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+import { AiOutlineEdit } from "react-icons/ai";
 
 //Internal lib imports
-import Layout from '../../../layout/Layout';
-import { useTicketListQuery } from '../../../redux/services/ticketService';
-import Table from '../../../components/Table/Table';
-import { BsFillReplyFill, BsTrash } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import DateFormatter from '../../../utils/DateFormatter';
+import Layout from "../../../layout/Layout";
+import { useTicketListQuery } from "../../../redux/services/ticketService";
+import Table from "../../../components/Table/Table";
+import { BsFillReplyFill, BsTrash } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import DateFormatter from "../../../utils/DateFormatter";
 
 const SupportTicket = () => {
   const { t } = useTranslation();
@@ -19,80 +30,54 @@ const SupportTicket = () => {
 
   const columns = [
     {
-      Header: t('shunnoID'),
+      Header: t("netfeeID"),
       accessor: (d) => d?.shunnoID,
       sort: true,
     },
     {
-      Header: t('clientApp'),
-      accessor: (d) => d?.clientApp,
-      sort: true,
-    },
-    {
-      Header: t('ticketID'),
+      Header: t("ticketID"),
       accessor: (d) => d?.ticketID,
       sort: true,
     },
     {
-      Header: t('name'),
+      Header: t("name"),
       accessor: (d) => d?.name,
       sort: true,
     },
     {
-      Header: t('mobile'),
+      Header: t("mobile"),
       accessor: (d) => d?.mobile,
       sort: true,
     },
     {
-      Header: t('subject'),
+      Header: t("subject"),
       accessor: (d) => d?.subject,
       sort: true,
     },
+
     {
-      Header: t('category'),
-      accessor: (d) => {
-        return (
-          <>
-            {d?.categoryName ? (
-              <Badge bg="" style={{ backgroundColor: d?.categoryColor }}>
-                {d?.categoryName}
-              </Badge>
-            ) : (
-              'NA'
-            )}{' '}
-          </>
-        );
-      },
+      Header: t("create date"),
+      accessor: (d) => <DateFormatter date={d?.createdAt} />,
       sort: true,
     },
     {
-      Header: t('priority'),
-      accessor: (d) => d?.priorityName || 'NA',
+      Header: t("update date"),
+      accessor: (d) => <DateFormatter date={d?.updatedAt} />,
       sort: true,
     },
     {
-      Header: t('create date'),
-      accessor: (d) => DateFormatter(d?.createdAt),
-      sort: true,
-    },
-    {
-      Header: t('update date'),
-      accessor: (d) => DateFormatter(d?.updatedAt),
-      sort: true,
-    },
-    {
-      Header: t('status'),
+      Header: t("status"),
       accessor: (d) => (
         <div className="bodySmall">
-          {d?.status === 'open' ? (
+          {d?.status === "open" ? (
             <Badge bg="success" pill>
               <span className="ms-1">{t(d?.status)}</span>
             </Badge>
-          ) : d?.status === 'inProgress' ? (
+          ) : d?.status === "inProgress" ? (
             <Badge bg="warning" pill>
               <span className="ms-1">{t(d?.status)}</span>
             </Badge>
-          ) : d?.status === 'onHold' ? (
+          ) : d?.status === "onHold" ? (
             <Badge bg="danger" pill>
               <span className="ms-1">{t(d?.status)}</span>
             </Badge>
@@ -106,7 +91,7 @@ const SupportTicket = () => {
       sort: true,
     },
     {
-      Header: t('action'),
+      Header: t("action"),
       accessor: (d) => (
         <div className="bodySmall">
           <OverlayTrigger
@@ -115,7 +100,11 @@ const SupportTicket = () => {
             overlay={<Tooltip id="button-tooltip">Edit</Tooltip>}
           >
             <Link to={`/support-create-update?id=${d?.id}`}>
-              <Button variant="primary" style={{ padding: '5px 10px' }} className="me-1">
+              <Button
+                variant="primary"
+                style={{ padding: "5px 10px" }}
+                className="me-1"
+              >
                 <AiOutlineEdit />
               </Button>
             </Link>
@@ -123,10 +112,16 @@ const SupportTicket = () => {
           <OverlayTrigger
             placement="top"
             delay={{ show: 250, hide: 400 }}
-            overlay={<Tooltip id="button-tooltip">{t('replay')}</Tooltip>}
+            overlay={<Tooltip id="button-tooltip">{t("reply")}</Tooltip>}
           >
-            <Link to={`/support-reply?ticketID=${d?.ticketID}&shunnoID=${d?.shunnoID}`}>
-              <Button variant="primary" style={{ padding: '5px 10px' }} className="me-1">
+            <Link
+              to={`/support-reply?ticketID=${d?.ticketID}&shunnoID=${d?.shunnoID}`}
+            >
+              <Button
+                variant="primary"
+                style={{ padding: "5px 10px" }}
+                className="me-1"
+              >
                 <BsFillReplyFill />
               </Button>
             </Link>
@@ -136,7 +131,11 @@ const SupportTicket = () => {
             delay={{ show: 250, hide: 400 }}
             overlay={<Tooltip id="button-tooltip">Delete</Tooltip>}
           >
-            <Button variant="danger" style={{ padding: '5px 10px' }} onClick={() => deleteItem(d.id)}>
+            <Button
+              variant="danger"
+              style={{ padding: "5px 10px" }}
+              onClick={() => deleteItem(d.id)}
+            >
               <BsTrash />
             </Button>
           </OverlayTrigger>
@@ -147,31 +146,31 @@ const SupportTicket = () => {
 
   const sizePerPageList = [
     {
-      text: '5',
+      text: "5",
       value: 5,
     },
     {
-      text: '10',
+      text: "10",
       value: 10,
     },
     {
-      text: '25',
+      text: "25",
       value: 25,
     },
     {
-      text: 'All',
+      text: "All",
       value: data?.length,
     },
   ];
 
   return (
     <Layout>
-      <Container>
+      <Container fluid="true" className="p-3">
         <Card>
           <Card.Body>
             <Row>
               <Col className="d-flex justify-content-between p-2" sm={12}>
-                <h5>{t('Supports')}</h5>
+                <h5>{t("Supports")}</h5>
               </Col>
               <Col sm={12}>
                 {isLoading ? (
@@ -186,7 +185,7 @@ const SupportTicket = () => {
                     pagination={true}
                   />
                 ) : (
-                  t('no data found')
+                  t("no data found")
                 )}
               </Col>
             </Row>

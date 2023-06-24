@@ -1,18 +1,18 @@
 //External Lib Import
-import { useState } from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
-import { BsArrowsFullscreen } from 'react-icons/bs';
-import { NavLink, Link } from 'react-router-dom';
+import { useState } from "react";
+import { Container, Nav, Navbar } from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+import { BsArrowsFullscreen } from "react-icons/bs";
+import { NavLink, Link } from "react-router-dom";
 
 //Internal Lib Import
-import Logo from '../assets/images/logo.png';
-import LanguageDropdown from './languageDropdown';
+import Logo from "../assets/images/logo.png";
+import LanguageDropdown from "./languageDropdown";
 
-const AppNavigation = ({ title = 'Home' }) => {
+const AppNavigation = ({ title = "Home" }) => {
   let params = new URLSearchParams(window.location.search);
-  let clientApp = params.get('clientApp');
-  let shunnoID = params.get('shunnoID');
+  let clientApp = "netfee";
+  let shunnoID = params.get("netfeeID");
 
   const [isFullScreen, setIsFullScreen] = useState(false);
   const { t } = useTranslation();
@@ -46,28 +46,42 @@ const AppNavigation = ({ title = 'Home' }) => {
       <Navbar expand="md" className="px-0 shadow-sm">
         <Container fluid={true}>
           <Navbar.Brand>
-            <Link to={`/support-ticket/create?shunnoID=${shunnoID}&clientApp=${clientApp}`}>
+            <Link
+              to={`/support-ticket/create?netfeeID=${shunnoID}&clientApp=${clientApp}`}
+            >
               <img className="nav-logo mx-2" src={Logo} alt="logo" />
             </Link>
           </Navbar.Brand>
 
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="me-auto">
-              <NavLink className={'nav-link'} to={`/support-ticket/create?shunnoID=${shunnoID}&clientApp=${clientApp}`}>
-                {t('create ticket')}
+              <NavLink
+                className={"nav-link"}
+                to={`/support-ticket/create?netfeeID=${shunnoID}&clientApp=${clientApp}`}
+              >
+                {t("create ticket")}
               </NavLink>
-              <NavLink className={'nav-link'} to={`/support-ticket/search?shunnoID=${shunnoID}&clientApp=${clientApp}`}>
-                {t('search ticket')}
+              <NavLink
+                className={"nav-link"}
+                to={`/support-ticket/search?netfeeID=${shunnoID}&clientApp=${clientApp}`}
+              >
+                {t("search ticket")}
               </NavLink>
-              <NavLink className={'nav-link'} to={`/support-ticket/list?shunnoID=${shunnoID}&clientApp=${clientApp}`}>
-                {t('ticketList')}
+              <NavLink
+                className={"nav-link"}
+                to={`/support-ticket/list?netfeeID=${shunnoID}&clientApp=${clientApp}`}
+              >
+                {t("ticketList")}
               </NavLink>
             </Nav>
           </Navbar.Collapse>
 
           <div className="float-right h-auto d-flex">
             <LanguageDropdown />
-            <button className="mx-2 icon-nav h6 px-3 btn btn-link" onClick={FullScreen}>
+            <button
+              className="mx-2 icon-nav h6 px-3 btn btn-link"
+              onClick={FullScreen}
+            >
               <BsArrowsFullscreen />
             </button>
 

@@ -144,7 +144,9 @@
   "create category": "Create Category",
   "Update Category": "Update Category",
   "Save Category": "Save Category",
-  "Save Category": "Save Category",
   "no data found": "No Data Found",
+  "ticketID is required": "Ticket Id is required",
+  "ticket id": "Ticket Id",
+  "reply": "Reply",
   "update date": "Update Date"
 }

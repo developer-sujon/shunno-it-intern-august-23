@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <input type="file" id="file">
+
+    <button id="submitBtn">submit</button>
+
+
+    <script>
+        //ui elements
+        const fileId = document.getElementById('file')
+        const submitBtn = document.getElementById('submitBtn')
+
+
+        function readFile(event) {
+            console.log(event);
+        }
+
+        //event handlers
+        submitBtn.addEventListener('click', (i) => {
+            var file = fileId.files[0];
+            var reader = new FileReader();
+
+
+            const selectedFile = event.target.files[0];
+
+            // Create a Blob object from the selected file
+            const blob = new Blob([file], {
+                type: selectedFile.type
+            });
+
+            // Display the Blob object
+            console.log(blob);
+        })
+    </script>
+
+</body>
+
+</html>

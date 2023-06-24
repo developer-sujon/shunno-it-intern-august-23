@@ -1,17 +1,31 @@
 //External lib imports
-import React, { useState } from 'react';
-import { Row, Col, Container, Button, Card, ListGroup, Badge, OverlayTrigger, Tooltip, Spinner } from 'react-bootstrap';
-import { useTranslation } from 'react-i18next';
-import { AiOutlineArrowRight, AiOutlineEdit } from 'react-icons/ai';
+import React, { useState } from "react";
+import {
+  Row,
+  Col,
+  Container,
+  Button,
+  Card,
+  ListGroup,
+  Badge,
+  OverlayTrigger,
+  Tooltip,
+  Spinner,
+} from "react-bootstrap";
+import { useTranslation } from "react-i18next";
+import { AiOutlineArrowRight, AiOutlineEdit } from "react-icons/ai";
 
 //Internal lib imports
-import Layout from '../../../layout/Layout';
-import { usePriorityDeleteMutation, usePriorityListQuery } from '../../../redux/services/priorityService';
-import Table from '../../../components/Table/Table';
-import { BsTrash } from 'react-icons/bs';
-import AleartMessage from '../../../helpers/AleartMessage';
-import { Link } from 'react-router-dom';
-import DateFormatter from '../../../utils/DateFormatter';
+import Layout from "../../../layout/Layout";
+import {
+  usePriorityDeleteMutation,
+  usePriorityListQuery,
+} from "../../../redux/services/priorityService";
+import Table from "../../../components/Table/Table";
+import { BsTrash } from "react-icons/bs";
+import AleartMessage from "../../../helpers/AleartMessage";
+import { Link } from "react-router-dom";
+import DateFormatter from "../../../utils/DateFormatter";
 
 const Priority = () => {
   const { t } = useTranslation();
@@ -25,16 +39,16 @@ const Priority = () => {
 
   const columns = [
     {
-      Header: '#',
+      Header: "#",
       accessor: (_, index) => index + 1,
       sort: true,
     },
     {
-      Header: t('priority'),
+      Header: t("priority"),
       accessor: (d) => (
         <div className="bodySmall">
           <Badge bg="" style={{ backgroundColor: d?.color }} pill>
-            {' '}
+            {" "}
           </Badge>
           <span className="ms-1"> {d?.name}</span>
         </div>
@@ -42,11 +56,11 @@ const Priority = () => {
       sort: true,
     },
     {
-      Header: t('value'),
+      Header: t("value"),
       accessor: (d) => (
         <div className="bodySmall">
           <Badge bg="" style={{ backgroundColor: d?.color }} pill>
-            {' '}
+            {" "}
           </Badge>
           <span className="ms-1"> {d?.value}</span>
         </div>
@@ -54,21 +68,21 @@ const Priority = () => {
       sort: true,
     },
     {
-      Header: t('create date'),
-      accessor: (d) => DateFormatter(d?.createdAt),
+      Header: t("create date"),
+      accessor: (d) => <DateFormatter date={d?.createdAt} />,
       sort: true,
     },
     {
-      Header: t('visibility'),
+      Header: t("visibility"),
       accessor: (d) => (
         <div className="bodySmall">
           {d?.visibility ? (
             <Badge bg="primary" pill>
-              <span className="ms-1">{t('public')}</span>
+              <span className="ms-1">{t("public")}</span>
             </Badge>
           ) : (
             <Badge bg="danger" pill>
-              <span className="ms-1"> {t('private')}</span>
+              <span className="ms-1"> {t("private")}</span>
             </Badge>
           )}
         </div>
@@ -76,7 +90,7 @@ const Priority = () => {
       sort: true,
     },
     {
-      Header: t('action'),
+      Header: t("action"),
       accessor: (d) => (
         <div className="bodySmall">
           <OverlayTrigger
@@ -85,7 +99,11 @@ const Priority = () => {
             overlay={<Tooltip id="button-tooltip">Edit</Tooltip>}
           >
             <Link to={`/priority-create-update?id=${d?.id}`}>
-              <Button variant="primary" style={{ padding: '5px 10px' }} className="me-1">
+              <Button
+                variant="primary"
+                style={{ padding: "5px 10px" }}
+                className="me-1"
+              >
                 <AiOutlineEdit />
               </Button>
             </Link>
@@ -95,7 +113,11 @@ const Priority = () => {
             delay={{ show: 250, hide: 400 }}
             overlay={<Tooltip id="button-tooltip">Delete</Tooltip>}
           >
-            <Button variant="danger" style={{ padding: '5px 10px' }} onClick={() => deleteItem(d.id)}>
+            <Button
+              variant="danger"
+              style={{ padding: "5px 10px" }}
+              onClick={() => deleteItem(d.id)}
+            >
               <BsTrash />
             </Button>
           </OverlayTrigger>
@@ -106,34 +128,34 @@ const Priority = () => {
 
   const sizePerPageList = [
     {
-      text: '5',
+      text: "5",
       value: 5,
     },
     {
-      text: '10',
+      text: "10",
       value: 10,
     },
     {
-      text: '25',
+      text: "25",
       value: 25,
     },
     {
-      text: 'All',
+      text: "All",
       value: data?.length,
     },
   ];
 
   return (
     <Layout>
-      <Container>
+      <Container fluid="true" className="p-3">
         <Card>
           <Card.Body>
             <Row>
               <Col className="d-flex justify-content-between p-2" sm={12}>
-                <h5>{t('priorities')}</h5>
-                <Link to={'/priority-create-update'}>
+                <h5>{t("priorities")}</h5>
+                <Link to={"/priority-create-update"}>
                   <Button size="sm" variant="primary">
-                    {t('create priority')}
+                    {t("create priority")}
                   </Button>
                 </Link>
               </Col>
@@ -150,7 +172,7 @@ const Priority = () => {
                     pagination={true}
                   />
                 ) : (
-                  t('no data found')
+                  t("no data found")
                 )}
               </Col>
             </Row>
