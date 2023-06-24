@@ -1,25 +1,25 @@
 //External Lib Import
-import { fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 //Internal Lib Import
-import ToastMessage from '../../helpers/ToastMessage';
-import { setLoading } from '../slice/settingReducer';
-import { setLogout } from '../slice/authReducer';
+import ToastMessage from "../../helpers/ToastMessage";
+import { setLoading } from "../slice/settingReducer";
+import { setLogout } from "../slice/authReducer";
 
-console.log(process.env.BASE_URL)
-const BASE_URL = 'http://localhost:6100'
+const BASE_URL = process.env.BASE_URL || "http://localhost:8080";
+const API_PATH = process.env.API_PATH || "/api/v1";
 
 const basefetchBaseQuery = (url) => {
   const baseQuery = fetchBaseQuery({
-    baseUrl: `${BASE_URL}/api/v1/${url}`,
+    baseUrl: `${BASE_URL}${API_PATH}/${url}`,
     prepareHeaders: (headers, { getState }) => {
       const {
         settingReducer: { language },
         authReducer: { accessToken },
       } = getState();
 
-      headers.set('authorization', accessToken ? `Bearer ${accessToken}` : '');
-      headers.set('accept-language', language);
+      headers.set("authorization", accessToken ? `Bearer ${accessToken}` : "");
+      headers.set("accept-language", language);
       return headers;
     },
   });
@@ -38,7 +38,7 @@ const basefetchBaseQuery = (url) => {
       } else if (error.status === 404 || error.status === 400) {
         ToastMessage.errorMessage(error.data?.message);
       } else {
-        ToastMessage.errorMessage('Sorry, Something went wrong');
+        ToastMessage.errorMessage("Sorry, Something went wrong");
       }
       return { error: { status: error.status, data: error.data } };
     }
