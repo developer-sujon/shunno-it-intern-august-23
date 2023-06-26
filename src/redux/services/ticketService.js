@@ -1,86 +1,88 @@
 //External Lib Import
-import { createApi } from '@reduxjs/toolkit/query/react';
+import { createApi } from "@reduxjs/toolkit/query/react";
 
 //Internal Lib Import
-import basefetchBaseQuery from './baseQuery';
+import basefetchBaseQuery from "./baseQuery";
 
 export const ticketService = createApi({
-  reducerPath: 'ticket',
-  tagTypes: [''],
-  baseQuery: basefetchBaseQuery('ticket'),
+  reducerPath: "ticket",
+  tagTypes: ["ticket"],
+  baseQuery: basefetchBaseQuery("ticket"),
   endpoints: (builder) => ({
     ticketCreate: builder.mutation({
       query: (postBody) => ({
-        url: 'ticketCreate',
-        method: 'POST',
+        url: "ticketCreate",
+        method: "POST",
         body: postBody,
       }),
-      invalidatesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
     ticketSearch: builder.query({
       query: ({ shunnoID, ticketID }) => ({
         url: `ticketSearch/${shunnoID}/${ticketID}`,
-        method: 'GET',
+        method: "GET",
       }),
-      invalidatesTags: [''],
+      providesTags: ["ticket"],
     }),
     ticketSingleList: builder.query({
       query: ({ shunnoID, clientApp }) => ({
         url: `ticketSingleList/${shunnoID}/${clientApp}`,
-        method: 'GET',
+        method: "GET",
       }),
-      invalidatesTags: ['ticket'],
+      providesTags: ["ticket"],
     }),
     ticketReply: builder.mutation({
       query: ({ id, postBody }) => ({
         url: `ticketReply/${id}`,
-        method: 'PUT',
+        method: "PUT",
         body: postBody,
       }),
-      invalidatesTags: [''],
+      providesTags: ["ticket"],
     }),
     ticketList: builder.query({
       query: () => ({
-        url: 'ticketList',
-        method: 'GET',
+        url: "ticketList",
+        method: "GET",
       }),
-      providesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
     ticketdropDown: builder.query({
       query: () => ({
-        url: 'ticketdropDown',
-        method: 'GET',
+        url: "ticketdropDown",
+        method: "GET",
       }),
-      providesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
     ticketPaginate: builder.query({
       query: ({ pageNumber, perPage, order, searchKey }) => ({
-        url: `ticketPaginate/${pageNumber + '/' + perPage + '/' + order + '/' + searchKey}`,
-        method: 'GET',
+        url: `ticketPaginate/${
+          pageNumber + "/" + perPage + "/" + order + "/" + searchKey
+        }`,
+        method: "GET",
       }),
-      providesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
     ticketDetails: builder.query({
       query: ({ shunnoID, ticketID }) => ({
         url: `ticketDetails/${shunnoID}/${ticketID}`,
-        method: 'GET',
+        method: "GET",
       }),
-      providesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
     ticketUpdate: builder.mutation({
       query: ({ id, postBody }) => ({
         url: `ticketUpdate/${id}`,
-        method: 'PATCH',
+        method: "PATCH",
         body: postBody,
       }),
-      invalidatesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
     ticketDelete: builder.mutation({
       query: (id) => ({
         url: `ticketDelete/${id}`,
-        method: 'DELETE',
+        method: "DELETE",
       }),
-      invalidatesTags: ['ticket'],
+      invalidatesTags: ["ticket"],
     }),
   }),
 });

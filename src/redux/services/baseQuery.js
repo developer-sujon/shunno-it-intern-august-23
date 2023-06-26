@@ -6,7 +6,7 @@ import ToastMessage from "../../helpers/ToastMessage";
 import { setLoading } from "../slice/settingReducer";
 import { setLogout } from "../slice/authReducer";
 
-const BASE_URL = process.env.BASE_URL || "http://192.168.1.12:8080";
+const BASE_URL = process.env.BASE_URL || "http://139.84.135.222:5010";
 const API_PATH = process.env.API_PATH || "/api/v1";
 
 const basefetchBaseQuery = (url) => {

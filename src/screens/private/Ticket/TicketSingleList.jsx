@@ -168,6 +168,7 @@ const TicketSingleList = () => {
                         <Spinner size="lg" variant="primary" />
                       ) : data?.length ? (
                         <Table
+                          link={window.location.href}
                           columns={columns}
                           data={data}
                           pageSize={5}
