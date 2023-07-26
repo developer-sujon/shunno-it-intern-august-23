@@ -1,38 +1,37 @@
 //External lib imports
+import { yupResolver } from "@hookform/resolvers/yup";
 import { useEffect, useState } from "react";
 import {
-  Col,
-  Row,
-  Card,
-  Button,
-  Form,
-  Spinner,
-  Container,
   Badge,
+  Button,
+  Card,
+  Col,
+  Container,
+  Form,
+  Row,
+  Spinner,
 } from "react-bootstrap";
+import { Controller, useForm } from "react-hook-form";
 import { useTranslation } from "react-i18next";
-import { useForm, Controller } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
 //Internal lib imports
+import { useSelector } from "react-redux";
 import RichEditor from "../../../components/RichEditor";
 import Layout from "../../../layout/Layout";
+import { useProfileDetailsQuery } from "../../../redux/services/profileService";
 import {
   useLazyTicketDetailsQuery,
   useTicketReplyMutation,
 } from "../../../redux/services/ticketService";
 import { fromNow } from "../../../utils/DateFormatter";
 import htmlParser from "../../../utils/htmlParser";
-import { useProfileDetailsQuery } from "../../../redux/services/profileService";
-import { useSelector } from "react-redux";
-import { FiRefreshCcw } from "react-icons/fi";
 
 const ReplySupport = () => {
   const [refresh, setRefresh] = useState(false);
   let params = new URLSearchParams(window.location.search);
   let ticketID = params.get("ticketID");
-  let shunnoID = params.get("netfeeID");
+  let shunnoID = params.get("shunnoID");
   const { t } = useTranslation();
 
   const { userDetails } = useSelector((state) => state.authReducer);
@@ -44,6 +43,9 @@ const ReplySupport = () => {
     ticketReply,
     { data: replyData, isLoading: replyLoading, isSuccess: replySuccess },
   ] = useTicketReplyMutation();
+
+  console.log(ticketDetails)
+
   const {
     control,
     handleSubmit,
@@ -63,6 +65,8 @@ const ReplySupport = () => {
       })
     ),
   });
+
+  console.log(shunnoID, ticketID);
 
   useEffect(() => {
     if (shunnoID && ticketID) {

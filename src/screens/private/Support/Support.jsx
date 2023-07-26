@@ -1,25 +1,24 @@
 //External lib imports
 import {
-  Row,
-  Col,
-  Container,
+  Badge,
   Button,
   Card,
-  ListGroup,
-  Badge,
+  Col,
+  Container,
   OverlayTrigger,
-  Tooltip,
+  Row,
   Spinner,
+  Tooltip
 } from "react-bootstrap";
 import { useTranslation } from "react-i18next";
 import { AiOutlineEdit } from "react-icons/ai";
 
 //Internal lib imports
-import Layout from "../../../layout/Layout";
-import { useTicketListQuery } from "../../../redux/services/ticketService";
-import Table from "../../../components/Table/Table";
 import { BsFillReplyFill, BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import Table from "../../../components/Table/Table";
+import Layout from "../../../layout/Layout";
+import { useTicketListQuery } from "../../../redux/services/ticketService";
 import DateFormatter from "../../../utils/DateFormatter";
 
 const SupportTicket = () => {

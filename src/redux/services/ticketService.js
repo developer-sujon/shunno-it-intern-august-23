@@ -45,6 +45,7 @@ export const ticketService = createApi({
         method: "GET",
       }),
       invalidatesTags: ["ticket"],
+      transformResponse: (data) => data.reverse()
     }),
     ticketdropDown: builder.query({
       query: () => ({
