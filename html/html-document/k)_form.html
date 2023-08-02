@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Contact Us</legend><br>
+            <label for="name">Your Name</label><br>
+            <input id="name" type="text" placeholder="Your name"> <br><br>
+            <label for="email">Your Email</label><br>
+            <input id="email" type="email" placeholder="Your email"> <br><br>
+
+            <input type="radio" name="gender" id=""> Male <br>
+            <input type="radio" name="gender" id=""> Female <br>
+            <input type="radio" name="gender" id=""> Other <br><br>
+
+            <select multiple  name="" id="">
+                <option value="football" >Football</option>
+                <option value="cricket" selected>Cricket</option>
+                <option value="hockey">Hockey</option>
+            </select>
+            <br><br>
+
+            <textarea style="resize: none;" name="" id="" cols="30" rows="5" placeholder="Type your feedback"></textarea>
+            <br><br>
+            
+            <input placeholder="Choose browser" type="text" list="browsers">
+            <datalist id="browsers">
+                <option value="Firefox"></option>
+                <option value="Chrome"></option>
+                <option value="Safari"></option>
+            </datalist>
+
+            <br><br>
+            <input style="background-color: blue; color: white;" type="submit" value="send"> <br><br>
+
+        </fieldset>
+    </form>
+</body>
+</html>
