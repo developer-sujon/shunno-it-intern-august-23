@@ -1,0 +1,82 @@
+/* formating text মানে text এর আকার আকৃতি কে সুন্দর করা , মানে text কে ডিজাইন করে  */
+
+h1 {
+    color: red;
+}
+
+
+/* Text Alignment and Text Direction============================== */
+/* In this chapter you will learn about the following properties:======== */
+
+/* 
+text-align
+The text-align property is used to set the horizontal alignment of a text.
+
+text-align-last
+direction
+unicode-bidi
+vertical-align 
+*/
+
+
+/* Text Decoration  লেখাটাকে কেটে দেওয়া বা লেখার উপরে দাগ দেওয়া =====================*/
+
+/*
+text-decoration-line
+text-decoration-color
+text-decoration-style
+text-decoration-thickness
+text-decoration 
+*/
+* {
+    text-decoration-line: line-through;
+
+    /* short hand  */
+    text-decoration: underline red double 5px;
+}
+
+/* Text Transformation========================================================= */
+/* The text-transform property is used to specify uppercase and lowercase letters in a text. */
+
+*{
+    text-transform: capitalize;
+    text-transform: uppercase;
+    text-transform: lowercase;
+}
+
+
+/* Text Spacing============================================== */
+
+/* text-indent একটা peragraph এর প্রথম লাইন এ প্রথম padding দেয়  ===============*/
+p{
+    text-indent: 50px;
+}
+
+
+
+/* letter-spacing প্রত্যেক টা অক্ষের মধ্যে করে ফাকা করে =========== */
+p{
+    letter-spacing: 10px;
+}
+
+
+/* line-height দুই লাইনের মাঝে দুরত্ব কমায় বাড়ায় ================ */
+*{
+    line-height: 10px;
+}
+
+
+/* word-spacing শব্দে শব্দের মাঝে দুরত্ব কমায় বাড়ায় ================== */
+*{
+    word-wrap: 50px;
+}
+/* white-space মানে কোন wrap হবে না একলাইনে থাকবে =================== */
+*{
+    white-space: nowrap;
+}
+
+
+/* shadow ======================= */
+*{
+    text-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px darkblue;
+}

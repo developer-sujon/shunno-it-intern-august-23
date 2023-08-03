@@ -1,0 +1,48 @@
+/* যখন user link এ ক্লিক করবে ========================= */
+
+/* 
+a:link - a normal, unvisited link
+a:visited - a link the user has visited
+a:hover - a link when the user mouses over it
+a:active - a link the moment it is clicked 
+*/
+
+a:link {
+    background-color: yellow;
+    color: yellow;
+  }
+  
+  a:visited {
+    background-color: cyan;
+    color: red;
+  }
+  
+  a:hover {
+    background-color: lightgreen;
+    color: lightblue;
+  }
+  
+  a:active {
+    background-color: hotpink;
+    color: aqua;
+  } 
+
+
+  /* different types of cursors ============================== */
+/* 
+auto
+crosshair 
+default 
+e-resize 
+help
+move 
+n-resize
+ne-resize
+pointer
+progress-resize
+se-resize
+sw-resize
+text 
+w-resize
+wait 
+*/

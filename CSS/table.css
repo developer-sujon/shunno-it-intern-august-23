@@ -1,0 +1,24 @@
+/* table border ================== */
+
+
+table, th, td {
+    border: 1px solid;
+}
+
+table{
+    width: 100%;
+
+    /* border একটা করতে  */
+
+    border-collapse: collapse;
+}
+
+th{
+    height: 50px;
+}
+
+/* table align =============================== */
+td{
+    height: 50px;
+    vertical-align: bottom;
+}

@@ -1,0 +1,19 @@
+/* css height and width ব্যবহার করা হয় height and widht এর জন্য */
+/* max-width মানে সর্বোচ্চ কত টুকু width হবে  */
+/* max-height মানে সর্বোচ্চ কত টুকু height হবে  */
+/* min-width মানে সর্বোনিম্ন কত টুকু width হবে  */
+/* min-height মানে সর্বোনিম্ন কত টুকু height হবে  */
+
+*{
+    height: 500px;
+    width: 400px;
+}
+
+/* CSS Setting height and width=================================== */
+
+
+/* The height and width properties are used to set the height and width of an element. */
+
+/* 
+The height and width properties do not include padding, borders, or margins. It sets the height/width of the area inside the padding, border, and margin of the element. 
+*/

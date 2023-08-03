@@ -1,0 +1,13 @@
+/* position property হলো একটা element কে নির্দেশ করে কোন position এ সে থাকবে  */
+
+/* 
+static normal থাকে 
+
+relative হলো parent div থেকে তার position পাল্টাবে 
+
+fixed হলো এক জায়গায় থাকবে 
+
+absolute হলো relative position এর কাছে যাবে , আর যদি না থাকে তাহলে body থেকে সে position করা শুরু করবে 
+
+sticky ব্যবহারকারীর স্ক্রল অবস্থানের উপর ভিত্তি করে অবস্থান করা হয়৷
+*/

@@ -1,0 +1,5 @@
+/* padding use হয় element চার পাশ দিয়ে এবং border এর ভিতর দিয়ে , আর বাহির থেকে margin হয়  */
+
+*{
+    padding: 10px;
+}

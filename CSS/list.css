@@ -1,0 +1,35 @@
+/* Different List Item Markers================ */
+
+ul.a {
+    list-style-type: disc;
+    list-style-type: circle;
+    list-style-type: square;
+    list-style-type: upper-roman;
+    list-style-type: lower-alpha;
+}
+
+
+/* An Image as The List Item Marker================= */
+ul {
+    list-style-image: url('abule/gif');
+}
+
+
+/* position of the list =============================== */
+ul.a {
+    list-style-position: outside;
+    list-style-position: inside;
+}
+
+
+/* remove list design =============================== */
+ul {
+    list-style-type: none;
+}
+
+
+/* List - Shorthand property======================= */
+
+ul {
+    list-style: square inside url("sqpurple.gif");
+}

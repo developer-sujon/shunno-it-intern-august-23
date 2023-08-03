@@ -1,0 +1,27 @@
+/* font-style=========== */
+*{
+    font-style: normal;
+    font-style: italic;
+    font-style: oblique;
+}
+
+
+/* fort-variant========= যেখানে লেখা টাকে ছোট করে দেখাবে  */
+*{
+    font-variant: normal;
+    font-variant: small-caps;
+}
+
+/* for-size ================= responsive ও করা যাবে  */
+
+*{
+    font-size: 50px;
+    /* responsive  */
+    font-size: 10vw;
+}
+
+/* font short hand ===================================== */
+
+*{
+    font: italic small-caps bold 12px/30px Georgia, serif;
+}

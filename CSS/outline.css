@@ -1,0 +1,15 @@
+/* outline যেটা border এর বাহিরে থাকে border এর সাথে মিশে  */
+
+/* CSS has the following outline properties: */
+/* 
+outline-style
+outline-color
+outline-width
+outline-offset ====== border and outline এর মাঝখানের ফাকা জায়গা কে offset বলে 
+outline
+*/
+
+*{
+    outline: 5px solid red;
+    outline-offset: 15px;
+}

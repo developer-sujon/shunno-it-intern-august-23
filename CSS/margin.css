@@ -1,0 +1,11 @@
+/* marging সেটা html element এর / border এর বাহিরের চার পাশ থেকে কমে  */
+
+*{
+    margin: 50px;
+}
+
+/* margin collapse হলো margin কে ধসে দেয় / ধবংস করে দেয়  */
+
+*{
+    margin: 0 0 50px 0;
+}
