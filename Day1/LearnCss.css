@@ -1,39 +1,137 @@
 body {
   padding: 0px;
   margin: 0px;
+  background-image: url("https://img.freepik.com/free-photo/background-blue-sky-with-white-clouds-vintage-style_1048-2907.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: auto;
 }
 table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    width: 80%;
-   margin-top: 20px;
-   margin-bottom: 20px;
-    margin-left: auto;
-    margin-right: auto;
-    
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    text-align: center;
-    padding: 8px;
-  }
-  
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  ol{
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-  }
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  margin-left: auto;
+  margin-right: auto;
+}
 
-  form{
-    width: 20%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 30px;
-    margin-bottom: 30px;
-  }
+td,
+th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+ol {
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+form {
+  width: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+/* text property STart */
+.lorem {
+  text-transform: uppercase;
+  text-decoration-line: underline;
+  color: black;
+  text-align: center;
+  letter-spacing: 2px;
+  word-spacing: 10px;
+  text-shadow: 100px 5px red;
+  margin: 50px 0px;
+  font-weight: bold;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: medium;
+}
+
+/* text property Ended */
+
+/*Font property Started */
+
+.font {
+  font-weight: bold;
+  font-style: oblique;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-size: medium;
+}
+
+.Link_aq{
+  text-decoration: none;
+  text-align: center;
+  margin: 100px 100px;
+  color: black;
+  background-color: red;
+  padding: 10px 5px;
+}
+.Link_aq:hover{
+  background-color: blue;
+  color: white;
+}
+.Link_aq:visited{
+  background-color: brown;
+}
+/*Font property ended */
+
+/* LIst property started */
+ul{
+  /* list-style-type:georgian;
+  list-style-position: inside; */
+  list-style: armenian inside url('kdjl');
+}
+/* LIst property Ended */
+
+/* table style started  */
+.table{
+  width: 80%;
+  overflow: scroll;
+  margin: 30px  auto ; 
+  background-color: rgb(162, 81, 81);
+  border: 5px dotted black;
+  border-collapse: collapse;
+  border-radius: 10px;
+}
+.table th {
+  background-color: rgb(7, 126, 7);
+  border: 5px dotted black;
  
+}
+.table tr:nth-child(even){
+  background-color: aquamarine;
+
+  border: 5px double black;
+}
+/* table style ended */
+
+/* postition style started */
+/* postition style ended */
+
+.posititon{
+  width: 50%;
+  height: 300px;
+  background-color: green;
+  margin: 10px auto ; 
+  position: relative;
+}
+.position_1{
+  position: absolute;
+  width: 25%;
+  height: 170px;
+  background-color: red;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
