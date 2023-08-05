@@ -1,0 +1,203 @@
+body {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+  }
+  nav ul{
+    display: flex;
+    justify-content: end;
+    align-items: center ;
+    background-image: linear-gradient(to right, rgba(32, 12, 213, 0.857) , rgb(82, 125, 209));
+    padding: 0px;
+    margin: 0px;
+  }
+  nav ul li {
+    list-style-type: none ;
+    padding: 15px 0px ;
+  }
+  nav ul li a  {
+    text-decoration: none;
+    margin-right: 10px;
+    border: 1px solid white ;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: white;
+  }
+  table {
+    width: 80%;
+    margin: 0px auto;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  td,
+  th {
+    text-align: left;
+    padding: 3px 10px;
+  }
+  td{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  }
+  th {
+    padding: 8px;
+    background-color: rgb(17, 120, 138);
+  }
+  tr:nth-child(odd) {
+    background-color: rgba(4, 123, 156, 0.635);
+  }
+  tr:nth-child(even) {
+    background-color: rgba(212, 213, 219, 0.935);
+  }
+  .wellcome{
+    width: 16%;
+    font-size:20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    color: rgb(111, 29, 188); 
+    margin : 0 auto ; 
+    border-bottom : 2px dotted blueviolet    
+  }
+  .margin{
+    width: 80%;
+    margin: 5px auto ; 
+  }
+  .shunnoIt{
+    display: block;
+    width: 10%;
+    margin: 10px auto ; 
+   text-decoration: none;
+   text-align: center;
+   background-image: linear-gradient(to right, rgba(218, 19, 181, 0.101) , rgb(5, 224, 216));
+   font-size: 15px;
+   padding: 5px 3px ;
+   border-radius: 3px;
+  }
+  .shunnoIt:hover{
+     color: white;
+     text-shadow: none;
+     background-image: linear-gradient(to right, rgba(32, 12, 213, 0.857) , rgb(82, 125, 209));
+  }
+  .registation{
+    width: 10%;
+    margin: 5px auto ; 
+    display: block;
+    padding: 5px 0px;
+    text-align: center;
+    background-image: linear-gradient(to right, rgba(32, 12, 213, 0.857) , rgb(116, 146, 215),rgb(187, 200, 228));
+    color: white;
+    border-radius: 2px;
+  }
+  .Management{
+    text-align: center;
+    color: rgb(17, 120, 138);
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  .youtube_frame{
+
+  }
+
+  .map_frame{
+
+  }
+  .media_section{
+    width: 80%; 
+    margin: 0px auto ; 
+
+  }
+  .media{
+    text-align: center;
+    margin-top: 10px;
+    color: blueviolet;
+  }
+  footer{
+    width: 100%;
+    height: 450px;
+    background-image: url('https://i.pinimg.com/originals/b3/a1/79/b3a179f37b4fb80e5ba1e7f1eed38f60.gif');
+    background-position: 100%;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    margin-top: 25px;
+  }
+  .footer_section_1{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer_section{
+    width: 85%;
+    margin: 0 auto ; 
+  }
+  .footer_section_2{
+    display: grid;
+    grid-template-columns: repeat(3 , 1fr);
+    justify-content: space-between;
+    margin: 35px 0px ; 
+  }
+  .Rights{
+    text-align: center;
+    padding-bottom: 2rem;
+  }
+  .email_address{
+    width: 77%;
+    padding: 10px 5px;
+    border-radius: 5px;
+    margin-bottom: 7px;
+    border: none;
+    background-color: rgb(194, 194, 194);
+    padding-left: 5px;
+  }
+  .button{
+    width: 80%;
+    padding : 10px 5px;
+    text-align: center;
+    border: none;
+    background-image: linear-gradient(to right, rgba(34, 15, 210, 0.857) , rgb(120, 128, 231));
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+.Clasic{
+    font-family: 'Borel', cursive;
+}
+.class1{
+    padding: 15px ;
+    border-radius: 50%;
+    margin-left: 5px;
+    color: white;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.cl1{
+    background-color: #2363B0;
+    padding: 15px 17px ; 
+    color: white;
+    border-radius: 48%;
+    cursor: pointer;
+    transition: 1s;
+}
+.cl1:hover{
+    background-color: white;
+    color: black;
+}
+.cl2{
+    background-color: #1669A2;
+}
+.cl2:hover{
+    background-color: white;
+    color: black;
+}
+.cl3{
+    background-color: #F14E50;
+}
+.cl3:hover{
+    background-color: white;
+    color: black;
+}
+.cl4{
+    background-color: #1669A2;
+}
+.cl4:hover{
+    background-color: white;
+    color: black;
+}

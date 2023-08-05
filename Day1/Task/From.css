@@ -1,0 +1,107 @@
+.body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+  nav ul{
+    display: flex;
+    justify-content: end;
+    align-items: center ;
+    background-image: linear-gradient(to right, rgba(32, 12, 213, 0.857) , rgb(82, 125, 209));
+    padding: 0px;
+    margin: -8px ; 
+  }
+  nav ul li {
+    list-style-type: none ;
+    padding: 15px 0px ;
+  }
+  nav ul li a  {
+    text-decoration: none;
+    margin-right: 10px;
+    border: 1px solid white ;
+    border-radius: 5px;
+    padding: 5px 15px;
+    color: white;
+  }
+.home{
+    width: 10%;
+    margin: 5px auto ; 
+    display: block;
+    padding: 5px 0px;
+    text-align: center;
+    background-image: linear-gradient(to right, rgba(32, 12, 213, 0.857) , rgb(116, 146, 215),rgb(187, 200, 228));
+    color: white;
+    border-radius: 2px;
+  }
+  .regisation{
+    color: blueviolet;
+    width: 15%;
+    border-bottom: 2px solid gray;
+    margin: 20px auto ; 
+    overflow: hidden;
+  }
+  legend{
+    font-size: 20px;
+    font-family: 'REM', sans-serif;
+  }
+  .fieldset{
+    border-color: blueviolet;
+    border-radius: 5px;
+    margin: 15px 0px ; 
+    box-shadow: 3px 3px rgb(221, 221, 221);
+    background-image: url('https://cdn.dribbble.com/users/8619169/screenshots/16116886/media/a63d64bcccad878cb9dfdb9a9f6b6416.gif');
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  .text_form{
+    display:  grid;
+    grid-template-columns: auto auto;
+  
+  }
+  .name{
+    font-size: 19px;
+     margin: 0 10px;
+     color: blueviolet;
+  }
+  .input{
+    width: 80%;
+    padding: 3px 3px;
+    border: 2px  solid rgb(43, 42, 40) ; 
+    border-radius: 5px;
+    margin: 5px 5px ;
+    padding: 5px 5px;
+    
+  }
+  .Skilss{
+    margin : 10px 3px ; 
+  }
+  .Skilsss{
+    color: blueviolet ;
+    font-size: 19px;
+  }
+  .file{
+    margin: 10px 0px ; 
+  }
+  .sub_btn{
+     margin: 8px auto ; 
+     width: 50%;
+  }
+  .btn_1{
+    width: 120px ;
+    padding: 5px 1px ;
+    background-image: linear-gradient(to right, rgba(29, 10, 194, 0.857) , rgb(84, 127, 215));
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+  }
+  .btn_2{
+  width: 120px;
+  padding: 5px 1px ;
+  background-image: linear-gradient(to right, rgba(32, 12, 213, 0.857) , rgb(82, 125, 209));
+  border: none;
+  border-radius: 3px;
+  color: white;
+  cursor: pointer;
+  }

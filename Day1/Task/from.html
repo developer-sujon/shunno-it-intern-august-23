@@ -1,102 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./From.css" />
     <title>Document</title>
-</head>
-<body>
-    <a
-    style="
-      text-align: center;
-      display: block;
-      margin: 19px 0px;
-      text-decoration: none;
-      font-size: 30px;
-    "
-    href="/Day1/Task//Task.html"
-    >Home</a
-  >
-    <h1 style="text-align: center ">Regisation</h1>
+  </head>
+  <body>
 
-
+    <!-- navbar started -->
+    <nav>
+        <ul>
+          <li><a href="./Task.html">Home</a></li>
+          <li><a href="./from.html">Register</a></li>
+        </ul>
+      </nav>
+    <!-- navbar Ended -->
+    <h1 class="regisation" style="text-align: center; margin-top:10px">Regisation</h1>
 
     <!-- Regisation started -->
-    <form action="" method="post" style="width: 50%; margin: 0 auto;">
-        <fieldset>
-            <legend>Regisation Form</legend>
-            <!-- Personal Information started -->
-            <label for="name">Name</label> <br>
-            <input type="text" id="name" name="" value=""> <br>
-            <label for="name">Father Name</label> <br>
-            <input type="text" id="name" name="" value=""> <br>
-            <label for="Email">Email</label> <br>
-            <input type="text" id="Email" name="Email" value=""><br>
-            <label for="password">password</label> <br>
-            <input type="password" id="password" name="Email" value=""><br>
-            <label for="Address">Address</label> <br>
-            <input type="text" id="Address" name="Address" value=""><br>
-            <label for="Age">Age</label> <br>
-            <input type="number" id="Age" name="Age" value=""><br>
-            <label for="mobile">Mobile number</label> <br>
-            <input type="number" id="mobile" name="" value=""> <br>
-           
-            <!-- Personal Information Ended -->
+    <form action="" method="post" style="width: 50%; margin: 0 auto">
+      <fieldset class="fieldset">
+        <legend>Regisation Form</legend>
+        <!-- Personal Information started -->
+        <div class="text_form">
+          <div>
+            <label class="name" for="name">Name : </label> <br />
+            <input
+              class="input"
+              type="text"
+              id="name"
+              placeholder="Enter your name"
+              name=""
+              value="" />
+            <br />
+            <label class="name" for="name">Father Name : </label> <br />
+            <input
+              class="input"
+              type="text"
+              placeholder="Enter your Father name"
+              id="name"
+              name=""
+              value="" />
+            <br />
+          </div>
 
-            <!-- skills Started -->
-            <label for="">Skils</label> <br>
-            <input type="checkbox" name="skill" id="Html">
-            <label for="Html">Html</label> 
-            <input type="checkbox" name="skill" id="CSS">
-            <label for="CSS">Css</label> 
-            <input type="checkbox" name="skill" id="javaScript">
-            <label for="javaScript">javaScript</label> 
-            <input type="checkbox" name="skill" id="React">
-            <label for="React">React</label> 
-            <input type="checkbox" name="skill" id="Bootstrap">
-            <label for="Bootstrap">Bootstrap</label> 
-            <input type="checkbox" name="skill" id="Tailwind">
-            <label for="Tailwind">Tailwind</label> <br>
-            <!-- skills Eended -->
+          <div>
+            <label class="name" for="Email">Email : </label> <br />
+            <input
+              class="input"
+              type="text"
+              id="Email"
+              placeholder="Enter your Email"
+              name="Email"
+              value="" />
+            <br />
+            <label class="name" for="password">password : </label> <br />
+            <input
+              class="input"
+              type="password"
+              placeholder="Enter you Pass"
+              id="password"
+              name="Email"
+              value="" /><br />
+          </div>
 
-            <!-- Gender started -->
-            <label style="margin-top: 10px;" for="">Gender</label> <br>
-            <input type="radio" id="gender1" name="gender" type="text">
-            <label for="gender1"> Male</label> <br>
-            <input type="radio" id="gender2" name="gender" type="text"> 
-            <label for="gender2"> Female</label> <br>
-            <input type="radio" id="gender3" name="gender" type="text">
-            <label for="gender3"> Other</label>  <br>
-            <!-- Gender Ended -->
+          <div>
+            <label class="name" for="Address">Address : </label> <br />
+            <input
+              class="input"
+              type="text"
+              placeholder="Enter your Full Address"
+              id="Address"
+              name="Address"
+              value="" />
+            <br />
+            <label class="name" for="Age">Age : </label> <br />
+            <input
+              class="input"
+              type="number"
+              placeholder="Enter your Age"
+              id="Age"
+              name="Age"
+              value="" /><br />
+          </div>
+          <div>
+            <label class="name" for="mobile">Mobile number : </label> <br />
+            <input
+              class="input"
+              type="number"
+              placeholder="Enter your Mobile number"
+              id="mobile"
+              name=""
+              value="" />
+            <br />
+          </div>
+        </div>
 
+        <!-- Personal Information Ended -->
 
-            <!-- nationality started -->
-            <label for="">Natonality</label>
-            <select name="" id="">
-                <option value="Bangladesh">Bangladesh</option>
-                <option value="USA">USA</option>
-                <option value="UK">UK</option>
-                <option value="India">India</option>
-            </select> <br>
-            <!-- nationality ended -->
+        <!-- skills Started -->
+        <div class="Skilss">
+          <label class="Skilsss" for="">Your Skils</label> <br />
+          <input type="checkbox" name="skill" id="Html" />
+          <label for="Html">Html</label>
+          <input type="checkbox" name="skill" id="CSS" />
+          <label for="CSS">Css</label>
+          <input type="checkbox" name="skill" id="javaScript" />
+          <label for="javaScript">javaScript</label>
+          <input type="checkbox" name="skill" id="React" />
+          <label for="React">React</label>
+          <input type="checkbox" name="skill" id="Bootstrap" />
+          <label for="Bootstrap">Bootstrap</label>
+          <input type="checkbox" name="skill" id="Tailwind" />
+          <label for="Tailwind">Tailwind</label> <br />
+        </div>
+        <!-- skills Eended -->
 
-                <!-- photo  upload  started  -->
-                <label for="">Choose your Photo</label><br>
-                <input type="file"> <br>
-                <!-- photo  upload  ended -->
+        <!-- Gender started -->
+        <label class="Skilsss" for="">Gender</label> <br />
+        <input type="radio" id="gender1" name="gender" type="text" />
+        <label for="gender1"> Male</label> <br />
+        <input type="radio" id="gender2" name="gender" type="text" />
+        <label for="gender2"> Female</label> <br />
+        <input type="radio" id="gender3" name="gender" type="text" />
+        <label for="gender3"> Other</label> <br />
+        <!-- Gender Ended -->
 
-                <!-- BirthDay section started -->
+        <!-- nationality started -->
+        <div class="">
+          <label class="Skilsss nationality" for="">Natonality : </label>
+          <select name="" id="">
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="USA">USA</option>
+            <option value="UK">UK</option>
+            <option value="India">India</option>
+          </select>
+        </div>
+        <br />
+        <!-- nationality ended -->
 
-                   <label for="">BirthDay</label> <br>
-                   <input type="date" name="" id=""> <br>
-                <!-- BirthDay section Ended -->
-                <div style="margin-top: 20px">
-                    
-                <input type="submit" value="Submit">
-                <input type="reset" value="Reset">
-                </div>
-        </fieldset>
+        <!-- photo  upload  started  -->
+        <div class="file">
+          <label class="Skilsss" for="file">Choose your Photo</label><br />
+          <input type="file" id="file" /> <br />
+        </div>
+        <!-- photo  upload  ended -->
+
+        <!-- BirthDay section started -->
+
+        <div class="file">
+          <label class="Skilsss" for="">BirthDay</label> <br />
+          <input type="date" name="" id="" /> <br />
+        </div>
+        <!-- BirthDay section Ended -->
+        <div class="sub_btn">
+          <input class="btn_1" type="submit" value="Submit" />
+          <input class="btn_2" type="reset" value="Reset" />
+        </div>
+      </fieldset>
     </form>
     <!-- Regisation Empolye -->
-</body>
+  </body>
 </html>

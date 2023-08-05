@@ -172,3 +172,20 @@ ul{
   }
 
 /* dropdown  menu ended */
+
+
+
+
+/* meadia query started */
+
+ @media screen and (min-width: 486px)  {
+  
+ }
+
+ @media screen and (min-width: 487px) and (max-width: 776px){
+
+ }
+ @media screen and (min-width: 777px) and (max-width: 779px) {
+  
+ }
+/* meadia query Ended */
