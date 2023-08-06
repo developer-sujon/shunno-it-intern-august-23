@@ -3,38 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HTML Project</title>
-    <style>
-        th, td{
-            padding: 20px;
-        }
-    </style>
-    
+    <!-- google fonts links -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- external css file -->
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
 </head>
 <body>
     <!-- header section -->
-    <header>
-        <h1 align="center">Shunno IT Internship Program</h1>
-        <hr>
-        <div style="text-align: center;">
-            <a style="padding-right: 10px;" href="html_project.html">Home</a>
-            <a href="register.html">Register</a>
-        </div>
-        <br><br>
-        
+    <header id="header">
+        <h2>Shunno IT Internship Program</h2>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li class="dropdown">
+                        <a href="javascript:void(0)">About US</a>
+                        <div class="dropdown-content">
+                            <a href="javascript:void(0)">Our Achievements</a>
+                            <a href="javascript:void(0)">Our Blog</a>
+                        </div>
+                    </li>
+                    <li><a href="register.html">Register</a></li>
+                </ul>
+            </nav>
+        <br>
     </header>
+    <br>
+
     <main>
         <!-- About us section -->
-        <section style="width: 80%; margin: 0 auto;">
-            <p style="text-align: center;">Welcome to <b><em>Shunno IT!</em></i></b></p>
-        <p>Since our core values reflect our attitudes, we aim to become a reliable and supportive partner who understands your needs, covers your back, and gives you peace of mind. So you know that if there’s a problem on your end, it’ll be quickly solved. This is our contribution to a long-lasting Relationship. Our other <strong>core principle is that modern software companies (like ours) should be flexible and go hand-in-hand with new technologies that sprout up every time.</strong> We strongly believe that there’s no place for complacency. We’ll challenge ourselves to constantly reinvest in research and development to help you once and again stay in the competition and go far beyond it!</p>
-        <p> <mark>Shunno IT</mark> is among the pioneers within Bangladesh to supply an online inventory management, billing management system and little sized businesses to contend in today’s digital Bangladesh. Our core objective is to assist business owners in establishing their business by Shunno IT. We tend to believe in solving the trouble from the consumer and increasing the worth of services delivered. To visit our website <a href="https://www.shunnoit.com/" target="_blank"> <b>Click Here</b> </a></p>
+        <section id="about">
+            <div>
+                <p>Welcome to <b><em>Shunno IT!</em></i></b></p>
+                <p>Since our core values reflect our attitudes, we aim to become a reliable and supportive partner who understands your needs, covers your back, and gives you peace of mind. So you know that if there’s a problem on your end, it’ll be quickly solved. This is our contribution to a long-lasting Relationship. Our other <strong>core principle is that modern software companies (like ours) should be flexible and go hand-in-hand with new technologies that sprout up every time.</strong> We strongly believe that there’s no place for complacency. We’ll challenge ourselves to constantly reinvest in research and development to help you once and again stay in the competition and go far beyond it!</p>
+                <p> <mark>Shunno IT</mark> is among the pioneers within Bangladesh to supply an online inventory management, billing management system and little sized businesses to contend in today’s digital Bangladesh. Our core objective is to assist business owners in establishing their business by Shunno IT. We tend to believe in solving the trouble from the consumer and increasing the worth of services delivered. To visit our website <a href="https://www.shunnoit.com/" target="_blank"> <b>Click Here</b> </a></p>
+            </div>
+            <div>
+                <video autoplay width="100%" controls src="../../assets/adpp_is.mp4"></video>
+                <audio controls src="../../assets/mov_bbb.mp4"></audio>
+            </div>
         </section>
-        <br> <br>
-        <h2 align="center">Our Employee Details</h2>
-        <table style="border-collapse: collapse; margin: 0 auto;" border="">
+        <br> <br><br>
+
+        <h2>Our Satisfied Client</h2>
+        <div style="max-width: 1280px; margin: 0 auto;">
+            <marquee behavior="alternate" direction="">
+                <img src="../../assets/bnc.avif" alt="">
+                <img src="../../assets/hd.png" alt="">
+                <img src="../../assets/ib.png" alt="">
+                <img src="../../assets/mission.png" alt="">
+                <img src="../../assets/nelema.png" alt="">
+                <img src="../../assets/officer.png" alt="">
+                <img src="../../assets/bondhu.png" alt="">
+            </marquee>
+        </div>
+
+        <br> <br><br> <br>
+        <h2>Our Employee Details</h2>
+        <table id="employ-table">
             <thead>
-                <tr style=" padding: 20px;">
+                <tr>
                     <th>Department</th>
                     <th>Name of Employee</th>
                     <th>Email address</th>
@@ -141,18 +171,21 @@
         </table>
         <br><br>
 
-        <h2 align="center">Our Address</h2>
-        <div style="text-align: center;">
-            <iframe  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7269.16318259019!2d88.62126941021836!3d24.36106346248946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fbefd987321753%3A0xaeeaf3cccca5149a!2sKazla%2C%20Rajshahi!5e0!3m2!1sen!2sbd!4v1691064031032!5m2!1sen!2sbd" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        
+        <div id="frame-div">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7269.16318259019!2d88.62126941021836!3d24.36106346248946!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fbefd987321753%3A0xaeeaf3cccca5149a!2sKazla%2C%20Rajshahi!5e0!3m2!1sen!2sbd!4v1691064031032!5m2!1sen!2sbd" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
         </div>
         <br> <br>
 
-        <video width="500px" controls src="../assets/mov_bbb.mp4"></video>
-        <audio controls src="../assets/horse.ogv"></audio>
 
     </main>
     <footer>
-
+        <div id="icons">
+            <div id="one"></div>
+            <div id="two"></div>
+            <div id="three"></div>
+        </div>
+        <p>All &copy; Copyrights reserved by Shunno IT </p>
     </footer>
     
 </body>
