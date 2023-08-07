@@ -7,7 +7,7 @@ function isPrime(n){
     }
     return `${n} is a prime number.`
 }
-console.log(isPrime(111))
+console.log(isPrime(332224331213131))
 
 
 // find those number which is divided by 3 and 5
@@ -60,14 +60,8 @@ for(var i = 1; i <= rows; i++){
     }
     star += "<br/>"
 }
-// for(var i = rows - 1; i >= 1; i--){
-//     for(var k = i * 2 - 1; k > 0; k--){
-//         star += "*"
-//     }
-//     star += "<br/>"
-// }
 for(var i = 1; i <= rows; i++){
-    for(var j = rows * 2 ; j > i; j--){
+    for(var j = rows ; j > i; j--){
         star += "&nbsp; "
     }
     for(var k = 0; k < i; k++){
@@ -75,14 +69,25 @@ for(var i = 1; i <= rows; i++){
     }
     star += "<br/>"
 }
-// for(var i = rows - 1; i >= 1; i--){
-//     for(var j = rows * 2 ; j > i * 2; j--){
-//         star += "&nbsp; "
-//     }
-//     for(var k = i * 2 - 1; k > 0; k--){
-//         star += "*"
-//     }
-//     star += "<br/>"
-// }
-
 document.write(star)
+
+var star2 = ''
+for(var i = 1; i <= rows; i++){
+    for(var j = rows ; j >= i; j--){
+        star2 += '&nbsp; '
+    }
+    for(var k = 1; k <= i * 2 -1; k++){
+        star2 += '*'
+    }
+    star2 += "<br/>"
+}
+for(var i = rows - 1; i >= 1; i--){
+    for(var j = i - 1; j < rows; j++){
+        star2 += '&nbsp; '
+    }
+    for(var k = i * 2 -1; k >= 1; k--){
+        star2 += '*'
+    }
+    star2 += "<br/>"
+}
+document.write(star2)
