@@ -6,19 +6,19 @@
 function countChar(data) {
     const output = {}
 
-    for (var i = 0; i <= data.length; i++) {
-        output[data[i]] = (output[data[i]] || 0) + 1
-        // if (output[data[i]] === ' ') {
-        //     // output[data['spaces']]
-        //     output['spaces'] = output[data[i]]
-        // }
+    for (var i = 0; i <= data.length - 1; i++) {
+        // console.log([data[i]])
+        if (data[i] == ' ') {
+            output.spaces = (output[data[i]] || 0) + 1
+        }
+        else{
+            output[data[i]] = (output[data[i]] || 0) + 1
+        }
         // console.log(output[i])
     }
 
     return output
 }
-
-//   document.write(JSON.stringify(countChar("shunno")))
 console.log(countChar("shunno"))
 console.log(countChar("sh unn o"))
 console.log(countChar("s9h&unn o"))
