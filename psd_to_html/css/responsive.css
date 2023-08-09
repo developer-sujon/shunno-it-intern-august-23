@@ -1,0 +1,53 @@
+@media only screen and (min-width: 786px) {
+    /* common styles */
+    section{
+        padding: 70px;
+    }
+    .btn{
+        width: 293px;
+        height: 70px;
+        border-radius: 4px;
+        font-size: 18px;
+        text-transform: uppercase;
+        color: #ffffff;
+        font-weight: 600;
+        border: none;
+    }
+
+    /* header styles */
+    header nav{
+        flex-direction: row;
+    }
+    nav ul{
+        flex-direction: row;
+    }
+    nav ul li{
+        min-width: auto;
+    }
+    #banner-text{
+        font-size: 42px;
+        line-height: 49px;
+        margin: 60px auto;
+    }
+
+    /* service section styles */
+    #service-card-container{
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* contact section styles */
+    #input-fields{
+        display: flex;
+        gap: 10px;
+    }
+    #contact-form{
+        margin: 20px 130px;
+    }
+
+
+    /* footer section styles */
+    footer nav{
+        flex-direction: row;
+    }
+
+}
