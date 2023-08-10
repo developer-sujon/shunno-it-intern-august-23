@@ -1,0 +1,251 @@
+/* Basic styles */
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+.section-style{
+    max-width: 1280px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px 20px;
+    box-sizing: border-box;
+}
+p{
+    color: #767676;
+}
+select{
+    border: none;
+    color: white;
+    background-color: transparent;
+    width: 45px;
+}
+.section-title{
+    font-size: 48px;
+    margin: 5px;
+    color: #282828;
+    font-weight: 700;
+}
+
+
+/* Common Styles */
+.btn{
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    text-transform: uppercase;
+    background-color: white;
+    font-weight: 700;
+}
+.btn-gradient{
+    background-image: linear-gradient(90deg, #dd3f25 0%, #f3a331 100%);
+    color: white;
+}
+
+
+/* header Section styles */
+header{
+    max-width: 1280px;
+    margin: 0 auto;
+    padding-bottom: 20px;
+    text-align: center;
+    background-color: black;
+    z-index: 10;
+}
+header nav{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+#nav-first{
+    display: flex;
+    align-items: center;
+}
+#logo-img{
+    width: 40px;
+    height: 40px;
+}
+#logo-text{
+    font-size: 30px;
+    color: #ffffff;
+    font-weight: bold;
+    margin: 20px;
+}
+#nav-center{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+#nav-center li{
+    list-style: none;
+}
+#nav-center li a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+}
+#nav-center li a:hover{
+    text-decoration: underline;
+}
+#nav-last{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/* Banner Section */
+#banner-container{
+    background-image: url('https://nova-live.imgix.net//migration-MeetingYourNewTeamIMGB1.jpg?q=60&fm=webp&w=700&h=350');
+    background-color: gray;
+    background-blend-mode: multiply;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+#banner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 50px 10px;
+}
+#banner h1{
+    color: white;
+    font-size: 45px;
+    margin: 20px;
+    line-height: 40px;
+}
+
+
+/* Featured section */
+.feature-card-container{
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
+.feature-card{
+    background-color: white;
+    padding: 10px 20px;
+    color: black;
+    border: 0.5px solid rgb(210, 208, 208);
+    margin: 20px;
+    text-align: left;
+}
+.card-title{
+    font-size: 30px;
+}
+.feature-card:hover{
+    background-color: #f3a032;
+    color: white;
+}
+.feature-card:hover .btn{
+    border: 1px solid white;
+    background-color: transparent;
+}
+.feature-card:hover h3{ 
+    color: white;
+}
+.feature-card:hover p{ 
+    color: white;
+}
+.card-action{
+    display: flex;
+    gap: 8px;
+    margin: 20px auto;
+}
+.card-action .btn{
+    text-transform: none;
+}
+.join-btn{
+    background-color: #f3a032;
+    color: white;
+}
+.feature-card:hover .join-btn{
+    background-color: white;
+    color: #f3a032;
+}
+
+
+/* Why we section */
+.why-we-card-container{
+    display: grid;
+    grid-template-columns: 1fr;
+}
+.why-we-card{
+    text-align: left;
+    padding: 10px;
+}
+
+/* our-working-process-section styles */
+#technologies{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+#technologies p{
+    width: 130px;
+    height: 130px;
+    filter: drop-shadow(0px 10px 22.5px rgba(40,34,26,0.15));
+    background-color: #ffffff;
+    font-size: 30px;
+    color: #282828;
+    font-weight: 700;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#technologies p:hover{
+    background-color: #f3a032;
+    color: white;
+}
+
+
+/* advertisers section style */
+#advertise-container{
+    margin: 0 200px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 60px;
+    align-items: center;
+    justify-content: center;
+}
+.advertisement{
+    text-align: left;
+}
+.advertisement img{
+    width: 180px;
+    margin-right: 10px;
+}
+#advertise-container img{
+    max-width: 350px;
+}
+
+
+/* agencies section styles */
+.agencies-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    row-gap: 0;
+}
+.agencies-text{
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    text-align: left;
+}
+.fa-solid{
+    color: #f3a331;
+}
+
+/* publisher section style */
