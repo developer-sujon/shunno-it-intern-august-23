@@ -74,9 +74,35 @@
         grid-template-columns: 1fr 1fr;
     }
 
-
     /* agencies section styles */
     .agencies-container{
         grid-template-columns: 1fr 1fr;
     }
-}
+
+    /* publisher section style */
+    #publisher p{
+        width: 65%;
+        margin-bottom: 80px;
+    }
+    
+    /* fact about us section style */
+    #about p{
+        width: 65%;
+        margin: 0 auto;
+    }
+    #fact-container{
+        margin-top: 70px;
+        grid-template-columns: repeat(6, 1fr);
+    }
+
+    /* contact section styles */
+    #contact-container{
+        padding: 50px 150px;
+    }
+
+    /* footer section styles */
+    footer > p{
+        width: 45%;
+        margin: 0 auto;
+    }
+    }
