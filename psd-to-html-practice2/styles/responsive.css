@@ -73,6 +73,9 @@
     #advertise-container{
         grid-template-columns: 1fr 1fr;
     }
+    #advertise-container > img{
+        width: 350px;
+    }
 
     /* agencies section styles */
     .agencies-container{
@@ -91,6 +94,7 @@
         margin: 0 auto;
     }
     #fact-container{
+        box-sizing: border-box;
         margin-top: 70px;
         grid-template-columns: repeat(6, 1fr);
     }

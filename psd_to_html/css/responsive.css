@@ -35,6 +35,11 @@
         grid-template-columns: repeat(4, 1fr);
     }
 
+    /* about section */
+    #about-container{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
     /* contact section styles */
     #input-fields{
         display: flex;
