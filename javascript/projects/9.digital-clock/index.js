@@ -1,4 +1,4 @@
-setTimeout(() => {
+const digitalClock = () => {
     const date = new Date()
     const hours = date.getHours()
     const minutes = date.getMinutes()
@@ -7,7 +7,7 @@ setTimeout(() => {
 
     const formatTwelveHour = hours > 12 ? hours - 12 : hours
     const formatHour = formatTwelveHour < 10 ? '0' + formatTwelveHour : formatTwelveHour
-    const formatMinutes = minutes < 10 ? '0' + minutes : minutes 
+    const formatMinutes = minutes < 10 ? '0' + minutes : minutes
     const formatSeconds = seconds < 10 ? '0' + seconds : seconds
 
     document.getElementById('hours').textContent = `${formatHour}`
@@ -15,5 +15,6 @@ setTimeout(() => {
     document.getElementById('seconds').textContent = `${formatSeconds}`
     document.getElementById('session').textContent = `${session}`
 
-
-}, 1000);
+    setTimeout(digitalClock, 1000);
+}
+digitalClock()
