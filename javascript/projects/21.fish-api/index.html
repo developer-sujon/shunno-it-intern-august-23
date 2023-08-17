@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fish api</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.1/css/bootstrap.min.css"
+      integrity="sha512-Z/def5z5u2aR89OuzYcxmDJ0Bnd5V1cKqBEbvLOiUNWdg9PQeXVvXLI90SE4QOHGlfLqUnDNVAYyZi8UwUTmWQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="col-4 bg-light p-5 rounded mt-5 mx-auto">
+      <!-- loader  -->
+      <div id="loader" class="d-flex justify-content-center"></div>
+
+      <h3 class="text-danger error-msg"></h3>
+
+      <form id="form">
+        <div class="my-3">
+          <label for="formFile" class="form-label fs-4">Select Image</label>
+          <input
+            class="form-control"
+            name="thumbnail"
+            type="file"
+            id="formFile"
+          />
+        </div>
+
+        <div id="output"></div>
+
+        <input type="submit" class="btn btn-primary" value="Submit" />
+      </form>
+    </div>
+
+    <!-- javascript link  -->
+    <script src="index.js"></script>
+  </body>
+</html>

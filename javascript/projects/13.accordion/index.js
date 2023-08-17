@@ -1,4 +1,4 @@
-const accordionContents = document.querySelectorAll(".accordion-content");
+// const accordionContents = document.querySelectorAll(".accordion-content");
 
 // [...accordionContents].forEach((accordionContent) => {
     const buttons = document.querySelectorAll(".button");

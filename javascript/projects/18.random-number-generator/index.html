@@ -25,7 +25,7 @@
           <div class="shadow lg p-5 my-3">
             <h5 class="my-4" id="randNumber"></h5>
             <div class="btn-group">
-              <button class="btn btn-primary">
+              <button id="generate-btn" class="btn btn-primary">
                 <i class="bi bi-arrow-clockwise"></i>Generator
               </button>
             </div>
@@ -34,6 +34,11 @@
       </div>
     </div>
 
-    <script src="./index.js"></script>
+    <script>
+      document.getElementById('generate-btn').addEventListener('click', function(){
+        let rand = Math.round(Math.random() * 100)
+        document.getElementById('randNumber').innerHTML = rand
+      })
+    </script>
   </body>
 </html>
