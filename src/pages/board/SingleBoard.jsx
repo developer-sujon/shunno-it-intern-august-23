@@ -9,6 +9,7 @@ import {
   useBoardSingleQuery,
   useBoardUpdateMutation,
 } from "../../redux/services/board.service";
+import { FaPlus } from "react-icons/fa";
 
 const SingleBoard = () => {
   const { id } = useParams();
@@ -82,8 +83,11 @@ const SingleBoard = () => {
             onChange={updateDescription}
           />
         </p>
-        <button onClick={()=> boardSectionCreate(singleBoard?._id)} className="text-start flex items-center gap-2 p-1 text-red-500 rounded-lg  group w-full focus:outline-none active:bg-white">
-          Add section
+        <button
+          onClick={() => boardSectionCreate(singleBoard?._id)}
+          className="text-start flex items-center gap-2 p-1 text-red-500 rounded-lg  group w-full focus:outline-none active:bg-white"
+        >
+          <FaPlus /> Add section
         </button>
         <span className="h-[.1px] w-full bg-gray-600 mb-3" />
         <div className="d-flex" />
