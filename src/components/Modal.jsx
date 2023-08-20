@@ -8,9 +8,10 @@ const RightSideModal = ({ sidebarOpen, setSidebarOpen, modalId }) => {
   return (
     <div className="relative">
       <aside
-        className={`fixed top-0 right-0 z-40 w-1/3 h-screen transition-transform shadow-lg ${
-          !sidebarOpen ? "translate-x-full" : "translate-x-0"
-        } `}
+        style={{ boxShadow: "0 0 20px rgba(0,0,0,.2)" }}
+        className={`fixed -top-1/2 left-1/2 rounded-2xl overflow-hidden z-40 ${
+          sidebarOpen ? "translate-y-[150%]" : "translate-y-0"
+        } -translate-x-1/2 origin-top w-1/2 h-1/2 transition-transform  `}
       >
         {/* sidebar  */}
         <button

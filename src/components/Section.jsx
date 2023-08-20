@@ -13,7 +13,7 @@ import {
   useBoardSingleQuery,
   useBoardTaskUpdateMutation,
 } from "../redux/services/board.service";
-import RightSideModal from "./RightSideModal";
+import Modal from "./Modal";
 import { useState } from "react";
 
 const Section = () => {
@@ -137,7 +137,7 @@ const Section = () => {
             </ul>
           </div>
         ))}
-        <RightSideModal
+        <Modal
           setSidebarOpen={setSidebarOpen}
           sidebarOpen={sidebarOpen}
           modalId={modalId}
