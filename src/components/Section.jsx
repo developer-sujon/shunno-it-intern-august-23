@@ -117,15 +117,17 @@ const Section = () => {
             <ul>
               {section?.tasks?.map((task) => (
                 <>
-                  <li
-                    onClick={() => updateTaskTitle(section?._id, task?.id)}
-                    className="cursor-pointer group bg-white hover:bg-gray-100 flex justify-between items-center rounded-lg pl-2 border-[.1px] py-2 m-1"
-                  >
-                    <span>{task.title || t("untitled")}</span>
+                  <li className="group relative">
+                    <div
+                      onClick={() => updateTaskTitle(section?._id, task?.id)}
+                      className="cursor-pointer group bg-white hover:bg-gray-100 flex justify-between items-center rounded-lg pl-2 border-[.1px] py-2 m-1"
+                    >
+                      <span>{task.title || t("untitled")}</span>
+                    </div>
 
                     <button
                       onClick={() => deleteTaskSection(section?._id, task?._id)}
-                      className="text-red-50 mr-2 hidden group-hover:inline bg-red-300 p-1 ml-2 text-xs rounded hover:bg-red-500"
+                      className="text-red-50 mr-2 hidden group-hover:inline bg-red-300 p-1 ml-2 text-xs rounded hover:bg-red-500 absolute right-0 top-1/2 transition-transform -translate-y-1/2"
                     >
                       <FaTrash />
                     </button>
