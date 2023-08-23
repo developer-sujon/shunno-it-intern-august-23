@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Html task</title>
+
+    <!-- font awesome cdn link  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Css link  -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Responsive css link  -->
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- navigation and title area start -->
+    <nav class="flex-around">
+      <ul class="d-flex">
+        <div class="btn dropdown-menu-icon">
+          <i class="fas fa-bars"></i>
+          <ul class="dropdown-menu">
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <li><a href="#">Home</a> |</li>
+
+        <li><a href="register.html">Register</a></li>
+      </ul>
+      <h2>sunno-it internship program</h2>
+    </nav>
+    <!-- navigation and title area end -->
+
+    <!-- Header area start  -->
+    <header class="flex-around">
+      <div class="gradient-box-left"></div>
+      <div class="banner-content">
+        <h1>Welcome to <span>Sunno-it</span></h1>
+        <div class="banner-discription">
+          <p class="formatting">
+            <b>Highlight: </b> <mark>This is Highlight text</mark>
+          </p>
+          <p class="formatting">
+            <b>Underline: </b><u>This is underline text</u>
+          </p>
+          <p class="formatting"><b>Italic: </b><i>This is Italic text</i></p>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
+            enim.
+          </p>
+          <a href="https://shunnoit.com" target="_blank" class="btn"
+            >Go to Website</a
+          >
+        </div>
+      </div>
+      <div>
+        <video autoplay controls muted>
+          <source src="media/mov_bbb.mp4" type="video/mp4" />
+        </video>
+        <br />
+        <audio controls>
+          <source src="media/horse.mp3" type="audio/mp3" />
+        </audio>
+      </div>
+    </header>
+    <!-- Header area end  -->
+
+    <!-- divider start -->
+    <hr />
+    <!-- divider end -->
+
+    <!-- Employee table area start -->
+    <section class="flex-around" id="employee">
+      <div class="gradient-box-right"></div>
+      <img
+        src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2kKm_N7HYPRF89VEkeu_BcJE58rSLoZDU3g&usqp=CAU"
+        alt="Employee Image"
+      />
+      <table>
+        <tr>
+          <th colspan="2"><h2>Employee Table</h2></th>
+        </tr>
+        <tr>
+          <th>Department</th>
+          <th>Number of Employee</th>
+        </tr>
+        <tr>
+          <td>Sales</td>
+          <td>34</td>
+        </tr>
+        <tr>
+          <td>Marketing</td>
+          <td>23</td>
+        </tr>
+        <tr>
+          <td>Developer</td>
+          <td>8</td>
+        </tr>
+        <tr>
+          <td>Support</td>
+          <td>7</td>
+        </tr>
+      </table>
+    </section>
+    <!-- Employee table area end -->
+
+    <hr />
+
+    <!-- About area start -->
+    <section id="about" class="flex-around">
+      <div class="gradient-box-left"></div>
+      <div class="about-content">
+        <h2>About us</h2>
+        <h4>
+          Stay Ahead Of The Curve With Effective Business Operations Management
+          Solutions Stay Ahead Of The Curve With Effective Business Operations
+          Management Solutions
+        </h4>
+        <p>
+          Shunno IT is among the pioneers within Bangladesh to supply an online
+          inventory management, billing management system and little sized
+          businesses to contend in today’s digital Bangladesh. Our core
+          objective is to assist business owners in establishing their business
+          by Shunno IT. We tend to believe in solving the trouble from the
+          consumer and increasing the worth of services delivered.
+        </p>
+      </div>
+      <img
+        src="https://www.shunnoit.com/assets/img/logo.png"
+        alt="about logo"
+      />
+    </section>
+    <!-- About area end -->
+
+    <hr />
+
+    <!-- Services area start -->
+    <section id="services">
+      <h2 class="heading">Our services</h2>
+
+      <div class="card-group">
+        <div class="card">
+          <img
+            src="https://www.shunnoit.com/assets/img/service-icon/hisabNikash.png"
+            alt="Hishab nikash logo "
+          />
+          <h4>Hisab Nikash</h4>
+          <p>
+            Online based inventory management software which provides stock
+            management, customer management, customer payment in installment,
+            SMS service etc.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="https://www.shunnoit.com/assets/img/service-icon/netFee.png"
+            alt="netfee logo"
+          />
+          <h4>NetFee</h4>
+          <p>
+            ISP billing and management software service which provides customer
+            online payment, automatic connection on/off, customized messaging
+            service, mac reseller etc.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="https://www.shunnoit.com/assets/img/service-icon/bayannoPay.png"
+            alt="Bayanno pay logo"
+          />
+          <h4>Bayanno Pay</h4>
+          <p>
+            Billing software in Bangla which is easy to use for cable operators
+            and their staffs. It provides bill confirmation and alert message,
+            mini invoice, daily/monthly report etc.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Services area end -->
+
+    <hr />
+
+    <!-- Contact us area start  -->
+    <section id="contact">
+      <div class="gradient-box-right"></div>
+      <h2 class="heading">Get In Touch.</h2>
+      <p>
+        It is a long established fact that a reader will be distracted by the
+        readable content of a page when looking at its layout.
+      </p>
+      <form>
+        <input class="input-form" placeholder="Name" id="name" type="text" />
+
+        <input class="input-form" placeholder="Email" id="email" type="text" />
+
+        <textarea
+          placeholder="Description"
+          id="description"
+          type="text"
+        ></textarea>
+
+        <div class="submit-btn">
+          <input class="btn" type="submit" value="Submit" />
+        </div>
+      </form>
+    </section>
+    <!-- Contact us area end  -->
+  </body>
+</html>

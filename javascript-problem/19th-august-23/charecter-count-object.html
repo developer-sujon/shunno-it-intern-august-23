@@ -1,0 +1,28 @@
+<script>
+  // get input from user
+  const word = prompt("Enter value");
+
+  // make array with "space" and "skip" property
+  const newWordArray = [];
+
+  // make output
+  const output = {};
+
+  // check the array has exist "space" and "skip". if exist then push "space" and "skip" in newWordArray[]
+  word.split("").map((character) => {
+    character == " "
+      ? newWordArray.push("space")
+      : !/^[a-zA-Z]+$/.test(character)
+      ? newWordArray.push("skip")
+      : newWordArray.push(character);
+  });
+
+  // now create final output
+  newWordArray.map((newChar) => {
+    output[newChar] ? output[newChar]++ : (output[newChar] = 1);
+  });
+
+  // print output
+  document.write(JSON.stringify(output));
+  console.log(output);
+</script>

@@ -1,0 +1,23 @@
+//import base module
+@use "./base/base";
+@use "./base/typegerphy";
+@use "./abstract/colors";
+
+//import utils module
+@use "./utils/utils";
+
+//import components module
+@use "./components/navbar";
+@use "./components/header";
+@use "./components/button";
+@use "./components/modal";
+@use "./components/about";
+@use "./components/education";
+@use "./components/project";
+@use "./components/skills";
+@use "./components/testimonials";
+@use "./components/blog";
+@use "./components/footer";
+
+//import layout module
+@use "./layout/grid";

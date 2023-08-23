@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+
+    <!-- Css link  -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- register css link  -->
+    <link rel="stylesheet" href="css/register.css" />
+
+    <!-- Responsive css link  -->
+    <link rel="stylesheet" href="css/responsive.css" />
+  </head>
+  <body>
+    <!-- Navigation area start  -->
+    <nav class="flex-around">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <span>|</span>
+        <li><a href="#">Register</a></li>
+      </ul>
+      <h2>sunno-it internship program</h2>
+    </nav>
+    <!-- Navigation area end  -->
+
+    <!-- Register form design start -->
+
+    <header class="flex-around flex-start">
+      <div class="gradient-box-right"></div>
+      <div class="banner-img">
+        <img src="media/registation.jpg" alt="" />
+      </div>
+
+      <!-- form section  -->
+      <div class="form-section">
+        <form>
+          <h2>Register form</h2>
+          <hr />
+          <div class="register-form">
+            <div class="form-group">
+              <label for="name">Name: </label>
+              <input placeholder="Name" id="name" type="text" />
+            </div>
+
+            <div class="form-group">
+              <label for="father-name">Father's Name: </label>
+              <input placeholder="Father's Name" id="father-name" type="text" />
+            </div>
+            <div class="form-group">
+              <label for="mother-name">Mother's Name: </label>
+              <input placeholder="Mother's Name" id="mother-name" type="text" />
+            </div>
+
+            <div class="form-group">
+              <label for="area">Address: </label>
+              <textarea
+                placeholder="Enter your address"
+                id="area"
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email: </label>
+              <input type="email" placeholder="Email" id="email" />
+            </div>
+
+            <div class="form-group">
+              <label>Gender</label>
+              <div class="d-flex">
+                <label class="input-btn" for="male"
+                  >Male <input type="radio" id="male" name="gender"
+                /></label>
+
+                <label class="input-btn" for="female"
+                  >Female <input type="radio" id="female" name="gender"
+                /></label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Nationality</label>
+              <select>
+                <option value="Bangladeshi">Bangladeshi</option>
+                <option value="Indian">Indian</option>
+                <option value="Pakistani">Pakistani</option>
+                <option value="Canadian">Canadian</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="age">Date of birth: </label>
+              <input type="date" placeholder="Age" id="age" />
+            </div>
+            <div class="form-group">
+              <label class="input-file" for="photo"
+                >Choose your photo <input type="file" id="photo"
+              /></label>
+            </div>
+
+            <div class="form-group">
+              <label for="nid">NID: </label>
+              <input type="number" />
+            </div>
+
+            <div class="form-group">
+              <label for="password">Password: </label>
+              <input type="password" id="password" placeholder="password" />
+            </div>
+            <div class="form-group">
+              <label for="confirm-pass">confirm Password: </label>
+              <input
+                type="confirm-pass"
+                id="confirm-pass"
+                placeholder="confirm Password"
+              />
+            </div>
+            <div class="form-group input-skills">
+              <label>Skills:</label>
+              <div class="d-flex">
+                <label class="input-btn" for="html"
+                  >Html <input type="checkbox" id="html"
+                /></label>
+
+                <label class="input-btn" for="css"
+                  >Css <input type="checkbox" id="css"
+                /></label>
+                <label class="input-btn" for="javascript"
+                  >Javascript <input type="checkbox" id="javascript"
+                /></label>
+                <label class="input-btn" for="react"
+                  >React <input type="checkbox" id="react"
+                /></label>
+                <label class="input-btn" for="mongodb"
+                  >Mongodb <input type="checkbox" id="mongodb"
+                /></label>
+              </div>
+            </div>
+          </div>
+          <div class="submit-btn">
+            <input class="btn" type="submit" value="Submit" />
+          </div>
+        </form>
+      </div>
+    </header>
+
+    <!-- Register form design end -->
+  </body>
+</html>

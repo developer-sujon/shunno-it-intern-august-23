@@ -1,0 +1,71 @@
+@use "../abstract" as *;
+.header {
+  margin-top: 7rem;
+  position: relative;
+  &::after {
+    content: "";
+    display: block;
+    @include position(absolute, 0, 0, null, null);
+    background: url("./images/bg/user.jpg");
+    width: 50%;
+    height: calc(100vh - 7rem);
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    clip-path: polygon(29% 3%, 100% 0, 100% 100%, 4% 91%);
+    @include responsive(md) {
+      clip-path: none;
+      width: 100%;
+      height: calc(50vh - 7rem);
+    }
+  }
+  &__data {
+    width: 100%;
+    height: calc(100vh - 10rem);
+    @include flexBox(null, center);
+    @include responsive(sm) {
+      @include flexBox(center, null);
+    }
+
+    @include responsive(md) {
+      height: calc(50vh - 10rem);
+      margin-top: 50vh;
+    }
+
+    &__contents {
+      &__top {
+        font-size: 1.7rem;
+        font-weight: 500;
+        text-transform: capitalize;
+        color: $black;
+      }
+      &__heading {
+        margin-top: 1.5rem;
+        font-size: 4.5rem;
+        font-weight: 900;
+        line-height: 4.5rem;
+        background: linear-gradient(45deg, $black 50%, $purple-500 50%);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        text-transform: capitalize;
+        @include responsive(md) {
+          font-size: 3rem;
+          line-height: 3rem;
+        }
+      }
+      &__bottom {
+        margin-top: 1.5rem;
+        margin-bottom: 1rem;
+        text-transform: uppercase;
+        font-size: 1.8rem;
+        font-weight: 500;
+        color: $black;
+        @include responsive(md) {
+          font-size: 1.5rem;
+          line-height: 1.5rem;
+        }
+      }
+    }
+  }
+}

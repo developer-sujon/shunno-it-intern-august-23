@@ -1,0 +1,60 @@
+@media (max-width: 768px) {
+  /* header responsive  */
+  .container {
+    padding: 1rem;
+  }
+  .btn-secondary {
+    font-size: 0.5rem;
+    padding: 0.5rem;
+    word-break: normal;
+  }
+  nav {
+    z-index: 5;
+  }
+  .branding h2 {
+    font-size: 0.8rem;
+  }
+  .menu-toggle {
+    background: linear-gradient(
+      to left,
+      var(--primary-color),
+      var(--secondary-color)
+    );
+    padding: 0.8rem;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+    color: var(--light-color);
+  }
+  .show-menu {
+    visibility: visible;
+    animation: show 500ms ease;
+  }
+  .menu-toggle:focus {
+    outline: none;
+    border: none;
+    background: var(--secondary-color);
+  }
+  ul {
+    flex-direction: column;
+    position: fixed;
+    top: 3rem;
+    left: 1rem;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    padding: 1rem;
+    text-align: right;
+    z-index: 999;
+    border-radius: 0.5rem;
+    gap: 1rem;
+    visibility: hidden;
+  }
+  select {
+    margin: 0;
+  }
+  .banner-services {
+    flex-direction: column;
+    position: static;
+    margin: 1rem;
+  }
+}

@@ -1,0 +1,141 @@
+@use "../abstract" as *;
+.testimonials {
+  padding: $padding-y;
+  background: $purple-300;
+  @include responsive(lg) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @include responsive(md) {
+    padding: 4rem 0;
+  }
+  &__card {
+    width: 100%;
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: -3rem 3rem 3rem -3rem rgba(0, 0, 0, 0.1);
+    position: relative;
+    &__icon {
+      position: absolute;
+      top: 1rem;
+      right: 2rem;
+      i {
+        font-size: 4rem;
+        color: #ecfdf5;
+      }
+    }
+    &__user {
+      display: flex;
+      align-items: center;
+      &__image {
+        width: 5.5rem;
+        height: 5.5rem;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+      }
+      &__details {
+        margin-left: 1rem;
+        &__name {
+          display: block;
+          font-size: 1.4rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          color: $black;
+        }
+        &__country {
+          display: block;
+          font-size: 1.2rem;
+          font-weight: 500;
+          text-transform: capitalize;
+          color: $purple;
+        }
+        &__rating {
+          i {
+            font-size: 1.2rem;
+            color: $orange;
+          }
+        }
+      }
+    }
+    &__message {
+      margin-top: 1rem;
+      font-size: 1.4rem;
+      line-height: 2.2rem;
+      color: #374151;
+    }
+  }
+  &__right {
+    width: 100%;
+    min-height: 100%;
+    background: $purple-300;
+    padding: 3rem;
+    @include flexBox(center, null);
+    flex-direction: column;
+    &__heading {
+      font-size: 2.8rem;
+      font-weight: 700;
+      line-height: 3.2rem;
+      background: linear-gradient(45deg, $purple-500 20%, $white 20%);
+      color: transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+    &__images {
+      width: 100%;
+      margin-top: 1.5rem;
+      display: flex;
+      align-items: center;
+      &__block {
+        width: 4rem;
+        height: 4rem;
+        margin-left: -1.5rem;
+        &:first-child {
+          margin-left: 0;
+        }
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+          background: $purple;
+          border: 0.3rem solid $purple-400;
+        }
+      }
+    }
+    &__rating {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      @include flexBox(null, center);
+      background: $purple;
+      &__avg {
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: $orange;
+      }
+      &__stars {
+        margin-left: 0.5rem;
+        i {
+          font-size: 1.4rem;
+          color: $orange;
+        }
+      }
+      &__total {
+        margin-left: 0.5rem;
+        color: $grey;
+        font-size: 1.3rem;
+      }
+    }
+    &__link a {
+      text-decoration: none;
+      font-size: 1.5rem;
+      color: $white;
+      font-weight: 500;
+    }
+  }
+}

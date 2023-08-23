@@ -1,0 +1,400 @@
+/* body style  */
+body {
+  margin: 0;
+  padding: 0;
+  background-image: url("../media/dot-square.png");
+  background-position: center center;
+  background-size: 20px;
+}
+
+/* universal style  */
+* {
+  scroll-behavior: smooth;
+  transition: all 500ms ease;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* ========= Color variables area start ========= */
+:root {
+  --primary-color: #0066ff;
+  --secondary-color: purple;
+  --bg-light: #ffffff6b;
+}
+/* ========= Color variables area end ========= */
+
+/* Divider style*/
+hr {
+  border-color: var(--bg-light);
+  margin: 2.5rem 0;
+}
+
+/* ========= Utility style start ========= */
+
+/* center content using flex */
+.d-flex {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+.flex-around {
+  gap: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.flex-start {
+  align-items: start;
+}
+.btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: linear-gradient(
+    to left,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  border-radius: 0.5rem;
+  cursor: pointer;
+  width: fit-content;
+  text-transform: uppercase;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  color: #fff;
+}
+.btn:hover {
+  background: transparent;
+  backdrop-filter: blur(30px);
+  color: var(--primary-color);
+  outline: 1px solid var(--primary-color);
+}
+.input-btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: transparent;
+  border-radius: 0.5rem;
+  border: 0.2rem solid white;
+  cursor: pointer;
+  width: fit-content;
+  color: gray;
+}
+.input-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+.heading {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 2rem;
+  background: linear-gradient(
+    to left,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  text-align: center;
+  position: relative;
+}
+
+/* ==============================================================================
+----------------------------- Home Page Style Start------------------------------
+============================================================================== */
+
+/* table style  */
+table {
+  border-collapse: collapse;
+  overflow: hidden;
+  margin: 1rem;
+  width: 45vw;
+}
+th {
+  color: var(--secondary-color);
+}
+th,
+td {
+  padding: 0.5rem;
+  background-color: var(--bg-light);
+  margin: 0.2rem;
+  border: 5px solid white;
+  border-radius: 1rem;
+}
+
+/* ========= Utility style end ========= */
+
+/* Navigation area start  */
+
+.dropdown-menu-icon {
+  position: relative;
+}
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 2.1rem;
+  left: 0;
+  background-color: white;
+  border-radius: 0.5rem;
+  margin-top: 0.2rem;
+  padding: 1rem;
+  transition: 500ms;
+  flex-direction: column;
+}
+.dropdown-menu-icon:hover .dropdown-menu {
+  display: flex;
+}
+nav {
+  background-color: var(--bg-light);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+/* Navigation title style  */
+nav h2 {
+  text-transform: uppercase;
+  font-weight: 100;
+  font-size: 2rem;
+  background: linear-gradient(
+    to left,
+    var(--secondary-color),
+    var(--primary-color)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+ul {
+  display: flex;
+  gap: 0.5rem;
+}
+ul li {
+  list-style: none;
+  position: relative;
+  padding-bottom: 0.3rem;
+}
+ul li::after {
+  content: "";
+  position: absolute;
+  height: 0;
+  width: 100%;
+  background-color: var(--secondary-color);
+  bottom: 0;
+  left: 0;
+  transform: scale(0);
+  transform-origin: left;
+  height: 0.2rem;
+}
+ul li:hover::after {
+  transition: 500ms;
+  transform: scale(1);
+}
+ul li a {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: 500;
+}
+ul li:hover a {
+  color: var(--secondary-color);
+}
+/* Navigation area End  */
+
+/* Banner area start  */
+
+header {
+  /* min-height: 80vh; */
+  position: relative;
+  z-index: 2;
+}
+.gradient-box-left {
+  min-height: 15vh;
+  width: 30vw;
+  position: absolute;
+  top: 250px;
+  left: 200px;
+  background-color: purple;
+  filter: blur(150px);
+  z-index: -1;
+}
+.gradient-box-right {
+  min-height: 15vh;
+  width: 30vw;
+  position: absolute;
+  top: 250px;
+  right: 200px;
+  background-color: var(--primary-color);
+  filter: blur(150px);
+  z-index: -1;
+}
+header .banner-content h1 {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  color: var(--primary-color);
+  background: linear-gradient(
+    to left,
+    var(--primary-color),
+    var(--secondary-color)
+  );
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+header .banner-content h1 span {
+  text-transform: uppercase;
+  background-color: var(--bg-light);
+  border-radius: 1rem;
+  padding: 0.5rem;
+}
+header .banner-discription .formatting {
+  background-color: var(--bg-light);
+  border-radius: 1rem;
+  padding: 1rem 0.2rem;
+  margin: 0.3rem 0;
+}
+header video {
+  width: 45vw;
+  border-radius: 1rem;
+  box-shadow: -5px 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+header .banner-content .banner-discription {
+  background-color: var(--bg-light);
+  padding: 1rem;
+  border-radius: 1rem;
+}
+
+/* Banner area End  */
+
+/* Employee area start*/
+#employee {
+  min-height: 100vh;
+  position: relative;
+}
+#employee img {
+  border-radius: 1rem;
+}
+/* Employee area End*/
+
+/* ==============================================================================
+----------------------------- Home Page Style Start------------------------------
+============================================================================== */
+
+/* ==============================================================================
+----------------------------- About area Style End------------------------------
+============================================================================== */
+#about {
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
+}
+#about .about-content {
+  width: 40vw;
+}
+#about h2 {
+  color: var(--primary-color);
+  text-transform: uppercase;
+  font-size: 3rem;
+  text-decoration: underline;
+  text-underline-offset: 0.5rem;
+}
+#about img {
+  width: 24rem;
+}
+
+/* ==============================================================================
+----------------------------- About area Style End------------------------------
+============================================================================== */
+
+/* ==============================================================================
+----------------------------- Services area Style End------------------------------
+============================================================================== */
+#services {
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 2rem;
+}
+.card-group {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  width: 90%;
+  margin: 0 auto;
+}
+.card {
+  background: linear-gradient(-60deg, #0066ff3f, transparent);
+  border-radius: 1rem;
+  padding: 3rem;
+  transition: all 500ms ease;
+  backdrop-filter: blur(20px);
+}
+.card:hover {
+  transition: 500ms;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+  background: var(--bg-light);
+  backdrop-filter: blue(20px);
+  transform: translateY(-5%);
+}
+.card img {
+  height: 30px;
+}
+.card h4 {
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+}
+.card p {
+  color: gray;
+}
+
+/* ==============================================================================
+----------------------------- Services area Style End------------------------------
+============================================================================== */
+
+/* ==============================================================================
+----------------------------- Contact us area Style End------------------------------
+============================================================================== */
+#contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  min-height: 100vh;
+  position: relative;
+}
+#contact p {
+  text-align: center;
+  width: 40vw;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+}
+#contact form {
+  width: 60vw;
+  margin: 1 auto;
+  background: var(--bg-light);
+  display: grid;
+  justify-content: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  background-color: var(--bg-light);
+  backdrop-filter: blur(20px);
+  padding: 3rem;
+}
+#contact form .input-form,
+textarea {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  padding: 1rem 0;
+  text-indent: 0.5rem;
+  border-radius: 0.5rem;
+}
+#contact form textarea {
+  grid-column: 1/3;
+}
+.submit-btn {
+  grid-column: 1/3;
+  text-align: center;
+}
+/* ==============================================================================
+----------------------------- Contact us area Style End------------------------------
+============================================================================== */

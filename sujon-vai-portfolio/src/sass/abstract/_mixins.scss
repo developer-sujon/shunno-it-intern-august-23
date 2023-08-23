@@ -1,0 +1,48 @@
+@use "sass:math";
+@use "variables" as *;
+@mixin flexBox($x, $y) {
+  display: flex;
+  justify-content: $x;
+  align-items: $y;
+}
+
+@mixin position($name, $top, $right, $bottom, $left) {
+  position: $name;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin column($key) {
+  @for $i from 1 through 12 {
+    .col-#{$key}-#{$i} {
+      max-width: math.div(100%, 12) * $i;
+      flex-basis: math.div(100%, 12) * $i;
+    }
+  }
+}
+
+@mixin responsive($screen) {
+  @if $screen == "sm" {
+    @media (max-width: map-get($breakpoints, "sm")) {
+      @content;
+    }
+  } @else if $screen == "md" {
+    @media (max-width: map-get($breakpoints, "md")) {
+      @content;
+    }
+  } @else if $screen == "lg" {
+    @media (max-width: map-get($breakpoints, "lg")) {
+      @content;
+    }
+  } @else if $screen == "xl" {
+    @media (max-width: map-get($breakpoints, "xl")) {
+      @content;
+    }
+  } @else if $screen == "xxl" {
+    @media (max-width: map-get($breakpoints, "xxl")) {
+      @content;
+    }
+  }
+}

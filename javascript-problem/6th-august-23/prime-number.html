@@ -1,0 +1,13 @@
+<script>
+  function isPrime(number) {
+    for (let i = 2; i < number; i++) {
+      if (number % i == 0) {
+        return document.write(`${number} is not a prime number`);
+      }
+    }
+    return document.write(`${number} is a prime number`);
+  }
+  const input = prompt("Enter a number to check it is prime number");
+
+  isPrime(input);
+</script>

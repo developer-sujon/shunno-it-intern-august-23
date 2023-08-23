@@ -1,0 +1,86 @@
+@use "../abstract" as *;
+.education {
+  padding: $padding-y;
+  @include responsive(lg) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @include responsive(md) {
+    padding: 4rem 0;
+  }
+  &__card {
+    width: 100%;
+    background: linear-gradient(110deg, $white 50%, $purple-50 50%);
+    padding: 1.5rem;
+    box-shadow: -3rem 3rem 2rem -3rem $purple-50;
+    &__titile {
+      font-size: 1.3rem;
+      font-weight: 700;
+      line-height: 2rem;
+      text-transform: uppercase;
+      background: linear-gradient(45deg, $black 0%, $purple-500 50%);
+      color: $transparent;
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+    &__block {
+      @include flexBox(null, center);
+      margin-top: 1.5rem;
+      &__left {
+        @include flexBox(center, center);
+        width: 3.5rem;
+        height: 3.5rem;
+        border-radius: 50%;
+        background-color: $purple-400;
+        box-shadow: 0, 1rem, 1.5rem rgba(0, 0, 0, 0.1);
+        &__house {
+          background: $purple-100;
+          i {
+            color: $purple-600;
+            font-size: 1.6rem;
+          }
+        }
+        &__calendar {
+          background: $grey-100;
+          i {
+            color: $grey-600;
+            font-size: 1.6rem;
+          }
+        }
+      }
+      &__right {
+        display: inline-block;
+        margin-left: 1rem;
+        font-size: 1.3rem;
+        font-weight: 500;
+        color: $black;
+        text-transform: capitalize;
+        flex: 1;
+      }
+    }
+  }
+  .--row1 [class^="col-"]:nth-child(2) {
+    transform: skewY(8deg);
+    @include responsive(md) {
+      transform: none;
+    }
+  }
+  .--row1 [class^="col-"]:nth-child(4) {
+    transform: skewY(8deg);
+    @include responsive(md) {
+      transform: none;
+    }
+  }
+  .--row2 [class^="col-"]:nth-child(1) {
+    transform: skewY(-8deg);
+    @include responsive(md) {
+      transform: none;
+    }
+  }
+  .--row2 [class^="col-"]:nth-child(3) {
+    transform: skewY(-8deg);
+    @include responsive(md) {
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,69 @@
+@use "../abstract" as *;
+
+.project {
+  padding: $padding-y;
+  @include responsive(lg) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+  @include responsive(md) {
+    padding: 4rem 0;
+  }
+  &__card {
+    width: 100%;
+    height: 27rem;
+    overflow: hidden;
+    position: relative;
+    &__images {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    &__layer {
+      @include position(absolute, 0, 0, 0, 0);
+      width: 100%;
+      height: 100%;
+      background: $purple-500;
+      @include flexBox(center, center);
+      padding: 1.5rem;
+      flex-direction: column;
+      text-align: center;
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
+
+      &__contents {
+        &__title {
+          font-size: 1.6rem;
+          font-weight: 600;
+          color: $purple-900;
+          text-transform: capitalize;
+        }
+        &__tools {
+          display: block;
+          margin-top: 0.5rem;
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: $purple-700;
+          text-transform: uppercase;
+        }
+      }
+      &__link {
+        margin-top: 1rem;
+        a {
+          text-decoration: none;
+          i {
+            color: $white;
+            font-size: 2.5rem;
+          }
+        }
+      }
+    }
+    &:hover &__layer {
+      transform: scale(1);
+    }
+  }
+}

@@ -1,0 +1,86 @@
+@media (max-width: 768px) {
+  /* navigation responsive start */
+
+  /* utility style  */
+  .flex-around {
+    flex-direction: column;
+  }
+  .d-flex {
+    flex-wrap: wrap;
+  }
+  .dropdown-menu-icon {
+    margin-top: 0.5rem;
+  }
+  table {
+    width: 100vw;
+  }
+
+  nav {
+    flex-direction: column-reverse;
+  }
+  nav h2 {
+    text-align: center;
+    margin: 0.2rem 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  /* navigation responsive end */
+
+  /* banner responsive start */
+  header {
+    flex-direction: column-reverse;
+  }
+  .banner-content h1 {
+    text-align: center;
+  }
+  header video {
+    width: 90vw;
+  }
+  /* banner responsive end */
+
+  /* About area start */
+  #about .about-content {
+    width: 90vw;
+  }
+  #about img {
+    width: 80vw;
+  }
+  /* About area end */
+
+  /* services area start */
+  .card-group {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  /* services area end */
+
+  /* register responsive  */
+
+  .form-section {
+    width: 90vw;
+    margin: 0 auto;
+  }
+  .banner-img img {
+    width: 90vw;
+  }
+  .register-form {
+    grid-template-columns: repeat(1, 100%);
+  }
+  .input-mother-name {
+    grid-column: 1/1;
+  }
+  .input-address {
+    grid-column: 1/1;
+  }
+  .input-skills {
+    grid-column: 1/1;
+  }
+
+  /* contact us responsive */
+  #contact p{
+    width: 90vw;
+  }
+}
