@@ -6,6 +6,42 @@ import user5Img from "../assets/images/testimonials/user5.jpg";
 import user6Img from "../assets/images/testimonials/user6.jpg";
 
 const Testimonial = () => {
+  // Testimonial data
+  const testimonials = [
+    {
+      userName: "saddiq hussain",
+      userCountry: "united kingdom",
+      userRating: "5",
+      userImage: user1Img,
+      userMessage:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Culpa ipsam deleniti quas corrupti quibusdam unde providentillum, repellendus enim facere.",
+    },
+    {
+      userName: "json roy",
+      userCountry: "ireland",
+      userRating: "5",
+      userImage: user2Img,
+      userMessage:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Culpa ipsam deleniti quas corrupti quibusdam unde providentillum, repellendus enim facere.",
+    },
+    {
+      userName: "mustafa kamal",
+      userCountry: "turkey",
+      userRating: "5",
+      userImage: user2Img,
+      userMessage:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Culpa ipsam deleniti quas corrupti quibusdam unde providentillum, repellendus enim facere.",
+    },
+    {
+      userName: "muhammad ali",
+      userCountry: "pakistan",
+      userRating: "5",
+      userImage: user2Img,
+      userMessage:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit.Culpa ipsam deleniti quas corrupti quibusdam unde providentillum, repellendus enim facere..",
+    },
+  ];
+
   return (
     <section className="testimonials" id="testimonials">
       <div className="container">
@@ -13,134 +49,41 @@ const Testimonial = () => {
         <div className="row">
           <div className="col-xlg-8 col-md-12  col-sm-12 py-0">
             <div className="row">
-              <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div className="testimonials__card">
-                  <div className="testimonials__card__icon">
-                    <i className="bi bi-chat-dots" />
-                  </div>
-                  <div className="testimonials__card__user">
-                    <div className="testimonials__card__user__image">
-                      <img src={user1Img} alt="user image" />
+              {testimonials.map((testimonial, index) => (
+                <div
+                  key={index}
+                  className="col-lg-6 col-md-12 col-sm-12 col-xs-12"
+                >
+                  <div className="testimonials__card">
+                    <div className="testimonials__card__icon">
+                      <i className="bi bi-chat-dots" />
                     </div>
-                    <div className="testimonials__card__user__details">
-                      <span className="testimonials__card__user__details__name">
-                        saddiq hussain
-                      </span>
-                      <span className="testimonials__card__user__details__country">
-                        united kingdom
-                      </span>
-                      <span className="testimonials__card__user__details__rating">
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                      </span>
+                    <div className="testimonials__card__user">
+                      <div className="testimonials__card__user__image">
+                        <img src={user1Img} alt="user image" />
+                      </div>
+                      <div className="testimonials__card__user__details">
+                        <span className="testimonials__card__user__details__name">
+                          {testimonial.userName}
+                        </span>
+                        <span className="testimonials__card__user__details__country">
+                          {testimonial.userCountry}
+                        </span>
+                        <span className="testimonials__card__user__details__rating">
+                          <i className="bi bi-star-fill" />
+                          <i className="bi bi-star-fill" />
+                          <i className="bi bi-star-fill" />
+                          <i className="bi bi-star-fill" />
+                          <i className="bi bi-star-fill" />
+                        </span>
+                      </div>
                     </div>
+                    <p className="testimonials__card__message">
+                      {testimonial.userMessage}
+                    </p>
                   </div>
-                  <p className="testimonials__card__message">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Culpa ipsam deleniti quas corrupti quibusdam unde provident
-                    illum, repellendus enim facere.
-                  </p>
                 </div>
-              </div>
-              <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div className="testimonials__card">
-                  <div className="testimonials__card__icon">
-                    <i className="bi bi-chat-dots" />
-                  </div>
-                  <div className="testimonials__card__user">
-                    <div className="testimonials__card__user__image">
-                      <img src={user2Img} alt="user image" />
-                    </div>
-                    <div className="testimonials__card__user__details">
-                      <span className="testimonials__card__user__details__name">
-                        json roy
-                      </span>
-                      <span className="testimonials__card__user__details__country">
-                        ireland
-                      </span>
-                      <span className="testimonials__card__user__details__rating">
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                      </span>
-                    </div>
-                  </div>
-                  <p className="testimonials__card__message">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Culpa ipsam deleniti quas corrupti quibusdam unde provident
-                    illum, repellendus enim facere.
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div className="testimonials__card">
-                  <div className="testimonials__card__icon">
-                    <i className="bi bi-chat-dots" />
-                  </div>
-                  <div className="testimonials__card__user">
-                    <div className="testimonials__card__user__image">
-                      <img src={user3Img} alt="user image" />
-                    </div>
-                    <div className="testimonials__card__user__details">
-                      <span className="testimonials__card__user__details__name">
-                        mustafa kamal
-                      </span>
-                      <span className="testimonials__card__user__details__country">
-                        turkey
-                      </span>
-                      <span className="testimonials__card__user__details__rating">
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                      </span>
-                    </div>
-                  </div>
-                  <p className="testimonials__card__message">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Culpa ipsam deleniti quas corrupti quibusdam unde provident
-                    illum, repellendus enim facere.
-                  </p>
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
-                <div className="testimonials__card">
-                  <div className="testimonials__card__icon">
-                    <i className="bi bi-chat-dots" />
-                  </div>
-                  <div className="testimonials__card__user">
-                    <div className="testimonials__card__user__image">
-                      <img src={user4Img} alt="user image" />
-                    </div>
-                    <div className="testimonials__card__user__details">
-                      <span className="testimonials__card__user__details__name">
-                        muhammad ali
-                      </span>
-                      <span className="testimonials__card__user__details__country">
-                        pakistan
-                      </span>
-                      <span className="testimonials__card__user__details__rating">
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                        <i className="bi bi-star-fill" />
-                      </span>
-                    </div>
-                  </div>
-                  <p className="testimonials__card__message">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Culpa ipsam deleniti quas corrupti quibusdam unde provident
-                    illum, repellendus enim facere.
-                  </p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           <div className="col-xlg-4 col-md-12 col-sm-12 order-1">

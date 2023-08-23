@@ -54,6 +54,7 @@ const Footer = () => {
                   <input
                     type="submit"
                     defaultValue="send email"
+                    value="send email"
                     className="btn btn-dark"
                   />
                 </div>
