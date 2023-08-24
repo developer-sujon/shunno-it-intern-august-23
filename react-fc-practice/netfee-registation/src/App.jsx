@@ -6,25 +6,63 @@ function App() {
   const [emailError, setEmailError] = useState(false);
   const [phoneError, setPhoneError] = useState("");
 
+  // referenceAddress
+  const [refDistrict, setRefDistrict] = useState("");
+  const [districtCode, setDistrictCode] = useState("");
+  const [refUpazila, setRefUpazila] = useState("");
+  const [upazilaCode, setUpazilaCode] = useState("");
+  const [refVillage, setRefVillage] = useState("");
+  const [refUnion, setRefUnion] = useState("");
+  const [refPostOffice, setRefPostOffice] = useState("");
+
   // handle form data
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target);
-    let data = Object.fromEntries(formData);
+    const form = event.target;
 
-    // set reference
-    data = {
-      ...data,
-      reference: { phone: data.refMobile, name: data.refName },
+    // get form input values
+    const companyName = form.company.value;
+    const name = form.name.value;
+    const mobile = form.mobile.value;
+    const email = form.email.value;
+    const division = form.division.value;
+    const district = form.district.value;
+    const thana = form.thana.value;
+    const packageName = form.package.value;
+    const refName = form.refName.value;
+    const refMobile = form.refMobile.value;
+
+    // reference address
+    const referenceAddress = {
+      referenceAddressDistrict: {
+        refDistrict,
+        referenceAddressDistrictUpazila: {
+          refUpazila,
+          referenceAddressDistrictUpazilaVillage: refVillage,
+          referenceAddressDistrictUpazilaUnion: refUnion,
+          referenceAddressDistrictUpazilaPostOffice: refPostOffice,
+        },
+        districtCode,
+      },
+      upazilaCode,
     };
-    // delete reference value
-    delete data.refName;
-    delete data.refMobile;
 
-    data = {
-      ...data,
-      package: { packageName: data.package, customerType },
+    // set data
+    let data = {
+      companyName,
+      name,
+      mobile,
+      email,
+      division,
+      district,
+      thana,
+      package: { packageName, customerType },
+      reference: {
+        refName,
+        refMobile,
+        referenceAddress,
+      },
     };
 
     // validation
@@ -35,8 +73,7 @@ function App() {
       data.email === "" ||
       data.division === "" ||
       data.district === "" ||
-      data.taluka === "" ||
-      data.village === "" ||
+      data.thana === "" ||
       emailError ||
       phoneError
     ) {
@@ -45,7 +82,7 @@ function App() {
       return;
     }
 
-    event.target.reset();
+    form.reset();
     setCustomerType([]);
     console.log(data);
   };
@@ -154,15 +191,15 @@ function App() {
                   name="division"
                   id="division"
                 >
-                  <option value="">...</option>
-                  <option value={1}>Barishal</option>
-                  <option value={2}>Chattogram</option>
-                  <option value={3}>Dhaka</option>
-                  <option value={4}>Khulna</option>
-                  <option value={5}>Rajshahi</option>
-                  <option value={6}>Rangpur</option>
-                  <option value={7}>Sylhet</option>
-                  <option value={8}>Mymensingh</option>
+                  <option>...</option>
+                  <option>Barishal</option>
+                  <option>Chattogram</option>
+                  <option>Dhaka</option>
+                  <option>Khulna</option>
+                  <option>Rajshahi</option>
+                  <option>Rangpur</option>
+                  <option>Sylhet</option>
+                  <option>Mymensingh</option>
                 </select>
               </div>
               <div className="mb-3">
@@ -321,6 +358,117 @@ function App() {
                       type="text"
                       autoComplete="off"
                       defaultValue=""
+                    />
+                  </div>
+                </div>
+
+                {/* reference address  */}
+                <div className="bg-light p-2 rounded">
+                  <h5 className="text-primary">Reference address</h5>
+
+                  <div className="mb-3">
+                    <label className="form-control-label">
+                      Select District <span className="text-danger">*</span>
+                    </label>
+                    <select
+                      className="form-select mw-100 mt-0"
+                      aria-label="Default select example"
+                      name="refDistrict"
+                      id="refDistrict"
+                      onChange={(e) => setRefDistrict(e.target.value)}
+                      value={refDistrict}
+                    >
+                      <option value="">...</option>
+                      <option value="Tangail">Tangail</option>
+                      <option value="Bugura">Bugura</option>
+                      <option value="Nachole">Nachole</option>
+                      <option value="Bholohat">Bholohat</option>
+                    </select>
+                  </div>
+                  <div className="mb-2">
+                    <label htmlFor="company">
+                      District Zip code <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      className="form-control shadow-none false"
+                      name="districtCode"
+                      type="text"
+                      autoComplete="off"
+                      onChange={(e) => setDistrictCode(e.target.value)}
+                      value={districtCode}
+                    />
+                  </div>
+                  <div className="mb-3">
+                    <label className="form-control-label">
+                      Select Upazila <span className="text-danger">*</span>
+                    </label>
+                    <select
+                      className="form-select mw-100 mt-0"
+                      aria-label="Default select example"
+                      name="refUpazila"
+                      id="refUpazila"
+                      onChange={(e) => setRefUpazila(e.target.value)}
+                      value={refUpazila}
+                    >
+                      <option value="">...</option>
+                      <option value="Gomastapur">Gomastapur</option>
+                      <option value="Khesapur">Khesapur</option>
+                      <option value="Mirarpur">Mirarpur</option>
+                      <option value="Bholohat">Bholohat</option>
+                    </select>
+                  </div>
+
+                  <div className="mb-2">
+                    <label htmlFor="company">
+                      Upazila Zip code <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      className="form-control shadow-none false"
+                      name="upazilaCode"
+                      type="text"
+                      autoComplete="off"
+                      value={upazilaCode}
+                      onChange={(e) => setUpazilaCode(e.target.value)}
+                    />
+                  </div>
+
+                  <div className="mb-2">
+                    <label htmlFor="company">
+                      Village <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      className="form-control shadow-none false"
+                      name="refVillage"
+                      type="text"
+                      autoComplete="off"
+                      value={refVillage}
+                      onChange={(e) => setRefVillage(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-2">
+                    <label htmlFor="company">
+                      Union <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      className="form-control shadow-none false"
+                      name="refUnion"
+                      type="text"
+                      autoComplete="off"
+                      value={refUnion}
+                      onChange={(e) => setRefUnion(e.target.value)}
+                    />
+                  </div>
+                  <div className="mb-2">
+                    <label htmlFor="company">
+                      Post office <span className="text-danger">*</span>
+                    </label>
+                    <input
+                      className="form-control shadow-none false"
+                      name="refPostOffice"
+                      type="text"
+                      autoComplete="off"
+                      value={refPostOffice}
+                      onChange={(e) => setRefPostOffice(e.target.value)}
                     />
                   </div>
                 </div>
