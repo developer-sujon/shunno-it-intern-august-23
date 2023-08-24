@@ -1,6 +1,6 @@
 class FormValidation {
   static isEmpty(value) {
-    return value.length <= 0;
+    return value.length <= 0; 
   }
   static isEmail(value) {
     let regexEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
@@ -12,4 +12,4 @@ class FormValidation {
   }
 }
 
-export default FormValidation;
+export default FormValidation; 

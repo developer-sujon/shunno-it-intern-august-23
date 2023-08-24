@@ -1,31 +1,54 @@
 class SessionHelper {
-  static getLanguage() {
-    return localStorage.getItem("i18nextLng");
+  static SetToken(token) {
+    localStorage.setItem('shunnoTicketToken', token);
   }
-  static setLanguage(language) {
-    return localStorage.setItem("i18nextLng", language);
+  static GetToken() {
+    return localStorage.getItem('shunnoTicketToken');
   }
-  static getAccessToken() {
-    return localStorage.getItem("todoAccessToken");
+  static RemoveToken() {
+    return localStorage.removeItem('shunnoTicketToken');
   }
-  static setAccessToken(accessToken) {
-    if (!accessToken) return undefined;
-    return localStorage.setItem("todoAccessToken", accessToken);
+  static SetUserDetails(userDetails) {
+    localStorage.setItem('userDetails', JSON.stringify(userDetails));
   }
-  static removeTokens() {
-    localStorage.removeItem("todoAccessToken");
+  static GetUserDetails() {
+    return JSON.parse(localStorage.getItem('userDetails'));
   }
-  static getUser() {
-    return (
-      localStorage.getItem("user") ?? JSON.parse(localStorage.getItem("user"))
-    );
+  static RemoveUserDetails() {
+    return localStorage.removeItem('userDetails');
   }
-  static setUser(user) {
-    if (!user) return undefined;
-    return localStorage.setItem("user", JSON.stringify(user));
+  static RecoverVerifyEmail(Email) {
+    return localStorage.setItem('RecoverVerifyEmail', Email);
   }
-  static removeUser() {
-    localStorage.removeItem("user");
+  static GetRecoverVerifyEmail() {
+    return localStorage.getItem('RecoverVerifyEmail');
+  }
+  static SetRecoverVerifyOTP(OTP) {
+    return localStorage.setItem('RecoverVerifyOTP', OTP);
+  }
+  static GetRecoverVerifyOTP() {
+    return localStorage.getItem('RecoverVerifyOTP');
+  }
+
+  static SetLanguage(Language) {
+    localStorage.setItem('i18nextLng', Language);
+  }
+  static GetLanguage() {
+    return localStorage.getItem('i18nextLng');
+  }
+  static SetTheme(Theme) {
+    localStorage.setItem('Theme', Theme);
+  }
+  static GetTheme() {
+    return localStorage.getItem('Theme');
+  }
+
+  static ResetStorage() {
+    localStorage.removeItem('shunnoTicketToken');
+    localStorage.removeItem('userDetails');
+    localStorage.removeItem('RecoverVerifyEmail');
+    localStorage.removeItem('RecoverVerifyOTP');
+    return true;
   }
 }
 

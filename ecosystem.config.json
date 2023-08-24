@@ -1,0 +1,11 @@
+{
+    "apps": [
+      {
+        "name": "shunno-support-client",
+        "script": "npx",
+        "interpreter": "none",
+        "args": "serve -p 5020 -T"
+      }
+    ]
+  }
+  
