@@ -41,6 +41,7 @@ function App() {
       phoneError
     ) {
       alert("Please fill all the fields currently");
+
       return;
     }
 
@@ -120,7 +121,7 @@ function App() {
                     phoneError && "border border-danger"
                   }`}
                   name="mobile"
-                  type="text"
+                  type="number"
                   autoComplete="off"
                   defaultValue=""
                   onChange={handleValidation}
