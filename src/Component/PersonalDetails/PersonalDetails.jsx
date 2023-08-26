@@ -12,9 +12,9 @@ const PersonalDetails = () => {
           <input type="text" />
         </div>
         <div className="ParentName">
-          <label>Father's Name</label>
+          <label>Fathers Name</label>
           <input type="text" />
-          <label>Mother's Name</label>
+          <label>Mothers Name</label>
           <input type="text" />
         </div>
         <div className="BirthGender">
@@ -58,6 +58,8 @@ const PersonalDetails = () => {
           <input type="text" />
         </div>
       </div>
+
+      
     </section>
   );
 };
