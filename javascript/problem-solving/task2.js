@@ -39,16 +39,6 @@ for (var i = 0; i < nums.length - 1; i++) {
 
 
 // problem 3 solution
-// /**
-//  * Valid Anagram
-//  * @description Check to see if two provided strings are anagrams of each other.One string is an anagram of another if it uses the same characters in the same quantity. Only consider characters, not spaces or punctuation. Consider capital letters to be the same as lower case
-//  * @param {string} s
-//  * @param {string} t
-//  * @return {boolean}
-//  * @example Input: s = "anagram", t = "nagaram" Output: true
-//  * @example Input: s = "rat", t = "car"  Output: false
-//  */
-
 const arraySort = (arr) => {
     for (var a = 0; a < arr.length - 1; a++) {
         for (var b = a + 1; b < arr.length; b++) {
