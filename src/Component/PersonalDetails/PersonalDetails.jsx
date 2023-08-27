@@ -264,6 +264,8 @@ const PersonalDetails = () => {
           </div>
         </div>
       </div>
+
+      
     </section>
   );
 };
