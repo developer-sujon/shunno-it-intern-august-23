@@ -6,17 +6,38 @@ const ProfileTabs = () => {
     <div className="border border-top-0 border-start-0 border-end-0 mb-4">
       <Nav variant="underline" defaultActiveKey="/home">
         <Nav.Item>
-          <NavLink className="nav-link text-secondary" to="/">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "nav-link text-primary fw-bold"
+                : "nav-link text-secondary"
+            }
+            to="/"
+          >
             Personal Info
           </NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink className="nav-link text-secondary" to="/profile/photograph">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "nav-link text-primary fw-bold"
+                : "nav-link text-secondary"
+            }
+            to="/profile/photograph"
+          >
             Other Information
           </NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink className="nav-link text-secondary" to="/profile/other-info">
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "nav-link text-primary fw-bold"
+                : "nav-link text-secondary"
+            }
+            to="/profile/other-info"
+          >
             Photograph
           </NavLink>
         </Nav.Item>

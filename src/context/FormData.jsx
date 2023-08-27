@@ -13,7 +13,6 @@ const FormData = ({ children }) => {
     watch,
     formState: { errors },
   } = useForm();
-
   // react hook-form submit event
   const onSubmit = (data) => console.log(data);
 
