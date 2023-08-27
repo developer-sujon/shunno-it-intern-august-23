@@ -40,7 +40,7 @@ const PersonalDetails = () => {
             aria-labelledby="headingOne"
             data-bs-parent="#accordionExample"
           >
-            <form onChange={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="MainDiv">
                 <div className="ColumnLeft">
                   <div className="FirstName">
@@ -259,6 +259,7 @@ const PersonalDetails = () => {
                   </div>
                 </div>
               </div>
+              <button>Submit</button>
             </form>
           </div>
         </div>
