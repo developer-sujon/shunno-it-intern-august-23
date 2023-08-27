@@ -1,9 +1,7 @@
+// import ProfileIndex from "./profile/ProfileIndex";
+
 const Home = () => {
-  return (
-    <div>
-      <h1>Home</h1>
-    </div>
-  );
+  return <div>{/* <ProfileIndex /> */}</div>;
 };
 
 export default Home;
