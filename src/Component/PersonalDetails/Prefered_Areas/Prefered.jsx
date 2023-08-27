@@ -62,7 +62,7 @@ const Prefered = () => {
 
   return (
     <div>
-      <Accordion defaultActiveKey="0">
+      <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Prefered Areas</Accordion.Header>
           <Accordion.Body>

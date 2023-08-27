@@ -10,7 +10,7 @@ const DisabilityInfo = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data)
+    
   };
   return (
     <div className="my-2">
