@@ -21,8 +21,8 @@ const router = createBrowserRouter([
         element: <ProfileIndex></ProfileIndex>,
         children: [
           { path: "/", element: <PersonalInfo /> },
-          { path: "profile/photograph", element: <OtherInformation /> },
-          { path: "profile/other-info", element: <PhotographPage /> },
+          { path: "profile/other-info", element: <OtherInformation /> },
+          { path: "profile/photograph", element: <PhotographPage /> },
         ],
       },
     ],

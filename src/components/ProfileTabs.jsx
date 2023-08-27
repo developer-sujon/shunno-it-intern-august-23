@@ -26,7 +26,7 @@ const ProfileTabs = () => {
             }
             to="/profile/photograph"
           >
-            Other Information
+            Photograph
           </NavLink>
         </Nav.Item>
         <Nav.Item>
@@ -38,7 +38,7 @@ const ProfileTabs = () => {
             }
             to="/profile/other-info"
           >
-            Photograph
+            Other Information
           </NavLink>
         </Nav.Item>
       </Nav>
