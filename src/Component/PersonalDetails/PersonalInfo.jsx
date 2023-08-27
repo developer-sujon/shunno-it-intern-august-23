@@ -9,7 +9,7 @@ import CareerInfo from "../CareerInfo/CareerInfo";
 const PersonalInfo = () => {
   return (
     <div>
-      <PersonalDetails />
+      <PersonalDetails/>
       <Present_addres/>
       <CareerInfo></CareerInfo>
       <Prefered/>

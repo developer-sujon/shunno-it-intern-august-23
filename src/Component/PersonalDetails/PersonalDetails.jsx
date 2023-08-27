@@ -3,43 +3,40 @@ import { useForm } from "react-hook-form";
 import "../PersonalDetails/style.css";
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
+import { Accordion } from "react-bootstrap";
 
 const PersonalDetails = () => {
   const [value2, setValue2] = useState();
   const [value3, setValue3] = useState();
   const [value4, setValue4] = useState();
+  const value = {
+    defaultValues: {
+      FirstName: "Alfaz Bin",
+      LastName: "Rumon",
+      FatherName: "Raju",
+      MotherName: "Aktar Banu",
+      NationalId: "455220044",
+      PassportNumber: "425887444",
+      AlternateEmail: "aja@gmail.com",
+      Height: "6",
+      Weight: "40",
+    },
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm(value);
   const onSubmit = (data) => {
     console.log(data);
   };
 
   return (
     <section>
-      <div className="accordion" id="accordionExample">
-        <div className="accordion-item">
-          <h2 className="accordion-header" id="headingOne">
-            <button
-              className="accordion-button"
-              type="button"
-              data-bs-toggle="collapse"
-              data-bs-target="#collapseOne"
-              aria-expanded="true"
-              aria-controls="collapseOne"
-              style={{ color: "rgb(94, 91, 91)", fontWeight: "bold" }}
-            >
-              Personal Details
-            </button>
-          </h2>
-          <div
-            id="collapseOne"
-            className="accordion-collapse collapse show"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
-          >
+      <Accordion defaultActiveKey="0">
+        <Accordion.Item eventKey="0">
+          <Accordion.Header>Personal Details</Accordion.Header>
+          <Accordion.Body>
             <form onSubmit={handleSubmit(onSubmit)}>
               <div className="MainDiv">
                 <div className="ColumnLeft">
@@ -261,11 +258,9 @@ const PersonalDetails = () => {
               </div>
               <button>Submit</button>
             </form>
-          </div>
-        </div>
-      </div>
-
-      
+          </Accordion.Body>
+        </Accordion.Item>
+      </Accordion>
     </section>
   );
 };
