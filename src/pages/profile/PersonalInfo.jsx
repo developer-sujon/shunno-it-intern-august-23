@@ -254,7 +254,9 @@ const PersonalInfo = () => {
             Career and Application Information
           </Accordion.Header>
           <Accordion.Body>
-            <h5>Career Summary</h5>
+            <h6>
+              Carrier Objective <span className="text-danger">*</span>
+            </h6>
             <ReactQuill
               style={{ height: "100px" }}
               className="mb-5"
@@ -262,14 +264,7 @@ const PersonalInfo = () => {
               value={textEditorValue}
               onChange={setTextEditorValue}
             />
-            <h5 className="pt-3">Special Qualification</h5>
-            <ReactQuill
-              style={{ height: "100px" }}
-              className="mb-5"
-              theme="snow"
-              value={textEditorValue}
-              onChange={setTextEditorValue}
-            />
+
             <Form.Group className="my-3 pt-3">
               <Form.Label>
                 Keywords <span className="text-danger">*</span>
