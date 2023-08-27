@@ -11,11 +11,13 @@ const ProfileTabs = () => {
           </NavLink>
         </Nav.Item>
         <Nav.Item>
-          <NavLink
-            className="nav-link text-secondary"
-            to="/profile/personal-info"
-          >
-            Personal Info
+          <NavLink className="nav-link text-secondary" to="/profile/photograph">
+            Other Information
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item>
+          <NavLink className="nav-link text-secondary" to="/profile/other-info">
+            Photograph
           </NavLink>
         </Nav.Item>
       </Nav>
