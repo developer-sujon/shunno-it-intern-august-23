@@ -1,11 +1,11 @@
 import React, {useState} from "react";
 import { Accordion } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { FaLink } from "react-icons/fa";
-import { MdFormatListNumbered } from "react-icons/md";
-import { PiListBulletsBold } from "react-icons/pi";
-import { RxCross2 } from "react-icons/rx";
-import Editor from "./Editor";
+// import { FaLink } from "react-icons/fa";
+// import { MdFormatListNumbered } from "react-icons/md";
+// import { PiListBulletsBold } from "react-icons/pi";
+// import { RxCross2 } from "react-icons/rx";
+// import Editor from "./Editor";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 
