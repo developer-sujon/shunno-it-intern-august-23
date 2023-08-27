@@ -21,7 +21,7 @@ const Present_addres = () => {
 
   return (
     <div className="my-3">
-      <Accordion defaultActiveKey="0">
+      <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>Address Details</Accordion.Header>
           <Accordion.Body>
