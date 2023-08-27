@@ -1,0 +1,43 @@
+.ColumnLeft{
+   
+    width: 48%;
+   
+}
+
+.ColumnRight{
+   
+    width: 48%;
+   
+
+}
+
+.MainDiv{
+    display: flex;
+    gap: 30px;
+}
+
+.ColumnLeft input,select{
+width: 100%;
+padding: 8px;
+}
+
+
+.ColumnRight input,select{
+    width: 100%;
+    padding: 8px;
+    }
+
+    p{
+        color: brown;
+    }
+    
+
+    section{
+        margin-top: 50px;
+     
+    }
+
+form{
+    margin: 15px;
+}
+
