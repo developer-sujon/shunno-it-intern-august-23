@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 const ProfileTabs = () => {
   return (
     <div className="border border-top-0 border-start-0 border-end-0 mb-4">
-      <Nav variant="underline" defaultActiveKey="/home">
+      <Nav variant="underline" defaultActiveKey="/home" className="gap-5">
         <Nav.Item>
           <NavLink
             className={({ isActive }) =>
@@ -24,11 +24,24 @@ const ProfileTabs = () => {
                 ? "nav-link text-primary fw-bold"
                 : "nav-link text-secondary"
             }
-            to="/profile/photograph"
+            to="/profile/education"
           >
-            Photograph
+            Education/Training
           </NavLink>
         </Nav.Item>
+        <Nav.Item>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "nav-link text-primary fw-bold"
+                : "nav-link text-secondary"
+            }
+            to="/profile/employment"
+          >
+            Employment
+          </NavLink>
+        </Nav.Item>
+
         <Nav.Item>
           <NavLink
             className={({ isActive }) =>
@@ -39,6 +52,18 @@ const ProfileTabs = () => {
             to="/profile/other-info"
           >
             Other Information
+          </NavLink>
+        </Nav.Item>
+        <Nav.Item>
+          <NavLink
+            className={({ isActive }) =>
+              isActive
+                ? "nav-link text-primary fw-bold"
+                : "nav-link text-secondary"
+            }
+            to="/profile/photograph"
+          >
+            Photograph
           </NavLink>
         </Nav.Item>
       </Nav>
