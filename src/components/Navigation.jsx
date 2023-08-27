@@ -6,7 +6,9 @@ const Navigation = () => {
     <div>
       <Navbar className="bg-body-tertiary">
         <Container fluid>
-          <Navbar.Brand href="#home">Cv Builder</Navbar.Brand>
+          <Navbar.Brand href="#home" className="fw-bold">
+            Cv Builder
+          </Navbar.Brand>
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <span className="bg-white rounded-circle p-2 cursor-pointer d-flex align-items-center">
