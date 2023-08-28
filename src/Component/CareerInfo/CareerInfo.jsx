@@ -27,7 +27,7 @@ const CareerInfo = () => {
             Career and Application Information
           </Accordion.Header>
           <Accordion.Body>
-            <form onSubmit={onSubmit} action="">
+            <form onChange={onSubmit} action="">
               {/* Career objective */}
               <label htmlFor="careerObjective" className="text-black">
                 Career Objective <span className="text-danger">*</span>

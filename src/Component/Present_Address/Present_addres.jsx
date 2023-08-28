@@ -70,11 +70,11 @@ const Present_addres = () => {
               className="me-1 fs-2 fw-bold"
               onChange={(e) => setParmanet(e.target.value)}
               type="radio"
-              id="html"
-              name="fav_language"
+              id="Inside_P"
+              name="Inside_P"
               value="Inside-Bangladesh-parmanent"
             />
-            <label className="me-1 text-xl" htmlFor="html">
+            <label className="me-1 text-xl" htmlFor="Inside_P">
               Inside Bangladesh
             </label>
 
@@ -82,11 +82,11 @@ const Present_addres = () => {
               className="ms-1 me-1 fs-2 fw-bold"
               onChange={(e) => setParmanet(e.target.value)}
               type="radio"
-              id="css"
-              name="fav_language"
+              id="OutSide_p"
+              name="Inside_P"
               value="OutSide-Bangladesh-parnament"
             />
-            <label className="me-1 text-xl" htmlFor="css">
+            <label className="me-1 text-xl" htmlFor="OutSide_p">
               OutSide Bangladesh
             </label>
             <br></br>

@@ -1,11 +1,14 @@
-import React from 'react';
+import React from "react";
+import Experience from "./Experience";
+import ArmayPerson from "./ArmayPerson";
 
 const Employment = () => {
-    return (
-        <div>
-            <h1>This is Employment section </h1>
-        </div>
-    );
-}
+  return (
+    <div>
+      <Experience />
+      <ArmayPerson />
+    </div>
+  );
+};
 
 export default Employment;

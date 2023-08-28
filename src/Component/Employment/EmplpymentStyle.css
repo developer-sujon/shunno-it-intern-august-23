@@ -1,0 +1,148 @@
+/* .CompanyName input{
+    padding: 5px;
+    width: 40%;
+}
+.Designation input{
+    padding: 5px;
+    width: 40%;
+
+}
+
+ .EmploymentPeriodRow{
+    display: flex;
+ }
+
+ 
+.EmploymentPeriodLeft input{
+ margin-right: 20px;
+}
+
+ 
+.EmploymentPeriodRow input{
+    padding: 5px;
+   width:225px;
+   }
+.CompanyBusiness input{
+    padding: 5px;
+    width: 40%;
+}
+.Experience{
+    display: flex;
+} */
+
+.ExperienceLeft{
+    width: 50%;
+}
+
+.ExperienceRight{
+    width: 50%;
+}
+.Experience{
+    display: flex;
+}
+
+.CompanyName input{
+    padding: 5px;
+    width: 95%;
+}
+.Designation input{
+    padding: 5px;
+    width: 95%;
+
+}
+
+.EmploymentPeriodRow{
+    display: flex;
+ }
+
+  
+.EmploymentPeriodLeft input{
+    margin-right: 20px;
+   }
+
+
+.EmploymentPeriodRow input{
+    padding: 5px;
+   width:238px;
+   }
+
+.CompanyBusiness input{
+    padding: 5px;
+    width: 95%;
+}
+.Responsibilities textarea{
+    width: 98%;
+    height: 100px;
+}
+
+.CompanyLocation input{
+    width: 98%;
+    padding: 5px;
+}
+
+.ArmayPersonLeft{
+    width: 48%;
+    margin-right: 30px;
+}
+
+.ArmayPersonRight{
+    width: 48%;
+    
+}
+.ArmayPerson{
+    display: flex;
+}
+
+.BaNo1{
+    width: 150px;
+    margin-right: 30px;
+}
+
+.BANo{
+    display: flex;
+}
+
+.BANo2 input{
+    width: 300px;
+    padding: 7px;
+   
+}
+
+.Trade input{
+    width: 485px;
+    padding: 7px;
+}
+
+.DateCommission input{
+    width: 485px;
+    padding: 7px;
+}
+.Type{
+    width: 485px;
+}
+.Course input{
+    width: 500px;
+    padding: 7px;
+}
+.DateRetirement input{
+    width: 500px;
+    padding: 7px;
+}
+.Arms{
+    width: 500px;
+}
+
+.Ranks{
+    width: 500px;
+}
+
+.EmployeeType input{
+    margin-right: 5px;
+
+}
+
+
+.EmployeeType label{
+    margin-right: 10px;
+
+}

@@ -13,7 +13,7 @@ const RelatioveInfo = () => {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm();
+  } = useForm({defaultValues: {Keywords: "html Css javaScript"}});
 
   const onSubmit = (data) => {
     const Relevent_info = {
@@ -21,7 +21,7 @@ const RelatioveInfo = () => {
       special_sumary: spceial,
       keywords: data.Keywords,
     };
-    console.log(Relevent_info);
+    console.log(Relevent_info );
   };
 
   return (
@@ -31,12 +31,15 @@ const RelatioveInfo = () => {
           <Accordion.Header>Other Relavent Information</Accordion.Header>
           <Accordion.Body>
             <div className="">
-              <form onChange={handleSubmit(onSubmit)}>
+              <form onBlur={handleSubmit(onSubmit)}>
                 <div>
                   <label className="" htmlFor="">
                     Career Summary
                   </label>
                   <ReactQuill
+                    // {...register("career_sumaray", {
+                    //   required: "This is required feild",
+                    // })}
                     style={{height: "250px"}}
                     className="py-5"
                     theme="snow"
@@ -44,12 +47,20 @@ const RelatioveInfo = () => {
                     onChange={(e) => setCarrer(e)}
                   />
                 </div>
+                {errors?.career_sumaray && (
+                  <span className="text-danger">
+                    {errors?.career_sumaray.message}
+                  </span>
+                )}
 
                 <div className="mt-2">
                   <label className="" htmlFor="">
                     Special Qualification
                   </label>
                   <ReactQuill
+                  // {...register("Special_qulifi", {
+                  //   required: "This is required feild",
+                  // })}
                     style={{height: "250px"}}
                     className="py-5"
                     theme="snow"
@@ -57,6 +68,12 @@ const RelatioveInfo = () => {
                     onChange={(e) => setSpceial(e)}
                   />
                 </div>
+                {errors?.Special_qulifi && (
+                  <span className="text-danger">
+                    {errors?.Special_qulifi.message}
+                  </span>
+                )}
+                 <br />
 
                 <label className="mb-1 mt-2" htmlFor="disbility">
                   Keywords <span className="text-danger">*</span>

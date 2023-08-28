@@ -9,6 +9,33 @@ const Prefered = () => {
   const [value2, setValue2] = useState(null);
   const [value3, setValue3] = useState(null);
 
+  //  const valueMaxinum = () => {
+  //    if(value1?.length < 4){
+  //     return value1
+  //    }
+  //  }
+
+  // console.log(value1)
+
+  // const handleChange = (seletedOption) => {
+  //   // console.log(seletedOption);
+  //   if (value1?.length < 3) {
+  //     const value1Data = value1?.filter(
+  //       (data) => data.value !== seletedOption.value
+  //     );
+  //     setValue1(value1Data);
+  //   } 
+  //   else {
+  //     alert("maxium added 3 ");
+  //   }
+  // };
+  // const handleChange1 = (seletedOption) => {
+  //   console.log("handle1", seletedOption);
+  // };
+  // const handleChange2 = (seletedOption) => {
+  //   console.log("handle2", seletedOption);
+  // };
+
   const preferedData = {
     SkillCategory,
     specialCtegory: special,
@@ -41,24 +68,32 @@ const Prefered = () => {
   ];
 
   const skillCate = (e) => {
-    if (e.target.checked) {
-      setSkillCategory([...SkillCategory, e.target.value]);
+    if (SkillCategory.length < 3) {
+      if (e.target.checked) {
+        setSkillCategory([...SkillCategory, e.target.value]);
+      } else {
+        const filterSkill = SkillCategory.filter(
+          (skill) => skill != e.target.value
+        );
+        setSkillCategory(filterSkill);
+      }
     } else {
-      const filterSkill = SkillCategory.filter(
-        (skill) => skill != e.target.value
-      );
-      setSkillCategory(filterSkill);
+      alert("maxium added 3 skill");
     }
   };
+
   const specialCategory = (e) => {
-    if (e.target.checked) {
-      setSpecial([...special, e.target.value]);
+    if (special.length < 1) {
+      if (e.target.checked) {
+        setSpecial([...special, e.target.value]);
+      } else {
+        const filterSkill = special.filter((skill) => skill != e.target.value);
+        setSpecial(filterSkill);
+      }
     } else {
-      const filterSkill = special.filter((skill) => skill != e.target.value);
-      setSpecial(filterSkill);
+      alert(" special cateGory seleted 1");
     }
   };
-  console.log(SkillCategory, special);
 
   return (
     <div>
@@ -80,7 +115,7 @@ const Prefered = () => {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultValue=""
+                      checked={SkillCategory.includes("Accounting/Finance")}
                       value="Accounting/Finance"
                       id="Accounting/Finance"
                       onChange={(e) => skillCate(e)}
@@ -97,6 +132,9 @@ const Prefered = () => {
                       className="form-check-input"
                       type="checkbox"
                       defaultValue=""
+                      checked={SkillCategory.includes(
+                        "Bank/Non-Bank Fin. Institution"
+                      )}
                       onChange={(e) => skillCate(e)}
                       value="Bank/Non-Bank Fin. Institution"
                       id="flexCheckDefault"
@@ -113,6 +151,9 @@ const Prefered = () => {
                       className="form-check-input"
                       type="checkbox"
                       defaultValue=""
+                      checked={SkillCategory.includes(
+                        "Commercial/Supply Chain"
+                      )}
                       onChange={(e) => skillCate(e)}
                       value="Commercial/Supply Chain"
                       id="Commercial/SupplyChain"
@@ -130,6 +171,7 @@ const Prefered = () => {
                       type="checkbox"
                       onChange={(e) => skillCate(e)}
                       value="Education/Training"
+                      checked={SkillCategory.includes("Education/Training")}
                       id="Education/Training"
                     />
                     <label
@@ -146,6 +188,7 @@ const Prefered = () => {
                       defaultValue=""
                       onChange={(e) => skillCate(e)}
                       value="Engineer/Architect"
+                      checked={SkillCategory.includes("Engineer/Architect")}
                       id="Engineer/Architect"
                     />
                     <label
@@ -162,6 +205,7 @@ const Prefered = () => {
                       defaultValue=""
                       onChange={(e) => skillCate(e)}
                       value="Garments/Textile"
+                      checked={SkillCategory.includes("Garments/Textile")}
                       id="Garments/Textile"
                     />
                     <label
@@ -177,7 +221,10 @@ const Prefered = () => {
                       type="checkbox"
                       defaultValue=""
                       onChange={(e) => skillCate(e)}
-                      value=" General Management/Admin"
+                      value="General Management/Admin"
+                      checked={SkillCategory.includes(
+                        "General Management/Admin"
+                      )}
                       id=" GeneralManagement/Admin"
                     />
                     <label
@@ -193,7 +240,8 @@ const Prefered = () => {
                       type="checkbox"
                       defaultValue=""
                       onChange={(e) => skillCate(e)}
-                      value=" IT/Telecommunication"
+                      value="IT/Telecommunication"
+                      checked={SkillCategory.includes("IT/Telecommunication")}
                       id="IT/Telecommunication"
                     />
                     <label
@@ -213,6 +261,7 @@ const Prefered = () => {
                     type="checkbox"
                     defaultValue=""
                     value="ওয়েল্ডার"
+                    checked={special.includes("ওয়েল্ডার")}
                     id="wellding"
                     onChange={(e) => specialCategory(e)}
                   />
@@ -227,6 +276,7 @@ const Prefered = () => {
                     type="checkbox"
                     defaultValue=""
                     onChange={(e) => specialCategory(e)}
+                    checked={special.includes("স্যুইং মেশিন অপারেটর")}
                     value="স্যুইং মেশিন অপারেটর"
                     id="flexCheckDefault1"
                   />
@@ -267,6 +317,7 @@ const Prefered = () => {
                   defaultValue={value2}
                   onChange={setValue2}
                   className="mt-2"
+                  // defaultInputValue={[option2[0],option2[1]]}
                   options={option2}
                   isMulti
                 />
@@ -280,6 +331,7 @@ const Prefered = () => {
                 defaultValue={value3}
                 onChange={setValue3}
                 className="mt-2"
+                // defaultInputValue={[option3[0] option3[1].value]}
                 options={option3}
                 isMulti
               />
