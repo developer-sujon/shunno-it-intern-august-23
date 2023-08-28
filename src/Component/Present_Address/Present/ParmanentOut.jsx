@@ -8,7 +8,7 @@ const ParmanentOut = ({parmanent,setParmanetAddress}) => {
         handleSubmit,
         watch,
         formState: {errors},
-      } = useForm();
+      } = useForm({defaultValues:{House_no:'1122/55'}});
     
       const onSubmit = (data) => {
         const parmanentData = {

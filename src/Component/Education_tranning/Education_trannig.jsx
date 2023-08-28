@@ -1,9 +1,14 @@
 import React from 'react';
+import AcademeySummary from './AcademeySummary';
+import TraningSummary from './TraningSummary';
+import ProfesonalCertificate from './ProfesonalCertificate';
 
 const EducationTrannig = () => {
     return (
         <div>
-            <h1>Eduction and traning</h1>
+           <AcademeySummary/>
+           <TraningSummary/>
+           <ProfesonalCertificate/>
         </div>
     );
 }
