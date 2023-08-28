@@ -3,21 +3,23 @@ import { Accordion } from "react-bootstrap";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 
 const OtherInfo = () => {
-  const { control, register } = useForm();
+  const { control,handleSubmit, register } = useForm();
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
       control, // control props comes from useForm (optional: if you are using FormContext)
       name: "test", // unique name for your Field Array
     }
   );
-  let indexNum = 0;
-  const onSubmit = (data) => {
-    data.preventDefault();
+  const defaultValues = {
+
+  }
+  const onSubmitData = (data) => {
+    // data.preventDefault();
     console.log(data);
   };
   return (
     <div className="my-3">
-      <form onSubmit={onSubmit} className="">
+      <form onSubmit={handleSubmit(onSubmitData)} className="">
         <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>Specialization</Accordion.Header>
@@ -28,15 +30,15 @@ const OtherInfo = () => {
                   className="border-bottom border-3 border-primary pb-4 mb-4"
                 >
                   <label
-                    htmlFor={`skill${indexNum + 1}`}
+                    htmlFor='skill'
                     className="text-black mb-2"
                   >
                     Skill <span className="text-danger">*</span>
                   </label>
                   <input
-                    {...register(`skill${indexNum + 1}`)}
+                    {...register(`test.${index}.skill`)}
                     type="text"
-                    id={`skill${indexNum + 1}`}
+                    id='skill'
                     className="form-control"
                     placeholder="Skill"
                   />
@@ -48,26 +50,26 @@ const OtherInfo = () => {
                     <br />
                     <div className="d-flex gap-3 mt-2">
                       <div>
-                        <input type="radio" name="skill" value="Self" />
+                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Self" />
                         Self
                       </div>
                       <div>
-                        <input type="radio" name="skill" value="Job" /> Job
+                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Job" /> Job
                       </div>
                       <div>
-                        <input type="radio" name="skill" value="Educational" />{" "}
+                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Educational" />{" "}
                         Educational
                       </div>
                       <div>
                         <input
                           type="radio"
-                          name="skill"
+                          {...register(`test.${index}.skillWay`)}
                           value="Professional Training"
                         />{" "}
                         Professional Training
                       </div>
                       <div>
-                        <input type="radio" name="skill" value="NTVQF" /> NTVQF
+                        <input type="radio" {...register(`test.${index}.skillWay`)} value="NTVQF" /> NTVQF
                       </div>
                     </div>
                   </div>
@@ -81,7 +83,7 @@ const OtherInfo = () => {
                       Skill Description <span className="text-danger">*</span>
                     </label>
                     <textarea
-                      name=""
+                      {...register(`test.${index}.skillDescription`)}
                       id="skillDescription"
                       className="w-100 bg-light border p-3 rounded-2"
                     ></textarea>
@@ -95,7 +97,7 @@ const OtherInfo = () => {
                       <span className="text-danger">*</span>
                     </label>
                     <textarea
-                      name=""
+                      {...register(`test.${index}.extracurricularActivities`)}
                       id="extracurricularActivities"
                       className="w-100 bg-light border p-3 rounded-2"
                     ></textarea>
@@ -111,7 +113,7 @@ const OtherInfo = () => {
               ))}
               <button
                 type="button"
-                onClick={() => append({ firstName: "bill", lastName: "luo" })}
+                onClick={() => append()}
                 className="fs-2 fw-semibold bg-white border-0"
               >
                 Add Skill+
@@ -191,7 +193,7 @@ const OtherInfo = () => {
               ))}
               <button
                 type="button"
-                onClick={() => append({ Language: "Language", Reading: "Reading", Writing: "Writing", Speaking: "Speaking"})}
+                onClick={() => append()}
                 className="fs-2 fw-semibold bg-white border-0"
               >
                 Add Skill+
@@ -350,7 +352,7 @@ const OtherInfo = () => {
               ))}
               <button
                 type="button"
-                onClick={() => append({ firstName: "bill", lastName: "luo" })}
+                onClick={() => append()}
                 className="fs-2 fw-semibold bg-white border-0"
               >
                 Add Skill+
