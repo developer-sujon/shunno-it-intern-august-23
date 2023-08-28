@@ -4,6 +4,7 @@ import {useForm, useFieldArray} from "react-hook-form";
 
 const TraningSummary = () => {
   const [TraningSummary, setTraningSummary] = useState([])
+  console.log(TraningSummary);
     
   const DefaultValueTraning = {
     Traning_title: "Font-end-dev",

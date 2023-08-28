@@ -3,7 +3,7 @@ import {Accordion} from "react-bootstrap";
 import {useForm} from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-import {useQuill} from "react-quilljs";
+// import {useQuill} from "react-quilljs";
 
 const RelatioveInfo = () => {
   const [carrer, setCarrer] = useState("");
