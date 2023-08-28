@@ -9,7 +9,7 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
     handleSubmit,
     watch,
     formState: {errors},
-  } = useForm();
+  } = useForm({defaultValues:({House_no: '123/566'})});
 
   const onSubmit = (data) => {
     const parmanentData = {
@@ -65,6 +65,7 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
           {...register("House_no", {required: "Enter your house No"})}
           type="text"
           className="form-control"
+          defaultValue=''
           placeholder="Type your House No/rRoad/Village"
         />
         {errors?.House_no && (

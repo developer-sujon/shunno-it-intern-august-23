@@ -7,7 +7,7 @@ const DisabilityInfo = () => {
     register,
     handleSubmit,
     formState: {errors},
-  } = useForm();
+  } = useForm({defaultValues:{Disability_info:'2389023812038209'}});
 
   const onSubmit = (data) => {
     

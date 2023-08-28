@@ -8,7 +8,7 @@ const OutSide = ({present,setPresentAddress}) => {
     handleSubmit,
     watch,
     formState: {errors},
-  } = useForm();
+  } = useForm({defaultValues:{House_no:'122/55'}});
 
   const onSubmit = (data) => {
     const presentData = {
