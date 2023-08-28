@@ -113,31 +113,29 @@ const OtherInformation = () => {
                 </Form.Group>
               </Col>
               <Col md={6}>
-                <Form>
-                  <Form.Group className="mb-3">
-                    <Form.Label className="fw-medium">
-                      Reading<span className="text-danger">*</span>
-                    </Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>High</option>
-                      <option>Medium</option>
-                      <option>Secondary</option>
-                      <option>Low</option>
-                    </Form.Select>
-                  </Form.Group>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-medium">
+                    Reading<span className="text-danger">*</span>
+                  </Form.Label>
+                  <Form.Select aria-label="Default select example">
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Secondary</option>
+                    <option>Low</option>
+                  </Form.Select>
+                </Form.Group>
 
-                  <Form.Group className="mb-3">
-                    <Form.Label className="fw-medium">
-                      Speaking<span className="text-danger">*</span>
-                    </Form.Label>
-                    <Form.Select aria-label="Default select example">
-                      <option>High</option>
-                      <option>Medium</option>
-                      <option>Secondary</option>
-                      <option>Low</option>
-                    </Form.Select>
-                  </Form.Group>
-                </Form>
+                <Form.Group className="mb-3">
+                  <Form.Label className="fw-medium">
+                    Speaking<span className="text-danger">*</span>
+                  </Form.Label>
+                  <Form.Select aria-label="Default select example">
+                    <option>High</option>
+                    <option>Medium</option>
+                    <option>Secondary</option>
+                    <option>Low</option>
+                  </Form.Select>
+                </Form.Group>
               </Col>
             </Row>
             <button className="btn btn-danger px-4 my-4">

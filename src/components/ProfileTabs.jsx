@@ -9,7 +9,7 @@ const ProfileTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "nav-link text-primary fw-bold"
+                ? "nav-link text-primary fw-bold border-2 border-top-0 border-start-0 border-end-0 border-primary "
                 : "nav-link text-secondary"
             }
             to="/"
@@ -21,7 +21,7 @@ const ProfileTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "nav-link text-primary fw-bold"
+                ? "nav-link text-primary fw-bold border-2 border-top-0 border-start-0 border-end-0 border-primary "
                 : "nav-link text-secondary"
             }
             to="/profile/education"
@@ -33,7 +33,7 @@ const ProfileTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "nav-link text-primary fw-bold"
+                ? "nav-link text-primary fw-bold border-2 border-top-0 border-start-0 border-end-0 border-primary "
                 : "nav-link text-secondary"
             }
             to="/profile/employment"
@@ -46,7 +46,7 @@ const ProfileTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "nav-link text-primary fw-bold"
+                ? "nav-link text-primary fw-bold border-2 border-top-0 border-start-0 border-end-0 border-primary "
                 : "nav-link text-secondary"
             }
             to="/profile/other-info"
@@ -58,7 +58,7 @@ const ProfileTabs = () => {
           <NavLink
             className={({ isActive }) =>
               isActive
-                ? "nav-link text-primary fw-bold"
+                ? "nav-link text-primary fw-bold border-2 border-top-0 border-start-0 border-end-0 border-primary "
                 : "nav-link text-secondary"
             }
             to="/profile/photograph"

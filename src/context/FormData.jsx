@@ -11,13 +11,23 @@ const FormData = ({ children }) => {
     register,
     handleSubmit,
     watch,
+    setValue,
+    control,
     formState: { errors },
-  } = useForm();
+  } = useForm({ defaultValues: { addressCountry: "Bangladesh" } });
   // react hook-form submit event
   const onSubmit = (data) => console.log(data);
 
   // main data
-  const data = { onSubmit, register, handleSubmit, watch, errors };
+  const data = {
+    onSubmit,
+    register,
+    handleSubmit,
+    watch,
+    errors,
+    setValue,
+    control,
+  };
 
   return <FormContext.Provider value={data}>{children}</FormContext.Provider>;
 };
