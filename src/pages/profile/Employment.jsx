@@ -1,7 +1,14 @@
+import { Accordion } from "react-bootstrap";
+import EmploymentHistory from "../../components/Employment/EmploymentHistory";
+import EmploymentHistoryArmy from "../../components/Employment/EmploymentHistoryArmy";
+
 const Employment = () => {
   return (
     <div>
-      <h1>this is employment page</h1>
+      <Accordion defaultActiveKey="0">
+        <EmploymentHistory></EmploymentHistory>
+        <EmploymentHistoryArmy></EmploymentHistoryArmy>
+      </Accordion>
     </div>
   );
 };
