@@ -1,9 +1,20 @@
-import React, { useState } from "react";
-import { Accordion, Button } from "react-bootstrap";
-import { useForm, useFieldArray } from "react-hook-form";
-import { FaTimes } from "react-icons/fa";
+import React, {useState} from "react";
+import {Accordion, Button} from "react-bootstrap";
+import {useForm, useFieldArray} from "react-hook-form";
+import {FaTimes} from "react-icons/fa";
+import Department from "./Department";
 
 const Experience = () => {
+  const [Experiance , setExpreance] = useState({})
+
+  const [depart , setDepart] = useState({})
+  
+  const  Employment1 = {
+      Experiance : Experiance ,
+      depart : depart
+  }
+  console.log(Employment1)
+  
   const DataDefault = {
     CompanyName: "Shunno IT",
     Designation: "Software Engineer",
@@ -14,20 +25,20 @@ const Experience = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {errors},
     control,
   } = useForm({
     defaultValues: {
       Experience: [DataDefault],
     },
   });
-  const { fields, prepend, remove } = useFieldArray({
+  const {fields, prepend, remove} = useFieldArray({
     name: "Experience",
     control,
   });
 
   const onSubmitData = (data) => {
-    console.log(data);
+    setExpreance(data)
   };
 
   return (
@@ -42,8 +53,7 @@ const Experience = () => {
                 onClick={() => {
                   prepend(DataDefault);
                 }}
-                className="fs-2 border-0 bg-white"
-              >
+                className="fs-2 border-0 bg-white">
                 +
               </button>
             </p>
@@ -120,12 +130,20 @@ const Experience = () => {
                       </div>
                     </div>
                     <br />
+
+
+                    <div>
+                     <Department Experiance={Experiance} setDepart={setDepart}></Department>
+                    </div>
+
+
                     <div className="Responsibilities">
                       <label>Responsibilities</label>
                       <br />
                       <textarea
-                        {...register(`Experience.${index}.Responsibilities`)}
-                      ></textarea>
+                        {...register(
+                          `Experience.${index}.Responsibilities`
+                        )}></textarea>
                     </div>
 
                     <div className="CompanyLocation">
@@ -139,8 +157,7 @@ const Experience = () => {
                     <br />
                     <Button
                       onClick={() => remove(index)}
-                      className="btn btn-danger mt-3"
-                    >
+                      className="btn btn-danger mt-3">
                       <FaTimes />
                     </Button>
                     <hr className="m-2" />
