@@ -1,7 +1,8 @@
-import { Accordion, Col, Row } from "react-bootstrap";
-import { useForm, useFieldArray } from "react-hook-form";
-import { Form } from "react-bootstrap";
+import { useContext } from "react";
+import { Accordion, Col, Form, Row } from "react-bootstrap";
+import { useFieldArray, useForm } from "react-hook-form";
 import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
+import { FormContext } from "../../context/FormData";
 
 const TrainingSummery = () => {
   const { control } = useForm({
@@ -11,6 +12,9 @@ const TrainingSummery = () => {
     control,
     name: "test",
   });
+
+  //Form Context
+  const { register } = useContext(FormContext);
   return (
     <div>
       <Accordion.Item eventKey="1">
@@ -33,14 +37,22 @@ const TrainingSummery = () => {
                       Training Title
                       <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" className="bg-light" />
+                    <Form.Control
+                      type="text"
+                      className="bg-light"
+                      {...register("0.Trainings.Title")}
+                    />
                   </Form.Group>
 
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">
                       Topics Covered
                     </Form.Label>
-                    <Form.Control type="text" className="bg-light" />
+                    <Form.Control
+                      type="text"
+                      className="bg-light"
+                      {...register("1.Trainings.Covered")}
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">
