@@ -5,7 +5,7 @@ import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 import { Accordion } from "react-bootstrap";
 
-const PersonalDetails = () => {
+const PersonalDetails = ({setPersonal}) => {
   const [value2, setValue2] = useState();
   const [value3, setValue3] = useState();
   const [value4, setValue4] = useState();
@@ -28,7 +28,7 @@ const PersonalDetails = () => {
     formState: { errors },
   } = useForm(value);
   const onSubmit = (data) => {
-    console.log(data);
+    setPersonal(data)
   };
 
   return (
@@ -37,7 +37,7 @@ const PersonalDetails = () => {
         <Accordion.Item eventKey="0">
           <Accordion.Header>Personal Details</Accordion.Header>
           <Accordion.Body>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onBlur={handleSubmit(onSubmit)}>
               <div className="MainDiv">
                 <div className="ColumnLeft">
                   <div className="FirstName">
@@ -256,7 +256,6 @@ const PersonalDetails = () => {
                   </div>
                 </div>
               </div>
-              <button>Submit</button>
             </form>
           </Accordion.Body>
         </Accordion.Item>

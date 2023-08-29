@@ -22,13 +22,13 @@ const ArmayPerson = () => {
 
   return (
     <section>
-      <Accordion defaultActiveKey="0">
+      <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             Employment History(For Retired ArmayPerson)
           </Accordion.Header>
           <Accordion.Body>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onBlur={handleSubmit(onSubmit)}>
               <div className="ArmayPerson">
                 <div className="ArmayPersonLeft">
                   <div className="BANo">
@@ -125,7 +125,6 @@ const ArmayPerson = () => {
               </div>
               <br></br>
               <br></br>
-              <button>Submit</button>
             </form>
           </Accordion.Body>
         </Accordion.Item>

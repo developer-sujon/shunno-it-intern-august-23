@@ -5,19 +5,13 @@ import OutSide from "./Present/OutSide";
 import ParmanentIn from "./Present/parmanentIn";
 import ParmanentOut from "./Present/ParmanentOut";
 
-const Present_addres = () => {
+const Present_addres = ({setAddressField}) => {
   const [present, setPresent] = useState("");
   const [parmanent, setParmanet] = useState("");
   const [PresentAddress, setPresentAddress] = useState({});
   const [ParmanentAddress, setParmanetAddress] = useState({});  
 
-  const AddressDetails = {
-      presentAddressIs : PresentAddress ,
-      parmanetAddressIs  :  ParmanentAddress ,
-  }
-
-  console.log(AddressDetails)
-
+  setAddressField(PresentAddress, ParmanentAddress)
 
   return (
     <div className="my-3">

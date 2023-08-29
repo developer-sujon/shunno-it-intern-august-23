@@ -1,20 +1,15 @@
 import React from "react";
-import { Accordion } from "react-bootstrap";
-import { Controller, useFieldArray, useForm } from "react-hook-form";
+import {Accordion} from "react-bootstrap";
+import {Controller, useFieldArray, useForm} from "react-hook-form";
 
 const OtherInfo = () => {
-  const { control,handleSubmit, register } = useForm();
-  const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
-    {
-      control, 
-      name: "test",
-    }
-  );
-  const defaultValues = {
-
-  }
+  const {control, handleSubmit, register} = useForm();
+  const {fields, append, prepend, remove, swap, move, insert} = useFieldArray({
+    control,
+    name: "test",
+  });
+  const defaultValues = {};
   const onSubmitData = (data) => {
-    // data.preventDefault();
     console.log(data);
   };
   return (
@@ -27,18 +22,14 @@ const OtherInfo = () => {
               {fields.map((item, index) => (
                 <div
                   key={item.id}
-                  className="border-bottom border-3 border-primary pb-4 mb-4"
-                >
-                  <label
-                    htmlFor='skill'
-                    className="text-black mb-2"
-                  >
+                  className="border-bottom border-3 border-primary pb-4 mb-4">
+                  <label htmlFor="skill" className="text-black mb-2">
                     Skill <span className="text-danger">*</span>
                   </label>
                   <input
                     {...register(`test.${index}.skill`)}
                     type="text"
-                    id='skill'
+                    id="skill"
                     className="form-control"
                     placeholder="Skill"
                   />
@@ -50,14 +41,27 @@ const OtherInfo = () => {
                     <br />
                     <div className="d-flex gap-3 mt-2">
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Self" />
+                        <input
+                          type="radio"
+                          {...register(`test.${index}.skillWay`)}
+                          value="Self"
+                        />
                         Self
                       </div>
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Job" /> Job
+                        <input
+                          type="radio"
+                          {...register(`test.${index}.skillWay`)}
+                          value="Job"
+                        />{" "}
+                        Job
                       </div>
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Educational" />{" "}
+                        <input
+                          type="radio"
+                          {...register(`test.${index}.skillWay`)}
+                          value="Educational"
+                        />{" "}
                         Educational
                       </div>
                       <div>
@@ -69,7 +73,12 @@ const OtherInfo = () => {
                         Professional Training
                       </div>
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="NTVQF" /> NTVQF
+                        <input
+                          type="radio"
+                          {...register(`test.${index}.skillWay`)}
+                          value="NTVQF"
+                        />{" "}
+                        NTVQF
                       </div>
                     </div>
                   </div>
@@ -85,28 +94,24 @@ const OtherInfo = () => {
                     <textarea
                       {...register(`test.${index}.skillDescription`)}
                       id="skillDescription"
-                      className="w-100 bg-light border p-3 rounded-2"
-                    ></textarea>
+                      className="w-100 bg-light border p-3 rounded-2"></textarea>
                   </div>
                   <div className="my-3">
                     <label
                       htmlFor="extracurricularActivities"
-                      className="text-black"
-                    >
+                      className="text-black">
                       Extracurricular Activities{" "}
                       <span className="text-danger">*</span>
                     </label>
                     <textarea
                       {...register(`test.${index}.extracurricularActivities`)}
                       id="extracurricularActivities"
-                      className="w-100 bg-light border p-3 rounded-2"
-                    ></textarea>
+                      className="w-100 bg-light border p-3 rounded-2"></textarea>
                   </div>
                   <button
                     className="btn btn-danger px-4"
                     type="button"
-                    onClick={() => remove(index)}
-                  >
+                    onClick={() => remove(index)}>
                     (-)
                   </button>
                 </div>
@@ -114,8 +119,7 @@ const OtherInfo = () => {
               <button
                 type="button"
                 onClick={() => append()}
-                className="fs-2 fw-semibold bg-white border-0"
-              >
+                className="fs-2 fw-semibold bg-white border-0">
                 Add Skill+
               </button>
             </Accordion.Body>
@@ -129,14 +133,12 @@ const OtherInfo = () => {
               {fields.map((item, index) => (
                 <div
                   key={item.id}
-                  className="border-bottom border-3 border-primary pb-4 mb-4"
-                >
+                  className="border-bottom border-3 border-primary pb-4 mb-4">
                   <div className="row mb-4 g-3">
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="Language"
-                        className="text-black mb-2 fw-semibold"
-                      >
+                        className="text-black mb-2 fw-semibold">
                         Language <span className="text-danger">*</span>
                       </label>
                       <input
@@ -160,7 +162,7 @@ const OtherInfo = () => {
                     </div>
                     <div className="col-12 col-lg-6">
                       <label htmlFor="Writing" className="text-black mb-2">
-                      Writing <span className="text-danger">*</span>
+                        Writing <span className="text-danger">*</span>
                       </label>
                       <select {...register("Writing")} className="form-control">
                         <option value="High">High</option>
@@ -173,7 +175,9 @@ const OtherInfo = () => {
                       <label htmlFor="Speaking" className="text-black mb-2">
                         Speaking <span className="text-danger">*</span>
                       </label>
-                      <select {...register("Speaking")} className="form-control">
+                      <select
+                        {...register("Speaking")}
+                        className="form-control">
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Secondary">Secondary</option>
@@ -185,8 +189,7 @@ const OtherInfo = () => {
                   <button
                     className="btn btn-danger px-4"
                     type="button"
-                    onClick={() => remove(index)}
-                  >
+                    onClick={() => remove(index)}>
                     (-)
                   </button>
                 </div>
@@ -194,8 +197,7 @@ const OtherInfo = () => {
               <button
                 type="button"
                 onClick={() => append()}
-                className="fs-2 fw-semibold bg-white border-0"
-              >
+                className="fs-2 fw-semibold bg-white border-0">
                 Add Skill+
               </button>
             </Accordion.Body>
@@ -209,14 +211,12 @@ const OtherInfo = () => {
               {fields.map((item, index) => (
                 <div
                   key={item.id}
-                  className="border-bottom border-3 border-primary pb-4 mb-4"
-                >
+                  className="border-bottom border-3 border-primary pb-4 mb-4">
                   <div className="row mb-4 g-4">
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="ReferenceName"
-                        className="text-black mb-2 fw-semibold"
-                      >
+                        className="text-black mb-2 fw-semibold">
                         Reference Name <span className="text-danger">*</span>
                       </label>
                       <input
@@ -230,9 +230,9 @@ const OtherInfo = () => {
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="ReferenceDesignation"
-                        className="text-black mb-2 fw-semibold"
-                      >
-                        Reference Designation <span className="text-danger">*</span>
+                        className="text-black mb-2 fw-semibold">
+                        Reference Designation{" "}
+                        <span className="text-danger">*</span>
                       </label>
                       <input
                         {...register("ReferenceDesignation")}
@@ -245,9 +245,9 @@ const OtherInfo = () => {
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="ReferenceOrganization"
-                        className="text-black mb-2 fw-semibold"
-                      >
-                        Reference Organization <span className="text-danger">*</span>
+                        className="text-black mb-2 fw-semibold">
+                        Reference Organization{" "}
+                        <span className="text-danger">*</span>
                       </label>
                       <input
                         {...register("ReferenceOrganization")}
@@ -260,8 +260,7 @@ const OtherInfo = () => {
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="ReferenceEmail"
-                        className="text-black mb-2 fw-semibold"
-                      >
+                        className="text-black mb-2 fw-semibold">
                         Reference Email <span className="text-danger">*</span>
                       </label>
                       <input
@@ -273,10 +272,14 @@ const OtherInfo = () => {
                       />
                     </div>
                     <div className="col-12 col-lg-6">
-                      <label htmlFor="Reading" className="text-black mb-2 fw-semibold">
+                      <label
+                        htmlFor="Reading"
+                        className="text-black mb-2 fw-semibold">
                         Relation <span className="text-danger">*</span>
                       </label>
-                      <select {...register("Relation")} className="form-control">
+                      <select
+                        {...register("Relation")}
+                        className="form-control">
                         <option value="Relative">Relative</option>
                         <option value="Family Friend">Family Friend</option>
                         <option value="Academic">Academic</option>
@@ -287,8 +290,7 @@ const OtherInfo = () => {
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="ReferenceMobile"
-                        className="text-black mb-2 fw-semibold"
-                      >
+                        className="text-black mb-2 fw-semibold">
                         Reference Mobile <span className="text-danger">*</span>
                       </label>
                       <input
@@ -302,8 +304,7 @@ const OtherInfo = () => {
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="phoneOff"
-                        className="text-black mb-2 fw-semibold"
-                      >
+                        className="text-black mb-2 fw-semibold">
                         Phone (Off) <span className="text-danger">*</span>
                       </label>
                       <input
@@ -317,8 +318,7 @@ const OtherInfo = () => {
                     <div className="col-12 col-lg-6">
                       <label
                         htmlFor="phoneRes"
-                        className="text-black mb-2 fw-semibold"
-                      >
+                        className="text-black mb-2 fw-semibold">
                         Phone (Res) <span className="text-danger">*</span>
                       </label>
                       <input
@@ -337,15 +337,13 @@ const OtherInfo = () => {
                     <textarea
                       name=""
                       id="skillDescription"
-                      className="w-100 bg-light border p-3 rounded-2"
-                    ></textarea>
+                      className="w-100 bg-light border p-3 rounded-2"></textarea>
                   </div>
 
                   <button
                     className="btn btn-danger px-4"
                     type="button"
-                    onClick={() => remove(index)}
-                  >
+                    onClick={() => remove(index)}>
                     (-)
                   </button>
                 </div>
@@ -353,8 +351,7 @@ const OtherInfo = () => {
               <button
                 type="button"
                 onClick={() => append()}
-                className="fs-2 fw-semibold bg-white border-0"
-              >
+                className="fs-2 fw-semibold bg-white border-0">
                 Add Skill+
               </button>
             </Accordion.Body>

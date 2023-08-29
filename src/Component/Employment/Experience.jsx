@@ -8,7 +8,7 @@ const Experience = () => {
   const [Experiance , setExpreance] = useState({})
 
   const [depart , setDepart] = useState({})
-  
+
   const  Employment1 = {
       Experiance : Experiance ,
       depart : depart
@@ -43,7 +43,7 @@ const Experience = () => {
 
   return (
     <section>
-      <Accordion>
+      <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header>Employment History</Accordion.Header>
           <Accordion.Body>

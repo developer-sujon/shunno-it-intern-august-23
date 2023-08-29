@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {Accordion} from "react-bootstrap";
 import Select from "react-select";
 
-const Prefered = () => {
+const Prefered = ({setPrefered}) => {
   const [SkillCategory, setSkillCategory] = useState([]);
   const [special, setSpecial] = useState([]);
   const [value1, setValue1] = useState(null);
@@ -43,8 +43,9 @@ const Prefered = () => {
     outside_bangladesh: value2,
     Prefered_type: value3,
   };
+  // setPrefered(preferedData)
 
-  console.log(preferedData);
+
 
   const option = [
     {value: "Dhaka", label: "Dhaka"},
@@ -68,31 +69,41 @@ const Prefered = () => {
   ];
 
   const skillCate = (e) => {
-    if (SkillCategory.length < 3) {
+
+   
       if (e.target.checked) {
-        setSkillCategory([...SkillCategory, e.target.value]);
-      } else {
+        if(SkillCategory.length < 3){
+          setSkillCategory([...SkillCategory, e.target.value]);
+        }
+        else{
+           alert('maxium added 3 Skill')
+        }
+      } 
+      else {
         const filterSkill = SkillCategory.filter(
           (skill) => skill != e.target.value
         );
         setSkillCategory(filterSkill);
       }
-    } else {
-      alert("maxium added 3 skill");
-    }
+    
+
   };
 
   const specialCategory = (e) => {
-    if (special.length < 1) {
+
       if (e.target.checked) {
-        setSpecial([...special, e.target.value]);
-      } else {
+        if(special.length < 1){
+          setSpecial([...special, e.target.value]);
+        }
+
+        else {
+          alert(" special cateGory seleted 1");
+        }
+      } 
+      else {
         const filterSkill = special.filter((skill) => skill != e.target.value);
         setSpecial(filterSkill);
       }
-    } else {
-      alert(" special cateGory seleted 1");
-    }
   };
 
   return (
@@ -131,12 +142,11 @@ const Prefered = () => {
                     <input
                       className="form-check-input"
                       type="checkbox"
-                      defaultValue=""
+                      defaultValue="Bank/Non-Bank Fin. Institution"
                       checked={SkillCategory.includes(
                         "Bank/Non-Bank Fin. Institution"
                       )}
                       onChange={(e) => skillCate(e)}
-                      value="Bank/Non-Bank Fin. Institution"
                       id="flexCheckDefault"
                     />
                     <label

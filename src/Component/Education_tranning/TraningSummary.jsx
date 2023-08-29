@@ -2,10 +2,7 @@ import React, {useState} from "react";
 import {Accordion, Button} from "react-bootstrap";
 import {useForm, useFieldArray} from "react-hook-form";
 
-const TraningSummary = () => {
-  const [TraningSummary, setTraningSummary] = useState([])
-  console.log(TraningSummary);
-    
+const TraningSummary = ({setTraning}) => {
   const DefaultValueTraning = {
     Traning_title: "Font-end-dev",
     Topic_cover: "HTML , CSS , JAVASCRIPT",
@@ -29,7 +26,7 @@ const TraningSummary = () => {
     control,
   });
   const onSubmitData = (data) => {
-    setTraningSummary(data);
+    setTraning(data);
   };
   return (
     <div className="my-2">

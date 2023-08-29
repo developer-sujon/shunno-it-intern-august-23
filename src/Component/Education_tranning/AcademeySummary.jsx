@@ -2,10 +2,8 @@ import React, {useState} from "react";
 import {Accordion, Button} from "react-bootstrap";
 import {useForm, useFieldArray} from "react-hook-form";
 
-const AcademeySummary = () => {
-  const [AcademeySummaryDAta, setAcademeyData] = useState([]);
-
-  console.log(AcademeySummaryDAta);
+const AcademeySummary = ({setAcademey}) => {
+  
 
   const DataDefault = {
     LevelEducation: "SSC",
@@ -34,7 +32,7 @@ const AcademeySummary = () => {
   });
 
   const onSubmitData = (data) => {
-    setAcademeyData(data);
+    setAcademey(data);
   };
 
   return (

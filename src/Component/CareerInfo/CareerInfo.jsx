@@ -9,7 +9,7 @@ import Editor from "./Editor";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-const CareerInfo = () => {
+const CareerInfo = ({setCarrerInfo}) => {
   const [value, setValue] = useState("");
   const {
     register,
@@ -17,8 +17,10 @@ const CareerInfo = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
-  // console.log(value)
+  const onSubmit = (data) => {
+    setCarrerInfo(data)
+  };
+  
   return (
     <div className="my-3">
       <Accordion>
