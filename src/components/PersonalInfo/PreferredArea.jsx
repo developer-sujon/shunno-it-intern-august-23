@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { Accordion, Col, Form, Row } from "react-bootstrap";
 import { FormContext } from "../../context/FormData";
 import { Controller } from "react-hook-form";
-import Select from "react-select/dist/declarations/src/Select";
+import Select from "react-select";
 import useDistrictList from "../../hooks/useDistrictList";
 
 const PreferredArea = () => {
