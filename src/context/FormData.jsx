@@ -22,6 +22,9 @@ const FormData = ({ children }) => {
         fatherName: "Father Name",
         motherName: "Mother Name",
         dob: "01-01-2000",
+        gender: "male",
+      },
+      Education: {
         LevelEducation: "SSC",
         Major_group: "Science",
         ExamTitle: "HSC",
