@@ -5,9 +5,24 @@ import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
 import { FormContext } from "../../context/FormData";
 
 const TrainingSummery = () => {
+  //Default Value
+  const DataDefault = {
+    LevelOfEducation: "SSC",
+    Major_group: "Science",
+    ExamTitle: "HSC",
+    Borad: "Dhaka",
+    Institute_name: "Tangail polytechinc",
+    result: "Grade",
+    Duration_Year: "4 year",
+    passingYear: "2002",
+    Achievement: "Good Achievement",
+  };
   const { control } = useForm({
-    // defaultValues: {}; you can populate the fields by this attribute
+    defaultValues: {
+      Trainings: [DataDefault],
+    },
   });
+
   const { fields, append, remove } = useFieldArray({
     control,
     name: "test",
