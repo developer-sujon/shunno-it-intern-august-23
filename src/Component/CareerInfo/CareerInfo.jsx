@@ -87,13 +87,13 @@ const CareerInfo = () => {
                   <br />
                   <input
                     type="radio"
-                    name="jobLevel"
+                    {...register("jobLevel")}
                     value="Entry Level"
                   />{" "}
                   Entry Level
-                  <input type="radio" name="jobLevel" value="Mid Level" /> Mid
+                  <input type="radio" {...register("jobLevel")} value="Mid Level" /> Mid
                   Level
-                  <input type="radio" name="jobLevel" value="Top Level" /> Top
+                  <input type="radio" {...register("jobLevel")} value="Top Level" /> Top
                   Level
                 </div>
 
@@ -117,19 +117,19 @@ const CareerInfo = () => {
                     </span>
                   )}
                   <p>TK/Month</p>
-                  <label htmlFor="jobLevel" className="mt-1">
+                  <label htmlFor="" className="mt-1">
                     Available for (Job Nature)
                   </label>
                   <br />
-                  <input type="radio" name="jobLevel" value="Full Time" /> Full
+                  <input type="radio" {...register("jobNature")} value="Full Time" /> Full
                   time
-                  <input type="radio" name="jobLevel" value="Part Time" /> Part
+                  <input type="radio" {...register("jobNature")} value="Part Time" /> Part
                   time
-                  <input type="radio" name="jobLevel" value="Contract" />{" "}
+                  <input type="radio" {...register("jobNature")} value="Contract" />{" "}
                   Contract
-                  <input type="radio" name="jobLevel" value="Internship" />{" "}
+                  <input type="radio" {...register("jobNature")} value="Internship" />{" "}
                   Internship
-                  <input type="radio" name="jobLevel" value="Freelance" />{" "}
+                  <input type="radio" {...register("jobNature")} value="Freelance" />{" "}
                   Freelance
                 </div>
               </div>
