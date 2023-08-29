@@ -1,26 +1,50 @@
 import React from "react";
 import { Accordion } from "react-bootstrap";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
+import Specialization from "./Specialization";
+import Language from "./Language";
+import Reference from "./Reference";
 
 const OtherInfo = () => {
-  const { control,handleSubmit, register } = useForm();
+  const values = {
+    defaultValues: {
+      Language: "English",
+      Reading: "Medium",
+      ReferenceDesignation: "Senior Developer",
+      ReferenceEmail: "abc@gmail.com",
+      ReferenceMobile: "+880333211111",
+      ReferenceName: "Mr. Fahim Ali",
+      ReferenceOrganization: "Shunno It",
+      Relation: "Brother",
+      Speaking: "High",
+      Writing: "Medium",
+      phoneOff: '3992032093',
+      phoneRes: '2213444544',
+      otherInfo:[
+        {
+          extracurricularActivities: "Problem Solving",
+          skill: "Angular",
+          skillDescription: "Write something",
+          skillWay: 'Self'
+        }
+      ]
+    },
+  };
+  const { control, handleSubmit, register } = useForm(values);
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
       control, // control props comes from useForm (optional: if you are using FormContext)
-      name: "test", // unique name for your Field Array
+      name: "otherInfo", // unique name for your Field Array
     }
   );
-  const defaultValues = {
-
-  }
   const onSubmitData = (data) => {
     // data.preventDefault();
     console.log(data);
   };
   return (
     <div className="my-3">
-      <form onSubmit={handleSubmit(onSubmitData)} className="">
-        <Accordion defaultActiveKey="0">
+      {/* <form onSubmit={handleSubmit(onSubmitData)} className=""> */}
+        {/* <Accordion defaultActiveKey="0">
           <Accordion.Item eventKey="0">
             <Accordion.Header>Specialization</Accordion.Header>
             <Accordion.Body>
@@ -29,18 +53,14 @@ const OtherInfo = () => {
                   key={item.id}
                   className="border-bottom border-3 border-primary pb-4 mb-4"
                 >
-                  <label
-                    htmlFor='skill'
-                    className="text-black mb-2"
-                  >
+                  <label htmlFor="skill" className="text-black mb-2">
                     Skill <span className="text-danger">*</span>
                   </label>
                   <input
-                    {...register(`test.${index}.skill`)}
+                    {...register(`otherInfo.${index}.skill`)}
                     type="text"
-                    id='skill'
+                    id="skill"
                     className="form-control"
-                    placeholder="Skill"
                   />
                   <div className="my-4">
                     <label htmlFor="skill" className="mt-1">
@@ -50,40 +70,48 @@ const OtherInfo = () => {
                     <br />
                     <div className="d-flex gap-3 mt-2">
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Self" />
+                        <input
+                          type="radio"
+                          {...register(`otherInfo.${index}.skillWay`)}
+                        />
                         Self
                       </div>
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Job" /> Job
+                        <input
+                          type="radio"
+                          {...register(`otherInfo.${index}.skillWay`)}
+                        />{" "}
+                        Job
                       </div>
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="Educational" />{" "}
+                        <input
+                          type="radio"
+                          {...register(`otherInfo.${index}.skillWay`)}
+                        />{" "}
                         Educational
                       </div>
                       <div>
                         <input
                           type="radio"
-                          {...register(`test.${index}.skillWay`)}
-                          value="Professional Training"
+                          {...register(`otherInfo.${index}.skillWay`)}
                         />{" "}
                         Professional Training
                       </div>
                       <div>
-                        <input type="radio" {...register(`test.${index}.skillWay`)} value="NTVQF" /> NTVQF
+                        <input
+                          type="radio"
+                          {...register(`otherInfo.${index}.skillWay`)}
+                        />{" "}
+                        NTVQF
                       </div>
                     </div>
                   </div>
-                  {/* <Controller
-                      render={({ field }) => <input {...field} />}
-                      name={`test.${index}.lastName`}
-                      control={control}
-                    /> */}
                   <div>
                     <label htmlFor="skillDescription" className="text-black">
                       Skill Description <span className="text-danger">*</span>
                     </label>
                     <textarea
-                      {...register(`test.${index}.skillDescription`)}
+                      {...register(`otherInfo.${index}.skillDescription`)}
                       id="skillDescription"
                       className="w-100 bg-light border p-3 rounded-2"
                     ></textarea>
@@ -97,7 +125,9 @@ const OtherInfo = () => {
                       <span className="text-danger">*</span>
                     </label>
                     <textarea
-                      {...register(`test.${index}.extracurricularActivities`)}
+                      {...register(
+                        `otherInfo.${index}.extracurricularActivities`
+                      )}
                       id="extracurricularActivities"
                       className="w-100 bg-light border p-3 rounded-2"
                     ></textarea>
@@ -120,9 +150,10 @@ const OtherInfo = () => {
               </button>
             </Accordion.Body>
           </Accordion.Item>
-        </Accordion>
+        </Accordion> */}
+        <Specialization></Specialization>
 
-        <Accordion>
+        {/* <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>Language Proficiency</Accordion.Header>
             <Accordion.Body>
@@ -144,7 +175,6 @@ const OtherInfo = () => {
                         type="text"
                         id="Language"
                         className="form-control"
-                        placeholder="Language"
                       />
                     </div>
                     <div className="col-12 col-lg-6">
@@ -160,7 +190,7 @@ const OtherInfo = () => {
                     </div>
                     <div className="col-12 col-lg-6">
                       <label htmlFor="Writing" className="text-black mb-2">
-                      Writing <span className="text-danger">*</span>
+                        Writing <span className="text-danger">*</span>
                       </label>
                       <select {...register("Writing")} className="form-control">
                         <option value="High">High</option>
@@ -173,7 +203,10 @@ const OtherInfo = () => {
                       <label htmlFor="Speaking" className="text-black mb-2">
                         Speaking <span className="text-danger">*</span>
                       </label>
-                      <select {...register("Speaking")} className="form-control">
+                      <select
+                        {...register("Speaking")}
+                        className="form-control"
+                      >
                         <option value="High">High</option>
                         <option value="Medium">Medium</option>
                         <option value="Secondary">Secondary</option>
@@ -196,13 +229,14 @@ const OtherInfo = () => {
                 onClick={() => append()}
                 className="fs-2 fw-semibold bg-white border-0"
               >
-                Add Skill+
+                Add Language+
               </button>
             </Accordion.Body>
           </Accordion.Item>
-        </Accordion>
+        </Accordion> */}
+        <Language></Language>
 
-        <Accordion>
+        {/* <Accordion>
           <Accordion.Item eventKey="0">
             <Accordion.Header>References</Accordion.Header>
             <Accordion.Body>
@@ -232,7 +266,8 @@ const OtherInfo = () => {
                         htmlFor="ReferenceDesignation"
                         className="text-black mb-2 fw-semibold"
                       >
-                        Reference Designation <span className="text-danger">*</span>
+                        Reference Designation{" "}
+                        <span className="text-danger">*</span>
                       </label>
                       <input
                         {...register("ReferenceDesignation")}
@@ -247,7 +282,8 @@ const OtherInfo = () => {
                         htmlFor="ReferenceOrganization"
                         className="text-black mb-2 fw-semibold"
                       >
-                        Reference Organization <span className="text-danger">*</span>
+                        Reference Organization{" "}
+                        <span className="text-danger">*</span>
                       </label>
                       <input
                         {...register("ReferenceOrganization")}
@@ -273,10 +309,16 @@ const OtherInfo = () => {
                       />
                     </div>
                     <div className="col-12 col-lg-6">
-                      <label htmlFor="Reading" className="text-black mb-2 fw-semibold">
+                      <label
+                        htmlFor="Reading"
+                        className="text-black mb-2 fw-semibold"
+                      >
                         Relation <span className="text-danger">*</span>
                       </label>
-                      <select {...register("Relation")} className="form-control">
+                      <select
+                        {...register("Relation")}
+                        className="form-control"
+                      >
                         <option value="Relative">Relative</option>
                         <option value="Family Friend">Family Friend</option>
                         <option value="Academic">Academic</option>
@@ -355,15 +397,17 @@ const OtherInfo = () => {
                 onClick={() => append()}
                 className="fs-2 fw-semibold bg-white border-0"
               >
-                Add Skill+
+                Add Reference+
               </button>
             </Accordion.Body>
           </Accordion.Item>
-        </Accordion>
-        <button type="submit" className="btn btn-primary fs-5 px-3 mt-2">
+        </Accordion> */}
+        <Reference></Reference>
+
+        {/* <button type="submit" className="btn btn-primary fs-5 px-3 mt-2">
           Update Profile
-        </button>
-      </form>
+        </button> */}
+      {/* </form> */}
     </div>
   );
 };

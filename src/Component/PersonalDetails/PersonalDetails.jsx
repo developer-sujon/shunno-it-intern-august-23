@@ -53,7 +53,7 @@ const PersonalDetails = () => {
                   </div>
 
                   <div className="FatherName">
-                    <label>Father's Name</label> <br></br>
+                    <label>Father&apos;s Name</label> <br></br>
                     <input
                       {...register("FatherName", {
                         required: "input field is required",
@@ -161,7 +161,7 @@ const PersonalDetails = () => {
                   </div>
 
                   <div className="MotherName">
-                    <label>Mother's Name</label>
+                    <label>Mother&apos;s Name</label>
                     <br></br>
                     <input
                       {...register("MotherName", {
