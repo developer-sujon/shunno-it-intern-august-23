@@ -1,35 +1,18 @@
 import { useContext } from "react";
 import { Accordion, Col, Form, Row } from "react-bootstrap";
-import { useFieldArray, useForm } from "react-hook-form";
+import { useFieldArray } from "react-hook-form";
 import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
 import { FormContext } from "../../context/FormData";
 
 const TrainingSummery = () => {
-  //Default Value
-  const DataDefault = {
-    LevelOfEducation: "SSC",
-    Major_group: "Science",
-    ExamTitle: "HSC",
-    Borad: "Dhaka",
-    Institute_name: "Tangail polytechinc",
-    result: "Grade",
-    Duration_Year: "4 year",
-    passingYear: "2002",
-    Achievement: "Good Achievement",
-  };
-  const { control } = useForm({
-    defaultValues: {
-      Trainings: [DataDefault],
-    },
-  });
+  //Form Context
+  const { register, control } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
+    name: "Trainings",
   });
 
-  //Form Context
-  const { register } = useContext(FormContext);
   return (
     <div>
       <Accordion.Item eventKey="1">
@@ -38,7 +21,7 @@ const TrainingSummery = () => {
           <button
             className="d-flex align-items-center gap-2 fw-bold mt-4 mb-5 border-0 bg-white fs-4"
             type="button"
-            onClick={() => append({ firstName: "bill", lastName: "luo" })}
+            onClick={() => append({})}
           >
             Add Training <AiOutlinePlus></AiOutlinePlus>
           </button>
@@ -55,7 +38,7 @@ const TrainingSummery = () => {
                     <Form.Control
                       type="text"
                       className="bg-light"
-                      {...register("0.Trainings.Title")}
+                      {...register(`Trainings.${index}.Title`)}
                     />
                   </Form.Group>
 
@@ -66,7 +49,7 @@ const TrainingSummery = () => {
                     <Form.Control
                       type="text"
                       className="bg-light"
-                      {...register("1.Trainings.Covered")}
+                      {...register(`Trainings.${index}.Covered`)}
                     />
                   </Form.Group>
                   <Form.Group className="mb-3">
@@ -74,11 +57,19 @@ const TrainingSummery = () => {
                       Institute
                       <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" className="bg-light" />
+                    <Form.Control
+                      type="text"
+                      className="bg-light"
+                      {...register(`Trainings.${index}.Institute`)}
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">Location</Form.Label>
-                    <Form.Control type="text" className="bg-light" />
+                    <Form.Control
+                      type="text"
+                      className="bg-light"
+                      {...register(`Trainings.${index}.Location`)}
+                    />
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -87,7 +78,11 @@ const TrainingSummery = () => {
                       Country
                       <span className="text-danger">*</span>
                     </Form.Label>
-                    <Form.Control type="text" className="bg-light" />
+                    <Form.Control
+                      type="text"
+                      className="bg-light"
+                      {...register(`Trainings.${index}.Country`)}
+                    />
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>
@@ -96,6 +91,7 @@ const TrainingSummery = () => {
                     <Form.Select
                       aria-label="Default select example"
                       className="bg-light"
+                      {...register(`Trainings.${index}.Year`)}
                     >
                       <option>2010</option>
                       <option>2012</option>
@@ -113,6 +109,7 @@ const TrainingSummery = () => {
                     <Form.Select
                       aria-label="Default select example"
                       className="bg-light"
+                      {...register(`Trainings.${index}.Duration`)}
                     >
                       <option>1 month</option>
                       <option>2 months</option>
