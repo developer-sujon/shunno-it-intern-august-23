@@ -1,16 +1,35 @@
 import { useContext } from "react";
 import { Accordion, Col, Form, Row } from "react-bootstrap";
-import { useFieldArray } from "react-hook-form";
+import { useFieldArray, useForm } from "react-hook-form";
 import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
 import { FormContext } from "../../context/FormData";
 
 const AcademicSummery = () => {
   //Form Context
   const { register, control } = useContext(FormContext);
+  //Default Value
+  const DataDefault = {
+    LevelOfEducation: "SSC",
+    Major_group: "Science",
+    ExamTitle: "HSC",
+    Borad: "Dhaka",
+    Institute_name: "Tangail polytechinc",
+    result: "Grade",
+    Duration_Year: "4 year",
+    passingYear: "2002",
+    Achievement: "Good Achievement",
+  };
 
+  const {
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      Educations: [DataDefault],
+    },
+  });
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
+    name: "Educations",
   });
 
   return (
@@ -28,6 +47,7 @@ const AcademicSummery = () => {
           {fields.map((item, index) => (
             <>
               <div key={item.id}>
+                {errors && <p className="text-danger">{errors}</p>}
                 <Row>
                   <Col md={6}>
                     <Form.Group className="mb-3">
@@ -38,7 +58,7 @@ const AcademicSummery = () => {
                       <Form.Select
                         aria-label="Default select example"
                         className="bg-light"
-                        {...register("[Educations.LevelOfEducation]")}
+                        {...register(`Educations.${index}.LevelEducation`)}
                       >
                         <option>PSC</option>
                         <option>JSC/JDC</option>
@@ -59,7 +79,7 @@ const AcademicSummery = () => {
                         type="text"
                         className="bg-light"
                         placeholder="Computer Science"
-                        {...register("[Educations.ConcentrationMajorGroup]")}
+                        {...register(`Educations.${index}.Major_group`)}
                       />
                     </Form.Group>
                   </Col>
@@ -71,7 +91,7 @@ const AcademicSummery = () => {
                       <Form.Select
                         aria-label="Default select example"
                         className="bg-light"
-                        {...register("[Educations.DegreeTitle]")}
+                        {...register(`Educations.${index}.ExamTitle`)}
                       >
                         <option>SSC</option>
                         <option>O level</option>
@@ -88,7 +108,7 @@ const AcademicSummery = () => {
                       <Form.Select
                         aria-label="Default select example"
                         className="bg-light"
-                        {...register("[Educations.Board]")}
+                        {...register(`Educations.${index}.Borad`)}
                       >
                         <option>Rajshahi</option>
                         <option>Dhaka</option>
@@ -114,7 +134,7 @@ const AcademicSummery = () => {
                   <Form.Control
                     type="text"
                     className="bg-light"
-                    {...register("[Educations.InstituteName]")}
+                    {...register(`Educations.${index}.Institute_name`)}
                   />
                 </Form.Group>
 
@@ -127,7 +147,7 @@ const AcademicSummery = () => {
                       <Form.Select
                         aria-label="Default select example"
                         className="bg-light"
-                        {...register("[Educations.Result]")}
+                        {...register(`Educations.${index}.result`)}
                       >
                         <option>First Division/class</option>
                         <option>Second Division/class</option>
@@ -146,7 +166,7 @@ const AcademicSummery = () => {
                       <Form.Control
                         type="text"
                         className="bg-light"
-                        {...register("[Educations.Duration]")}
+                        {...register(`Educations.${index}. Duration_Year`)}
                       />
                     </Form.Group>
                   </Col>
@@ -158,7 +178,7 @@ const AcademicSummery = () => {
                       <Form.Select
                         aria-label="Default select example"
                         className="bg-light"
-                        {...register("Educations.YearOfPassing")}
+                        {...register(`Educations.${index}. passingYear`)}
                       >
                         <option>2010</option>
                         <option>2012</option>
@@ -175,7 +195,7 @@ const AcademicSummery = () => {
                       <Form.Control
                         type="text"
                         className="bg-light"
-                        {...register("[Educations.Achievement]")}
+                        {...register(`Educations.${index}. Achievement`)}
                       />
                     </Form.Group>
                   </Col>

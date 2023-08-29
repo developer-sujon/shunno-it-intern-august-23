@@ -5,7 +5,16 @@ import { useForm } from "react-hook-form";
 
 // create context
 export const FormContext = createContext([]);
-
+const defaultValues = {
+  personalInfo: {
+    firstName: "Rasel",
+    lastName: "Mahmud",
+    fatherName: "Father Name",
+    motherName: "Mother Name",
+    dob: "01-01-2000",
+    gender: "male",
+  },
+};
 const FormData = ({ children }) => {
   const {
     register,
@@ -13,31 +22,10 @@ const FormData = ({ children }) => {
     watch,
     setValue,
     control,
+
     formState: { errors },
   } = useForm({
-    defaultValues: {
-      personalInfo: {
-        firstName: "Rasel",
-        lastName: "Mahmud",
-        fatherName: "Father Name",
-        motherName: "Mother Name",
-        dob: "01-01-2000",
-        gender: "Male",
-        religion: "Islam",
-        nationality: "Bangladesh",
-      },
-      Education: {
-        LevelEducation: "SSC",
-        Major_group: "Science",
-        ExamTitle: "HSC",
-        Borad: "Dhaka",
-        Institute_name: "Tangail polytechinc",
-        result: "Grade",
-        Duration_Year: "4 year",
-        passingYear: "2002",
-        Achievement: "Good Achievement",
-      },
-    },
+    defaultValues,
   });
   // react hook-form submit event
   const onSubmit = (data) => console.log(data);
