@@ -1,24 +1,31 @@
 import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { useForm } from "react-hook-form";
-import { FaLink } from "react-icons/fa";
-import { MdFormatListNumbered } from "react-icons/md";
-import { PiListBulletsBold } from "react-icons/pi";
-import { RxCross2 } from "react-icons/rx";
-import Editor from "./Editor";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
 const CareerInfo = () => {
-  const [value, setValue] = useState("");
+  const [text, setText] = useState("");
+  const [careerInfo, setCareerInfo] = useState();
+  const values = {
+    defaultValues: {
+      presentSalary: "18000",
+      expectedSalary: "22000",
+    },
+  };
   const {
-    register,
+    control,
     handleSubmit,
-    watch,
+    register,
     formState: { errors },
-  } = useForm();
-  const onSubmit = (data) => console.log(data);
-  // console.log(value)
+  } = useForm(values);
+  const onSubmit = (data) => {
+    // console.log(data);
+    console.log({...data, editText: text});
+    setCareerInfo({...data, editText: text});
+  };
+  // console.log(careerInfo);
+
   return (
     <div className="my-3">
       <Accordion>
@@ -27,38 +34,20 @@ const CareerInfo = () => {
             Career and Application Information
           </Accordion.Header>
           <Accordion.Body>
-            <form onChange={onSubmit} action="">
+            <form onBlur={handleSubmit(onSubmit)} action="">
               {/* Career objective */}
               <label htmlFor="careerObjective" className="text-black">
                 Career Objective <span className="text-danger">*</span>
               </label>
-              {/* <div className="border mt-2">
-              <div className="d-flex gap-3 align-items-center p-3 border-bottom">
-                <select {...register("textSize")}>
-                  <option value="normal">Normal</option>
-                  <option value="heading1">Heading 1</option>
-                  <option value="heading1">Heading 2</option>
-                  <option value="heading1">Heading 3</option>
-                </select>
-                <span className="fw-bold fs-5">B</span>
-                <span className="fw-bold fst-italic fs-5">I</span>
-                <span className="fw-bold text-decoration-underline fs-5">
-                  U
-                </span>
-                <FaLink></FaLink>
-                <MdFormatListNumbered className="fs-5 fw-bold"></MdFormatListNumbered>
-                <PiListBulletsBold className="fs-5 fw-bold"></PiListBulletsBold>
-                <span className="fs-5 fw-bold text-decoration-underline ">
-                  T<RxCross2 className="fs-6"></RxCross2>
-                </span>
-              </div>
-              <textarea
-                name=""
-                id="careerObjective"
-                className="w-100 border-0 p-3"
-              ></textarea>
-            </div> */}
-              <ReactQuill theme="snow" value={value} onChange={setValue} />
+              {/* react quill for text editor */}
+              <ReactQuill
+                // {...register("editorText")}
+                style={{ height: "150px" }}
+                className="mb-5"
+                theme="snow"
+                defaultValue={text}
+                onChange={(e) => setText(e)}
+              />
 
               {/* Present Salary */}
               <div className="my-2 row g-5">
@@ -73,7 +62,6 @@ const CareerInfo = () => {
                     type="number"
                     id="presentSalary"
                     className="form-control"
-                    placeholder="Present Salary"
                   />
                   {errors?.presentSalary && (
                     <span className="text-danger fw-bold">
@@ -91,10 +79,18 @@ const CareerInfo = () => {
                     value="Entry Level"
                   />{" "}
                   Entry Level
-                  <input type="radio" {...register("jobLevel")} value="Mid Level" /> Mid
-                  Level
-                  <input type="radio" {...register("jobLevel")} value="Top Level" /> Top
-                  Level
+                  <input
+                    type="radio"
+                    {...register("jobLevel")}
+                    value="Mid Level"
+                  />{" "}
+                  Mid Level
+                  <input
+                    type="radio"
+                    {...register("jobLevel")}
+                    value="Top Level"
+                  />{" "}
+                  Top Level
                 </div>
 
                 {/* Expected salary */}
@@ -109,7 +105,6 @@ const CareerInfo = () => {
                     type="number"
                     id="expectedSalary"
                     className="form-control"
-                    placeholder="Expected Salary"
                   />
                   {errors?.expectedSalary && (
                     <span className="text-danger fw-bold">
@@ -117,19 +112,39 @@ const CareerInfo = () => {
                     </span>
                   )}
                   <p>TK/Month</p>
-                  <label htmlFor="" className="mt-1">
+                  <label htmlFor="jobNature" className="mt-1">
                     Available for (Job Nature)
                   </label>
                   <br />
-                  <input type="radio" {...register("jobNature")} value="Full Time" /> Full
-                  time
-                  <input type="radio" {...register("jobNature")} value="Part Time" /> Part
-                  time
-                  <input type="radio" {...register("jobNature")} value="Contract" />{" "}
+                  <input
+                    type="radio"
+                    {...register("jobNature")}
+                    value="Full Time"
+                  />{" "}
+                  Full time
+                  <input
+                    type="radio"
+                    {...register("jobNature")}
+                    value="Part Time"
+                  />{" "}
+                  Part time
+                  <input
+                    type="radio"
+                    {...register("jobNature")}
+                    value="Contract"
+                  />{" "}
                   Contract
-                  <input type="radio" {...register("jobNature")} value="Internship" />{" "}
+                  <input
+                    type="radio"
+                    {...register("jobNature")}
+                    value="Internship"
+                  />{" "}
                   Internship
-                  <input type="radio" {...register("jobNature")} value="Freelance" />{" "}
+                  <input
+                    type="radio"
+                    {...register("jobNature")}
+                    value="Freelance"
+                  />{" "}
                   Freelance
                 </div>
               </div>

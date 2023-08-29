@@ -8,29 +8,29 @@ const Navbar = () => {
       <h1 className="mb-3 mt-5">Update Profile</h1>
       <div>
         <Link to='/' className="text-decoration-none fs-6">
-          <a className={classes.text_1} href="">
+          <span className={classes.text_1} href="">
             Personal Info
-          </a>
+          </span>
         </Link>
         <Link to='/education_tranning' className="text-decoration-none fs-6">
-          <a className={classes.text_1} href="">
+          <span className={classes.text_1} href="">
             Educaton/Training
-          </a>
+          </span>
         </Link>
         <Link to='/employement' className="text-decoration-none fs-6">
-          <a className={classes.text_1} href="">
+          <span className={classes.text_1} href="">
             Employment
-          </a>
+          </span>
         </Link>
         <Link to='/otherInfo' className="text-decoration-none fs-6">
-          <a className={classes.text_1} href="">
+          <span className={classes.text_1} href="">
             Other Information
-          </a>
+          </span>
         </Link>
         <Link to='/photograph' className="text-decoration-none fs-6">
-          <a className={classes.text_1} href="">
+          <span className={classes.text_1} href="">
             Photograph
-          </a>
+          </span>
         </Link>
       </div>
       <hr className="mt-4" />

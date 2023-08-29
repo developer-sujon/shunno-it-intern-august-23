@@ -12,17 +12,17 @@ const Specialization = () => {
       skillWay: "Self",
     },
   };
-  const { control, handleSubmit, register } = useForm(values);
+  const { control, handleSubmit, register } = useForm(values.specializationInfo);
   const { fields, prepend, remove } = useFieldArray({
     control, // control props comes from useForm (optional: if you are using FormContext)
     name: "specializationInfo", // unique name for your Field Array
   });
   const onSubmitData = (data) => {
     // data.preventDefault();
-    // console.log(data);
-    setSpecialization([...specialization, data]);
-    // console.log(specialization);
+    console.log(data);
+    setSpecialization(data);
   };
+  console.log(specialization);
   return (
     <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="0">
@@ -54,6 +54,7 @@ const Specialization = () => {
                       <input
                         type="radio"
                         {...register(`specializationInfo.${index}.skillWay`)}
+                        value="Self"
                       />
                       Self
                     </div>
@@ -61,6 +62,7 @@ const Specialization = () => {
                       <input
                         type="radio"
                         {...register(`specializationInfo.${index}.skillWay`)}
+                        value="Job"
                       />{" "}
                       Job
                     </div>
@@ -68,6 +70,7 @@ const Specialization = () => {
                       <input
                         type="radio"
                         {...register(`specializationInfo.${index}.skillWay`)}
+                        value="Educational"
                       />{" "}
                       Educational
                     </div>
@@ -75,6 +78,7 @@ const Specialization = () => {
                       <input
                         type="radio"
                         {...register(`specializationInfo.${index}.skillWay`)}
+                        value="Professional Training"
                       />{" "}
                       Professional Training
                     </div>
@@ -82,6 +86,7 @@ const Specialization = () => {
                       <input
                         type="radio"
                         {...register(`specializationInfo.${index}.skillWay`)}
+                        value="NTVQF"
                       />{" "}
                       NTVQF
                     </div>
