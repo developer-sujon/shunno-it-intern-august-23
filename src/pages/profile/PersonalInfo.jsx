@@ -22,25 +22,15 @@ import { Controller } from "react-hook-form";
 
 const PersonalInfo = () => {
   // input filed state
-  const [primaryPhoneNumber, setPrimaryPhoneNumber] = useState();
-  const [secondaryPhoneNumber, setSecondaryPhoneNumber] = useState();
+  const [primaryPhoneNumber, setPrimaryPhoneNumber] = useState("");
+  const [secondaryPhoneNumber, setSecondaryPhoneNumber] = useState("");
 
   // address state
   const [presentAddressInOut, setPresentAddressInOut] = useState(true);
   const [permanentAddressInOut, setPermanentAddressInOut] = useState(true);
 
   // form context
-  const { register, setValue, control } = useContext(FormContext);
-
-  const handleTextEditor = (e) => {
-    setCareerObjects(e);
-    setValue("careerObjects", e);
-  };
-
-  //text editor hooks
-  const [careerObjects, setCareerObjects] = useState("");
-  const [careerSummary, setCareerSummary] = useState("");
-  const [specialQualification, setSpecialQualification] = useState("");
+  const { register, control } = useContext(FormContext);
 
   // custom hooks
   const [nationalities] = useCountries();
@@ -87,7 +77,7 @@ const PersonalInfo = () => {
               <Form.Group className="mb-3">
                 <Form.Label>Father&apos;s Name</Form.Label>
                 <Form.Control
-                  {...register("personalInfo.lastName")}
+                  {...register("personalInfo.fatherName")}
                   type="text"
                   placeholder="Father's Name"
                 />
@@ -96,7 +86,7 @@ const PersonalInfo = () => {
                 <Form.Label>
                   Date of Birth <span className="text-danger">*</span>
                 </Form.Label>
-                <Form.Control type="date" {...register("personalInfo.dob")} />
+                <Form.Control {...register("personalInfo.dob")} type="date" />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>
@@ -157,7 +147,11 @@ const PersonalInfo = () => {
                 <Form.Label>
                   Last Name <span className="text-danger">*</span>
                 </Form.Label>
-                <Form.Control type="text" placeholder="Last Name" />
+                <Form.Control
+                  {...register("personalInfo.lastName")}
+                  type="text"
+                  placeholder="Last Name"
+                />
               </Form.Group>
               <Form.Group className="mb-3">
                 <Form.Label>Mother&apos;s Name</Form.Label>
@@ -455,18 +449,17 @@ const PersonalInfo = () => {
           </h6>
           <Controller
             control={control}
-            name="careerObjects"
-            render={() => (
+            name="careerAndAppInfo.careerObjects"
+            render={({ field: { onChange, value } }) => (
               <ReactQuill
                 style={{ height: "100px" }}
                 className="mb-5"
                 theme="snow"
-                value={careerObjects}
-                onChange={handleTextEditor}
+                onChange={onChange}
+                value={value}
               />
             )}
           />
-
           <Row>
             <Col md={6} sm={12}>
               <Form.Group className="my-3 pt-3">
@@ -524,61 +517,68 @@ const PersonalInfo = () => {
                 <Form.Label>Expected Salary</Form.Label>
                 <Form.Control
                   type="text"
-                  {...register("expectedSalary")}
+                  {...register("careerAndAppInfo.expectedSalary")}
                   placeholder="Expected Salary"
                 />
                 <p>TK/ Month</p>
               </Form.Group>
               <Form.Group className="my-3 pt-3">
                 <Form.Label>Available for (Job Nature)</Form.Label>
-                <Controller
-                  name="jobNature"
-                  control={control}
-                  render={({ onChange }) => (
-                    <div>
-                      <Form.Check
-                        inline
-                        label="Full time"
-                        name="jobNature"
-                        type="radio"
-                        id={`jobNature-1`}
-                        onChange={onChange}
-                      />
-                      <Form.Check
-                        inline
-                        label="Part time"
-                        name="jobNature"
-                        type="radio"
-                        id={`jobNature-2`}
-                        onChange={onChange}
-                      />
-                      <Form.Check
-                        inline
-                        label="Contract"
-                        name="jobNature"
-                        type="radio"
-                        id={`jobNature-3`}
-                        onChange={onChange}
-                      />
-                      <Form.Check
-                        inline
-                        label="Internship"
-                        name="jobNature"
-                        type="radio"
-                        id={`jobNature-4`}
-                        onChange={onChange}
-                      />
-                      <Form.Check
-                        inline
-                        label="Freelance"
-                        name="jobNature"
-                        type="radio"
-                        id={`jobNature-5`}
-                        onChange={onChange}
-                      />
-                    </div>
-                  )}
-                />
+                <div>
+                  <Controller
+                    name="careerAndAppInfo.jobNature"
+                    control={control}
+                    render={({ field: { onChange } }) => (
+                      <>
+                        <Form.Check
+                          inline
+                          label="Full time"
+                          name="jobNature"
+                          type="radio"
+                          id={`jobNature-1`}
+                          onChange={onChange}
+                          value="Full time"
+                        />
+                        <Form.Check
+                          inline
+                          label="Part time"
+                          name="jobNature"
+                          type="radio"
+                          id={`jobNature-2`}
+                          onChange={onChange}
+                          value="Part time"
+                        />
+                        <Form.Check
+                          inline
+                          label="Contract"
+                          name="jobNature"
+                          type="radio"
+                          id={`jobNature-3`}
+                          onChange={onChange}
+                          value="Contract"
+                        />
+                        <Form.Check
+                          inline
+                          label="Internship"
+                          name="jobNature"
+                          type="radio"
+                          id={`jobNature-4`}
+                          onChange={onChange}
+                          value="Internship"
+                        />
+                        <Form.Check
+                          inline
+                          label="Freelance"
+                          name="jobNature"
+                          type="radio"
+                          id={`jobNature-5`}
+                          onChange={onChange}
+                          value="Freelance"
+                        />
+                      </>
+                    )}
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
@@ -598,98 +598,121 @@ const PersonalInfo = () => {
               <Form.Group className="my-3 pt-3">
                 <Form.Label>Functional (max 3)</Form.Label>
                 <div style={{ height: "150px", overflowY: "scroll" }}>
-                  {["checkbox"].map((type) => (
-                    <div key={`jobCategory${type}`} className="mb-3">
-                      <Form.Check
-                        label="Accounting/Finance"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-1`}
-                      />
-                      <Form.Check
-                        label="Bank/Non-Bank Fin. Institution"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-2`}
-                      />
-                      <Form.Check
-                        label="Commercial/Supply Chain"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-3`}
-                      />
-                      <Form.Check
-                        label="Education/Training"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-4`}
-                      />
-                      <Form.Check
-                        label="Engineer/Architect"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-5`}
-                      />
-                      <Form.Check
-                        label="Garments/Textile"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-6`}
-                      />
-                      <Form.Check
-                        label="General Management/Admin"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-7`}
-                      />
-                      <Form.Check
-                        label="IT/Telecommunication"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-8`}
-                      />
-                      <Form.Check
-                        label="Marketing/Sales"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-9`}
-                      />
-                      <Form.Check
-                        label="Media/Advertisement/Event Mgt."
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-10`}
-                      />
-                      <Form.Check
-                        label="Medical/Pharma"
-                        name="jobCategory"
-                        type={type}
-                        id={`jobCategory${type}-11`}
-                      />
-                    </div>
-                  ))}
+                  <div className="mb-3">
+                    <Form.Check
+                      label="Accounting/Finance"
+                      value="Accounting/Finance"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-1`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Bank/Non-Bank Fin. Institution"
+                      value="Bank/Non-Bank Fin. Institution"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-2`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Commercial/Supply Chain"
+                      value="Commercial/Supply Chain"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-3`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Education/Training"
+                      value="Education/Training"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-4`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Engineer/Architect"
+                      value="Engineer/Architect"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-5`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Garments/Textile"
+                      value="Garments/Textile"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-6`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="General Management/Admin"
+                      value="General Management/Admin"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-7`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="IT/Telecommunication"
+                      value="IT/Telecommunication"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-8`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Marketing/Sales"
+                      value="Marketing/Sales"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-9`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Media/Advertisement/Event Mgt."
+                      value="Media/Advertisement/Event Mgt."
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-10`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                    <Form.Check
+                      label="Medical/Pharma"
+                      value="Medical/Pharma"
+                      name="jobCategories"
+                      type="checkbox"
+                      id={`jobCategory-11`}
+                      {...register("preferredArea.jobCategories")}
+                    />
+                  </div>
                 </div>
               </Form.Group>
             </Col>
             <Col md={6} sm={12}>
               <Form.Group className="my-3 pt-3">
                 <Form.Label>Special Skills (max 3)</Form.Label>
-                {["checkbox"].map((type) => (
-                  <div key={`specialSkills${type}`} className="mb-3">
-                    <Form.Check
-                      label="ওয়েল্ডার"
-                      name="specialSkills"
-                      type={type}
-                      id={`specialSkills${type}-1`}
-                    />
-                    <Form.Check
-                      label="স্যুইং মেশিন অপারেটর"
-                      name="specialSkills"
-                      type={type}
-                      id={`specialSkills${type}-2`}
-                    />
-                  </div>
-                ))}
+
+                <div className="mb-3">
+                  <Form.Check
+                    label="ওয়েল্ডার"
+                    name="specialSkills"
+                    value="ওয়েল্ডার"
+                    type="checkbox"
+                    id={`specialSkills$-1`}
+                    {...register("preferredArea.specialSkills")}
+                  />
+                  <Form.Check
+                    label="স্যুইং মেশিন অপারেটর"
+                    name="specialSkills"
+                    value="স্যুইং মেশিন অপারেটর"
+                    type="checkbox"
+                    id={`specialSkills$-2`}
+                    {...register("preferredArea.specialSkills")}
+                  />
+                </div>
               </Form.Group>
             </Col>
           </Row>
@@ -704,17 +727,51 @@ const PersonalInfo = () => {
           <Row>
             <Col md={6} sm={12}>
               <Form.Label>Inside Bangladesh Add Districts (max 15)</Form.Label>
-              <Select isMulti options={reactSelectDistrict} />
+              <Controller
+                name="preferredArea.districts"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <Select
+                    isMulti
+                    options={reactSelectDistrict}
+                    onChange={onChange}
+                    value={value}
+                  />
+                )}
+              />
             </Col>
             <Col md={6} sm={12}>
               <Form.Label>Outside Bangladesh Add Countries (max 10)</Form.Label>
-              <Select isMulti options={ReactSelectCountry} />
+
+              <Controller
+                name="preferredArea.country"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <Select
+                    isMulti
+                    options={ReactSelectCountry}
+                    onChange={onChange}
+                    value={value}
+                  />
+                )}
+              />
             </Col>
             <Col md={12} className="mt-4">
               <Form.Label>
                 Add your preferred organization type (max 12)
               </Form.Label>
-              <Select isMulti options={reactSelectOrg} />
+              <Controller
+                name="preferredArea.organization"
+                control={control}
+                render={({ field: { onChange, value } }) => (
+                  <Select
+                    isMulti
+                    options={reactSelectOrg}
+                    onChange={onChange}
+                    value={value}
+                  />
+                )}
+              />
             </Col>
           </Row>
         </Accordion.Body>
@@ -724,27 +781,40 @@ const PersonalInfo = () => {
         <Accordion.Header>Other Relevant Information</Accordion.Header>
         <Accordion.Body>
           <h6>Career Summary</h6>
-          <ReactQuill
-            style={{ height: "100px" }}
-            className="mb-5"
-            theme="snow"
-            value={careerSummary}
-            onChange={setCareerSummary}
+          <Controller
+            name="otherRelevantInfo.careerSummary"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <ReactQuill
+                style={{ height: "100px" }}
+                className="mb-5"
+                theme="snow"
+                value={value}
+                onChange={onChange}
+              />
+            )}
           />
           <h6 className="pt-3">Special Qualification</h6>
-          <ReactQuill
-            style={{ height: "100px" }}
-            className="mb-5"
-            theme="snow"
-            value={specialQualification}
-            onChange={setSpecialQualification}
+          <Controller
+            name="otherRelevantInfo.specialQualification"
+            control={control}
+            render={({ field: { onChange, value } }) => (
+              <ReactQuill
+                style={{ height: "100px" }}
+                className="mb-5"
+                theme="snow"
+                value={value}
+                onChange={onChange}
+              />
+            )}
           />
+
           <Form.Group className="mb-3 pt-3">
             <Form.Label>
               Keywords <span className="text-danger">*</span>
             </Form.Label>
             <Form.Control
-              {...register("careerKeywords")}
+              {...register("otherRelevantInfo.careerKeywords")}
               type="text"
               placeholder="HTML, CSS, Js"
             />

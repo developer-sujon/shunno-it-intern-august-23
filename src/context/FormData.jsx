@@ -14,7 +14,17 @@ const FormData = ({ children }) => {
     setValue,
     control,
     formState: { errors },
-  } = useForm({ defaultValues: { addressCountry: "Bangladesh" } });
+  } = useForm({
+    defaultValues: {
+      personalInfo: {
+        firstName: "Rasel",
+        lastName: "Mahmud",
+        fatherName: "Father Name",
+        motherName: "Mother Name",
+        dob: "01-01-2000",
+      },
+    },
+  });
   // react hook-form submit event
   const onSubmit = (data) => console.log(data);
 
