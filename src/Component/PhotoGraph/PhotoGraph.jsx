@@ -1,11 +1,12 @@
-import React from 'react';
+import React from "react";
+import SubSectionPhotoGraph from "./SubSectionPhotoGraph";
 
 const PhotoGraph = () => {
-    return (
-        <div>
-            <h1> this is the Photograph section</h1>
-        </div>
-    );
-}
+  return (
+    <div>
+      <SubSectionPhotoGraph />
+    </div>
+  );
+};
 
 export default PhotoGraph;

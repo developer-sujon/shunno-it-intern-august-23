@@ -33,8 +33,13 @@ const OtherInfo = () => {
   const { control, handleSubmit, register } = useForm(values);
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
+<<<<<<< HEAD
       control, // control props comes from useForm (optional: if you are using FormContext)
       name: "otherInfo", // unique name for your Field Array
+=======
+      control, 
+      name: "test",
+>>>>>>> a3eac145f387ab3f270ba2f99d4cc98dfaa0a187
     }
   );
   const onSubmitData = (data) => {
