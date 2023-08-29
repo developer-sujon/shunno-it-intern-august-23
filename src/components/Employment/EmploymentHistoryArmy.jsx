@@ -1,8 +1,12 @@
 import { Accordion, Col, Row } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-// import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
+import { FormContext } from "../../context/FormData";
+import { useContext } from "react";
 
 const EmploymentHistoryArmy = () => {
+  // form context
+  const { register } = useContext(FormContext);
+
   return (
     <div>
       <Accordion.Item eventKey="1">
@@ -19,6 +23,7 @@ const EmploymentHistoryArmy = () => {
                       BA No <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Select
+                      {...register("EmployeeHistoryArmy.BaShort")}
                       aria-label="Default select example"
                       className="bg-light"
                     >
@@ -37,6 +42,7 @@ const EmploymentHistoryArmy = () => {
                       BANo <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
+                      {...register("EmployeeHistoryArmy.BaNo")}
                       type="text"
                       placeholder="BANo"
                       className="bg-light"
@@ -52,6 +58,7 @@ const EmploymentHistoryArmy = () => {
                 <Form.Select
                   aria-label="Default select example"
                   className="bg-light"
+                  {...register("EmployeeHistoryArmy.type")}
                 >
                   <option>Officer</option>
                   <option>JCO</option>
@@ -64,13 +71,18 @@ const EmploymentHistoryArmy = () => {
                   type="text"
                   placeholder="Trade"
                   className="bg-light"
+                  {...register("EmployeeHistoryArmy.trade")}
                 />
               </Form.Group>
               <Form.Group className="mb-5">
                 <Form.Label>
                   Date of Commission <span className="text-danger">*</span>
                 </Form.Label>
-                <Form.Control type="date" className="bg-light" />
+                <Form.Control
+                  type="date"
+                  className="bg-light"
+                  {...register("EmployeeHistoryArmy.DOC")}
+                />
               </Form.Group>
             </Col>
             <Col md={6}>
@@ -81,6 +93,7 @@ const EmploymentHistoryArmy = () => {
                 <Form.Select
                   aria-label="Default select example"
                   className="bg-light"
+                  {...register("EmployeeHistoryArmy.rank")}
                 >
                   <option>2Lt</option>
                   <option>Lt</option>
@@ -110,6 +123,7 @@ const EmploymentHistoryArmy = () => {
                 <Form.Select
                   aria-label="Default select example"
                   className="bg-light"
+                  {...register("EmployeeHistoryArmy.arms")}
                 >
                   <option>Sigs</option>
                   <option>Engr</option>
@@ -130,6 +144,7 @@ const EmploymentHistoryArmy = () => {
                   type="text"
                   placeholder="Course"
                   className="bg-light"
+                  {...register("EmployeeHistoryArmy.course")}
                 />
               </Form.Group>
 
@@ -137,7 +152,11 @@ const EmploymentHistoryArmy = () => {
                 <Form.Label>
                   Date of Retirement <span className="text-danger">*</span>
                 </Form.Label>
-                <Form.Control type="date" className="bg-light" />
+                <Form.Control
+                  type="date"
+                  className="bg-light"
+                  {...register("EmployeeHistoryArmy.DOR")}
+                />
               </Form.Group>
             </Col>
           </Row>

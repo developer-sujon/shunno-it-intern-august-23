@@ -44,47 +44,47 @@ const Specialization = () => {
                   <Form.Check
                     inline
                     label="Self"
-                    name={`skill-${index + 11}`}
+                    name={`skill-${index}`}
                     type="radio"
-                    id={`inline-${index + 10}`}
+                    id={`inline-${index}`}
                     value="Self"
-                    {...register("Specialization.howDoYouLearn")}
+                    {...register(`Specialization.${index}.howDoYouLearn`)}
                   />
                   <Form.Check
                     inline
                     label="Job"
-                    name={`skill-${index + 11}`}
+                    name={`skill-${index + 10}`}
                     type="radio"
                     id={`inline-${index + 10}`}
                     value="Job"
-                    {...register("Specialization.howDoYouLearn")}
+                    {...register(`Specialization.${index}.howDoYouLearn`)}
                   />
                   <Form.Check
                     inline
                     label="Educational"
-                    name={`skill-${index + 11}`}
+                    name={`skill-${index + 20}`}
                     type="radio"
-                    id={`inline-${index + 10}`}
+                    id={`inline-${index + 20}`}
                     value="Educational"
-                    {...register("Specialization.howDoYouLearn")}
+                    {...register(`Specialization.${index}.howDoYouLearn`)}
                   />
                   <Form.Check
                     inline
                     label="Professional Training"
-                    name={`skill-${index + 11}`}
+                    name={`skill-${index + 30}`}
                     type="radio"
-                    id={`inline-${index + 10}`}
+                    id={`inline-${index + 30}`}
                     value="Professional Training"
-                    {...register("Specialization.howDoYouLearn")}
+                    {...register(`Specialization.${index}.howDoYouLearn`)}
                   />
                   <Form.Check
                     inline
                     label="NTVQF"
-                    name={`skill-${index + 11}`}
+                    name={`skill-${index + 40}`}
                     type="radio"
-                    id={`inline-${index + 10}`}
+                    id={`inline-${index + 40}`}
                     value="NTVQF"
-                    {...register("Specialization.howDoYouLearn")}
+                    {...register(`Specialization.${index}.howDoYouLearn`)}
                   />
                 </div>
               </Form.Group>

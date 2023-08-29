@@ -144,7 +144,7 @@ const AcademicSummery = () => {
                     <Form.Control
                       type="text"
                       className="bg-light"
-                      {...register(`Educations.${index}. Duration_Year`)}
+                      {...register(`Educations.${index}.Duration_Year`)}
                     />
                   </Form.Group>
                 </Col>
@@ -156,7 +156,7 @@ const AcademicSummery = () => {
                     <Form.Select
                       aria-label="Default select example"
                       className="bg-light"
-                      {...register(`Educations.${index}. passingYear`)}
+                      {...register(`Educations.${index}.passingYear`)}
                     >
                       <option>2010</option>
                       <option>2012</option>
