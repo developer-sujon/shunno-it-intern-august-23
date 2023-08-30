@@ -42,7 +42,7 @@ const FormData = ({ children }) => {
     watch,
     setValue,
     control,
-
+    setError,
     formState: { errors },
   } = useForm({
     defaultValues,
@@ -57,6 +57,7 @@ const FormData = ({ children }) => {
     handleSubmit,
     watch,
     errors,
+    setError,
     setValue,
     control,
   };

@@ -4,15 +4,17 @@ import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
 import { useFieldArray } from "react-hook-form";
 import { useContext } from "react";
 import { FormContext } from "../../context/FormData";
+import AddDepartment from "./AddDepartment";
 
 const EmploymentHistory = () => {
   // form context
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
-  const { fields, append, remove } = useFieldArray({
+  const { fields, prepend, remove } = useFieldArray({
     control,
     name: "EmployeeHistory",
   });
+
   return (
     <div>
       <Accordion.Item eventKey="0">
@@ -21,7 +23,16 @@ const EmploymentHistory = () => {
           <button
             className="d-flex align-items-center gap-2 fw-bold mt-4 mb-5 border-0 bg-white fs-4"
             type="button"
-            onClick={() => append({})}
+            onClick={() =>
+              prepend({
+                CompanyName: "his",
+                Designation: "asdf",
+                EmploymentPeriodStart: "df",
+                EmploymentPeriodEnd: "asdf",
+                CompanyBusiness: "saf",
+                EmployeeType: "asdf",
+              })
+            }
           >
             Add Experience <AiOutlinePlus></AiOutlinePlus>
           </button>
@@ -35,21 +46,55 @@ const EmploymentHistory = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      {...register(`EmployeeHistory.${index}.CompanyName`)}
-                      className="bg-light"
+                      {...register(`EmployeeHistory.${index}.CompanyName`, {
+                        required: {
+                          value: true,
+                          message: "This filed is required",
+                        },
+                        minLength: {
+                          value: 5,
+                          message: "Minimum value should be 5",
+                        },
+                      })}
+                      className={`bg-light ${
+                        errors?.EmployeeHistory?.[index]?.CompanyName
+                          ?.message && "is-invalid"
+                      }`}
                     />
+                    {errors.EmployeeHistory && (
+                      <p className="text-danger">
+                        {errors?.EmployeeHistory?.[index]?.CompanyName?.message}
+                      </p>
+                    )}
                   </Form.Group>
+
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">
                       Designation<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
-                      {...register(`EmployeeHistory.${index}.Designation`)}
+                      {...register(`EmployeeHistory.${index}.Designation`, {
+                        required: {
+                          value: true,
+                          message: "This filed is required",
+                        },
+                        minLength: {
+                          value: 5,
+                          message: "Minimum value should be 5",
+                        },
+                      })}
                       type="text"
-                      className="bg-light"
+                      className={`bg-light ${
+                        errors?.EmployeeHistory?.[index]?.Designation
+                          ?.message && "is-invalid"
+                      }`}
                     />
+                    {errors.EmployeeHistory && (
+                      <p className="text-danger">
+                        {errors?.EmployeeHistory?.[index]?.Designation?.message}
+                      </p>
+                    )}
                   </Form.Group>
-
                   {/* add employment date  */}
                   <Row>
                     <Col md={6}>
@@ -80,56 +125,8 @@ const EmploymentHistory = () => {
                       </Form.Group>
                     </Col>
                   </Row>
-
                   {/* add Department  */}
-                  <button
-                    className="d-flex align-items-center gap-2 fw-bold mt-4 mb-5 border-0 bg-white fs-6"
-                    type="button"
-                    onClick={() => append({})}
-                  >
-                    Add department <AiOutlinePlus></AiOutlinePlus>
-                  </button>
-
-                  {fields.map((item2, i) => (
-                    <Row key={item2.id}>
-                      <Col md={6}>
-                        <Form.Group className="mb-3">
-                          <Form.Label className="fw-medium">Name</Form.Label>
-                          <Form.Control
-                            {...register(
-                              `EmployeeHistory.${index}.Department.${i}.Name`
-                            )}
-                            type="text"
-                            className="bg-light"
-                          />
-                        </Form.Group>
-                      </Col>
-                      <Col md={6}>
-                        <Form.Group className="mb-3">
-                          <Form.Label className="fw-medium">Exp</Form.Label>
-                          <Form.Control
-                            {...register(
-                              `EmployeeHistory.${index}.Department.${i}.Exp`
-                            )}
-                            type="number"
-                            className="bg-light"
-                          />
-                        </Form.Group>
-                      </Col>
-
-                      <div>
-                        {/* delete button  */}
-                        <button
-                          type="button"
-                          className="btn btn-danger px-4 mb-5 mt-2"
-                          onClick={() => remove(item2.id)}
-                        >
-                          <AiOutlineMinusCircle></AiOutlineMinusCircle>
-                        </button>
-                      </div>
-                    </Row>
-                  ))}
-
+                  <AddDepartment index={index} />
                   {/* Add Department end  */}
                 </Col>
                 <Col md={6}>
@@ -140,7 +137,7 @@ const EmploymentHistory = () => {
                     <Form.Control
                       {...register(`EmployeeHistory.${index}.CompanyBusiness`)}
                       type="text"
-                      className="bg-light"
+                      className={"bg-light"}
                     />
                   </Form.Group>
                   <Form.Group className="mb-5 mt-4">
@@ -156,7 +153,9 @@ const EmploymentHistory = () => {
                         name={`empType-${index}`}
                         type="radio"
                         id={`exp-${index}`}
-                        {...register(`EmployeeHistory.${index}.EmployeeType`)}
+                        {...register(`EmployeeHistory.${index}.EmployeeType`, {
+                          required: true,
+                        })}
                       />
                       <Form.Check
                         inline
@@ -165,7 +164,10 @@ const EmploymentHistory = () => {
                         value="In Office"
                         type="radio"
                         id={`exp-${index + 11}`}
-                        {...register(`EmployeeHistory.${index}.EmployeeType`)}
+                        {...register(`EmployeeHistory.${index}.EmployeeType`, {
+                          required: true,
+                        })}
+                        required
                       />
                     </div>
                   </Form.Group>
@@ -187,9 +189,7 @@ const EmploymentHistory = () => {
               </Form.Group>
 
               <Form.Group className="mb-3 ">
-                <Form.Label className="fw-medium">
-                  Company Location<span className="text-danger">*</span>
-                </Form.Label>
+                <Form.Label className="fw-medium">Company Location</Form.Label>
                 <Form.Control
                   {...register("EmployeeHistory.CompanyLocation")}
                   type="text"

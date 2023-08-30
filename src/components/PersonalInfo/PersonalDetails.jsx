@@ -2,13 +2,14 @@ import { useContext, useState } from "react";
 import { Accordion, Col, Form, Row } from "react-bootstrap";
 import { FormContext } from "../../context/FormData";
 import useCountries from "../../hooks/useCountries";
+
 //phone number input package
 import "react-phone-number-input/style.css";
 import PhoneInput from "react-phone-number-input";
 
 const PersonalDetails = () => {
   // form context
-  const { register } = useContext(FormContext);
+  const { register, errors } = useContext(FormContext);
 
   // input filed state
   const [primaryPhoneNumber, setPrimaryPhoneNumber] = useState("");
@@ -27,18 +28,52 @@ const PersonalDetails = () => {
                 First Name <span className="text-danger">*</span>
               </Form.Label>
               <Form.Control
-                {...register("personalInfo.firstName")}
+                {...register("personalInfo.firstName", {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                  minLength: {
+                    value: 5,
+                    message: "Minimum value should be 5",
+                  },
+                })}
                 type="text"
                 placeholder="First Name"
+                className={`bg-light ${
+                  errors?.personalInfo?.firstName?.message && "is-invalid"
+                }`}
               />
+              {errors.personalInfo && (
+                <p className="text-danger">
+                  {errors?.personalInfo?.firstName?.message}
+                </p>
+              )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Father&apos;s Name</Form.Label>
               <Form.Control
-                {...register("personalInfo.fatherName")}
+                {...register("personalInfo.fatherName", {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                  minLength: {
+                    value: 5,
+                    message: "Minimum value should be 5",
+                  },
+                })}
                 type="text"
                 placeholder="Father's Name"
+                className={`bg-light ${
+                  errors?.personalInfo?.fatherName?.message && "is-invalid"
+                }`}
               />
+              {errors.EmployeeHistory && (
+                <p className="text-danger">
+                  {errors?.personalInfo?.fatherName?.message}
+                </p>
+              )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>
@@ -54,7 +89,6 @@ const PersonalDetails = () => {
                 aria-label="Default select example"
                 {...register("personalInfo.religion")}
               >
-                <option>...</option>
                 <option>Islam</option>
                 <option>Hindu</option>
                 <option>Others</option>
@@ -68,7 +102,6 @@ const PersonalDetails = () => {
                 aria-label="Default select example"
                 {...register("personalInfo.nationality")}
               >
-                <option>...</option>
                 {nationalities.map((name, index) => (
                   <option key={index}>{name.nationality}</option>
                 ))}
@@ -78,20 +111,57 @@ const PersonalDetails = () => {
               <Form.Label>Passport Number</Form.Label>
               <Form.Control
                 type="number"
-                {...register("personalInfo.passportNumber")}
+                {...register("personalInfo.passportNumber", {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                  minLength: {
+                    value: 9,
+                    message: "Minimum value should be 9",
+                  },
+                })}
+                className={`bg-light ${
+                  errors?.personalInfo?.passportNumber?.message && "is-invalid"
+                }`}
                 placeholder="Passport number"
               />
+              {errors.personalInfo?.passportNumber && (
+                <p className="text-danger">
+                  {errors?.personalInfo?.passportNumber?.message}
+                </p>
+              )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Primary phone Number</Form.Label>
 
               <PhoneInput
                 placeholder="Enter phone number"
-                className="form-control"
                 value={primaryPhoneNumber}
                 onChange={setPrimaryPhoneNumber}
-                {...register("personalInfo.primaryPhone")}
+                {...register("personalInfo.primaryPhone", {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                  minLength: {
+                    value: 11,
+                    message: "Minimum number should be 11",
+                  },
+                  maxLength: {
+                    value: 16,
+                    message: "Maximum number should be 16",
+                  },
+                })}
+                className={`form-control ${
+                  errors?.personalInfo?.primaryPhone?.message && "is-invalid"
+                }`}
               />
+              {errors?.personalInfo?.primaryPhone && (
+                <p className="text-danger">
+                  {errors?.personalInfo?.primaryPhone?.message}
+                </p>
+              )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Height (meters)</Form.Label>
@@ -132,7 +202,6 @@ const PersonalDetails = () => {
                 {...register("personalInfo.gender")}
                 aria-label="Default select example"
               >
-                <option>...</option>
                 <option>Male</option>
                 <option>Female</option>
                 <option>Others</option>
@@ -147,7 +216,6 @@ const PersonalDetails = () => {
                 {...register("personalInfo.maritalStatus")}
                 aria-label="Default select example"
               >
-                <option>...</option>
                 <option>Married</option>
                 <option>Unmarried</option>
                 <option>Single</option>
@@ -157,10 +225,27 @@ const PersonalDetails = () => {
             <Form.Group className="mb-3">
               <Form.Label>National Id</Form.Label>
               <Form.Control
-                {...register("personalInfo.nationalId")}
+                {...register("personalInfo.nationalId", {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                  minLength: {
+                    value: 10,
+                    message: "Minimum number should be 10",
+                  },
+                })}
+                className={`form-control ${
+                  errors?.personalInfo?.nationalId?.message && "is-invalid"
+                }`}
                 type="number"
                 placeholder="National Id"
               />
+              {errors?.personalInfo?.nationalId && (
+                <p className="text-danger">
+                  {errors?.personalInfo?.nationalId?.message}
+                </p>
+              )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Passport Issue Date</Form.Label>
@@ -174,11 +259,31 @@ const PersonalDetails = () => {
 
               <PhoneInput
                 placeholder="Enter Secondary number"
-                className="form-control"
                 value={secondaryPhoneNumber}
                 onChange={setSecondaryPhoneNumber}
-                {...register("personalInfo.secondaryPhone")}
+                {...register("personalInfo.secondaryPhone", {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                  minLength: {
+                    value: 11,
+                    message: "Minimum number should be 11",
+                  },
+                  maxLength: {
+                    value: 16,
+                    message: "Maximum number should be 16",
+                  },
+                })}
+                className={`form-control ${
+                  errors?.personalInfo?.secondaryPhone?.message && "is-invalid"
+                }`}
               />
+              {errors?.personalInfo?.secondaryPhone && (
+                <p className="text-danger">
+                  {errors?.personalInfo?.secondaryPhone?.message}
+                </p>
+              )}
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Weight(kg)</Form.Label>

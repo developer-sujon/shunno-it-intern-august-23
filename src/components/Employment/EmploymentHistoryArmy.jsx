@@ -5,8 +5,8 @@ import { useContext } from "react";
 
 const EmploymentHistoryArmy = () => {
   // form context
-  const { register } = useContext(FormContext);
-
+  const { register, errors } = useContext(FormContext);
+  console.log(errors);
   return (
     <div>
       <Accordion.Item eventKey="1">
@@ -23,7 +23,6 @@ const EmploymentHistoryArmy = () => {
                       BA No <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Select
-                      {...register("EmployeeHistoryArmy.BaShort")}
                       aria-label="Default select example"
                       className="bg-light"
                     >
@@ -42,11 +41,28 @@ const EmploymentHistoryArmy = () => {
                       BANo <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
-                      {...register("EmployeeHistoryArmy.BaNo")}
+                      {...register("EmployeeHistoryArmy.BaNo", {
+                        required: {
+                          value: true,
+                          message: "This filed is required",
+                        },
+                        minLength: {
+                          value: 5,
+                          message: "Minimum value should be 5",
+                        },
+                      })}
                       type="text"
                       placeholder="BANo"
-                      className="bg-light"
+                      className={`bg-light ${
+                        errors?.EmployeeHistoryArmy?.BaNo?.message &&
+                        "is-invalid"
+                      }`}
                     />
+                    {errors.EmployeeHistory && (
+                      <p className="text-danger">
+                        {errors?.EmployeeHistoryArmy?.BaNo?.message}
+                      </p>
+                    )}
                   </Form.Group>
                 </Col>
               </Row>
