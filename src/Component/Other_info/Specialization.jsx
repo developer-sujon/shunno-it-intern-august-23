@@ -126,13 +126,13 @@ const Specialization = ({setSpecial1}) => {
                   (-)
                 </button>
                 <br />
-                <br />
-                <button
+                {/* <br /> */}
+                {/* <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>

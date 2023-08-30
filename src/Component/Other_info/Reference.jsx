@@ -20,12 +20,14 @@ const Reference = ({setRefaceData1}) => {
   const { control, handleSubmit, register } = useForm(values);
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
-      control, // control props comes from useForm (optional: if you are using FormContext)
-      name: "otherInfo", // unique name for your Field Array
+      control, 
+      name: "otherInfo", 
     }
   );
   const onSubmitData = (data) => {
-    setRefaceData1([...reference, data]);
+
+    setReference([...reference, data]);
+  
   };
   return (
     <Accordion>
@@ -172,13 +174,15 @@ const Reference = ({setRefaceData1}) => {
                   onClick={() => remove(index)}
                 >
                   (-)
-                </button> <br /><br />
+                </button>
+                <br />
+                {/* <br />
                 <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>
