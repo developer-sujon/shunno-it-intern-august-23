@@ -20,12 +20,12 @@ const Language = ({setLanguage1}) => {
     }
   );
   const onSubmitData = (data) => {
-<<<<<<< HEAD
+
     // data.preventDefault();
     // console.log(data);
     setLanguage([...language, data]);
     // console.log(language);
-=======
+
     
     setLanguage1([...language, data]);
    
