@@ -25,13 +25,9 @@ const Reference = ({ setRefaceData1 }) => {
     }
   );
   const onSubmitData = (data) => {
-<<<<<<< HEAD
-    setRefaceData1([...reference, data]);
-=======
 
     setRefaceData1([...reference, data]);
   
->>>>>>> e52fc6dc8719faf8f9450190d8c7c98fcec83eb0
   };
   return (
     <Accordion>
