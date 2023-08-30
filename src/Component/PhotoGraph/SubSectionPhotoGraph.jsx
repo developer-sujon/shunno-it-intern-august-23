@@ -1,8 +1,11 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
 const SubSectionPhotoGraph = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
-
+  const [selectedImage, setSelectedImage] = useState({});
+   const disptch = useDispatch()
+   const  {FromData} = useSelector(state => state.FromGetData)
   const handleImageChange = (event) => {
     const file = event.target.files[0];
     if (file) {
@@ -17,7 +20,7 @@ const SubSectionPhotoGraph = () => {
 
   const handleShow = () => {
     if (selectedImage) {
-      console.log("Base64 Image Data:", selectedImage);
+      disptch(GetFromData(selectedImage))
     } else {
       console.log("No image selected.");
     }

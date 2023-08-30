@@ -5,11 +5,10 @@ import Select from "react-select";
 const Prefered = ({setPrefered}) => {
   const [SkillCategory, setSkillCategory] = useState([]);
   const [special, setSpecial] = useState([]);
-  const [value1, setValue1] = useState(null);
-  const [value2, setValue2] = useState(null);
-  const [value3, setValue3] = useState(null);
+  const [value1, setValue1] = useState({});
+  const [value2, setValue2] = useState({});
+  const [value3, setValue3] = useState({});
 
-  const [preferValue , setPreferValue] = useState()
 
 
   //  const valueMaxinum = () => {
@@ -39,7 +38,7 @@ const Prefered = ({setPrefered}) => {
   //   console.log("handle2", seletedOption);
   // };
 
-  const preferedData = {
+  const preferedData =  {
     SkillCategory,
     specialCtegory: special,
     inside_banglasesh: value1,
@@ -47,6 +46,7 @@ const Prefered = ({setPrefered}) => {
     Prefered_type: value3,
   };
   // setPreferValue(preferedData)
+  // console.log(preferedData)
 
 
 

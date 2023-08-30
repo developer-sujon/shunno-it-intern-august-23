@@ -3,17 +3,23 @@ import Specialization from "./Specialization";
 import Language from "./Language";
 import Reference from "./Reference";
 import { Button } from "react-bootstrap";
+import { useDispatch, useSelector } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
 const OtherInfo = () => {
   const [specialDAta , setSpecial1] = useState({})
   const [Language1 , setLanguage1] = useState({})
   const [Referance , setRefaceData1] = useState({})
 
-  const Otheringo = () => {
-     console.log(specialDAta)
-      console.log(Language1)
-      console.log(Referance)
-  }
+  const dispatch = useDispatch() ; 
+  
+    const  {FromData} = useSelector(state => state.FromGetData)
+    
+    const Otheringo = () => {
+      dispatch(GetFromData(specialDAta))
+      dispatch(GetFromData(Language1))
+      dispatch(GetFromData(Referance))
+    }
   return (
     <div className="my-3">
         <Specialization setSpecial1={setSpecial1}></Specialization>

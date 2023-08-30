@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Accordion, Button } from "react-bootstrap";
 import "./EmplpymentStyle.css";
+import { useDispatch } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
 const ArmayPerson = ({setArmayPerson}) => {
+  const disPatch = useDispatch() ; 
   const value = {
     defaultValues: {
       BANo2: "abcd",
@@ -28,7 +31,7 @@ const ArmayPerson = ({setArmayPerson}) => {
             Employment History(For Retired ArmayPerson)
           </Accordion.Header>
           <Accordion.Body>
-            <form onBlur={handleSubmit(onSubmit)}>
+            <form onChange={handleSubmit(onSubmit)}>
               <div className="ArmayPerson">
                 <div className="ArmayPersonLeft">
                   <div className="BANo">
