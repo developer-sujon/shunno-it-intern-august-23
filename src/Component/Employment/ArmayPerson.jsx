@@ -2,8 +2,11 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Accordion, Button } from "react-bootstrap";
 import "./EmplpymentStyle.css";
+import { useDispatch } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
-const ArmayPerson = () => {
+const ArmayPerson = ({setArmayPerson}) => {
+  const disPatch = useDispatch() ; 
   const value = {
     defaultValues: {
       BANo2: "abcd",
@@ -17,18 +20,18 @@ const ArmayPerson = () => {
     formState: { errors },
   } = useForm(value);
   const onSubmit = (data) => {
-    console.log(data);
+    setArmayPerson(data)
   };
 
   return (
     <section>
-      <Accordion defaultActiveKey="0">
+      <Accordion>
         <Accordion.Item eventKey="0">
           <Accordion.Header>
             Employment History(For Retired ArmayPerson)
           </Accordion.Header>
           <Accordion.Body>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onChange={handleSubmit(onSubmit)}>
               <div className="ArmayPerson">
                 <div className="ArmayPersonLeft">
                   <div className="BANo">
@@ -125,7 +128,6 @@ const ArmayPerson = () => {
               </div>
               <br></br>
               <br></br>
-              <button>Submit</button>
             </form>
           </Accordion.Body>
         </Accordion.Item>

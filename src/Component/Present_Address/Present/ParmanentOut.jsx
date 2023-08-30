@@ -11,11 +11,8 @@ const ParmanentOut = ({parmanent,setParmanetAddress}) => {
       } = useForm({defaultValues:{House_no:'1122/55'}});
     
       const onSubmit = (data) => {
-        const parmanentData = {
-            data
-        }
         if(parmanent != 'Inside-Bangladesh-parmanent'){
-            setParmanetAddress(parmanentData)
+            setParmanetAddress(data)
         }
       };
       return (
@@ -23,7 +20,7 @@ const ParmanentOut = ({parmanent,setParmanetAddress}) => {
           <form onBlur={handleSubmit(onSubmit)}>
             <div className="  my-4">
               <select
-                {...register("District")}
+                {...register("District", {required: "Enter your house No"})}
                 className="form-select form-control"
                 aria-label="Default select example">
                 <option value="Afghanistan">Afghanistan</option>
@@ -31,6 +28,11 @@ const ParmanentOut = ({parmanent,setParmanetAddress}) => {
                 <option value="Argenttina">Argenttina</option>
                 <option value="Usa">Usa</option>
               </select>
+              {errors?.District && (
+              <span className="text-danger fw-bold">
+                {errors?.District.message}
+              </span>
+            )}
             </div>
     
             <input

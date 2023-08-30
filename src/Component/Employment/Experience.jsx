@@ -3,24 +3,22 @@ import {Accordion, Button} from "react-bootstrap";
 import {useForm, useFieldArray} from "react-hook-form";
 import {FaTimes} from "react-icons/fa";
 import Department from "./Department";
+import { useDispatch } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
-const Experience = () => {
-  const [Experiance , setExpreance] = useState({})
 
-  const [depart , setDepart] = useState({})
-  
-  const  Employment1 = {
-      Experiance : Experiance ,
-      depart : depart
-  }
-  console.log(Employment1)
-  
+const Experience = ({setEmplyHis}) => {
+  const [depart , setDepart] = useState([])
+  const dispatch = useDispatch(); 
+
+ 
   const DataDefault = {
     CompanyName: "Shunno IT",
     Designation: "Software Engineer",
     CompanyBusiness: "Marketing",
     Responsibilities: "Coding",
     CompanyLocation: "Talaimari,Rajshahi",
+    DepartMent : {}
   };
   const {
     register,
@@ -38,12 +36,15 @@ const Experience = () => {
   });
 
   const onSubmitData = (data) => {
-    setExpreance(data)
+     for(var i = 0 ; i < data.Experience.length ; i++){
+       data.Experience[i]['DepartMent'] = depart
+     }
+     setEmplyHis(data) 
   };
 
   return (
     <section>
-      <Accordion>
+      <Accordion defaultActiveKey="0">
         <Accordion.Item eventKey="0">
           <Accordion.Header>Employment History</Accordion.Header>
           <Accordion.Body>
@@ -57,7 +58,7 @@ const Experience = () => {
                 +
               </button>
             </p>
-            <form onBlur={handleSubmit(onSubmitData)}>
+            <form onChange={handleSubmit(onSubmitData)}>
               {fields.map((field, index) => {
                 return (
                   <section key={field?.id}>
@@ -133,7 +134,7 @@ const Experience = () => {
 
 
                     <div>
-                     <Department Experiance={Experiance} setDepart={setDepart}></Department>
+                     <Department  setDepart={setDepart}></Department>
                     </div>
 
 

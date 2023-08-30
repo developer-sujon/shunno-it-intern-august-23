@@ -2,10 +2,7 @@ import React,{useState} from "react";
 import {Accordion, Button} from "react-bootstrap";
 import {useFieldArray, useForm} from "react-hook-form";
 
-const ProfesonalCertificate = () => {
-   
-    const [profesonalData , setProfesonalData] =  useState([])
-    console.log(profesonalData)
+const ProfesonalCertificate = ({setprofesonal}) => {
 
   const defaultValueIs = {
     Certificate: "Shunno It Certifaicate",
@@ -31,7 +28,7 @@ const ProfesonalCertificate = () => {
     control,
   });
   const onSubmitData = (data) => {
-    setProfesonalData(data)
+    setprofesonal(data)
   };
   return (
     <div className="mb-3">

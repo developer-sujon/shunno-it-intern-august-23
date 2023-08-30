@@ -2,7 +2,7 @@ import React from "react";
 import {Accordion} from "react-bootstrap";
 import {useForm} from "react-hook-form";
 
-const DisabilityInfo = () => {
+const DisabilityInfo = ({setDisbilty}) => {
   const {
     register,
     handleSubmit,
@@ -10,7 +10,7 @@ const DisabilityInfo = () => {
   } = useForm({defaultValues:{Disability_info:'2389023812038209'}});
 
   const onSubmit = (data) => {
-    
+    setDisbilty(data)
   };
   return (
     <div className="my-2">
@@ -18,7 +18,7 @@ const DisabilityInfo = () => {
         <Accordion.Item eventKey="0">
           <Accordion.Header>Disability Information (if any)</Accordion.Header>
           <Accordion.Body>
-            <form onChange={handleSubmit(onSubmit)}>
+            <form onBlur={handleSubmit(onSubmit)}>
               <label className="mb-1" htmlFor="disbility">
                 You didn't mention your ID yet.
               </label>

@@ -1,27 +1,19 @@
 import React, {useState} from "react";
 import {Accordion} from "react-bootstrap";
-import {useForm} from "react-hook-form";
+import {Controller, useForm} from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
-// import {useQuill} from "react-quilljs";
 
-const RelatioveInfo = () => {
-  const [carrer, setCarrer] = useState("");
-  const [spceial, setSpceial] = useState("");
-
+const RelatioveInfo = ({setRelventData}) => {
   const {
     register,
     handleSubmit,
+    control,
     formState: {errors},
   } = useForm({defaultValues: {Keywords: "html Css javaScript"}});
 
   const onSubmit = (data) => {
-    const Relevent_info = {
-      carrer_summary: carrer,
-      special_sumary: spceial,
-      keywords: data.Keywords,
-    };
-    console.log(Relevent_info );
+    setRelventData(data);
   };
 
   return (
@@ -33,48 +25,57 @@ const RelatioveInfo = () => {
             <div className="">
               <form onBlur={handleSubmit(onSubmit)}>
                 <div>
-                  <label className="" htmlFor="">
-                    Career Summary
+                  <label className="fw-medium mb-2">
+                    Career Summary <span className="text-danger">*</span>
                   </label>
-                  <ReactQuill
-                    // {...register("career_sumaray", {
-                    //   required: "This is required feild",
-                    // })}
-                    style={{height: "250px"}}
-                    className="py-5"
-                    theme="snow"
-                    defaultValue={carrer}
-                    onChange={(e) => setCarrer(e)}
+                  <Controller
+                    name="Carrer_summary"
+                    control={control}
+                    defaultValue="This section is your Carrry summary"
+                    rules={{required: " This field is required"}} // Add required rule
+                    render={({field}) => (
+                      <div>
+                        <ReactQuill
+                        className="text-black fs-3"
+                          style={{height: "150px"}}
+                          value={field.value}
+                          onChange={field.onChange}
+                        />
+                        {errors.Carrer_summary && (
+                          <p>{errors.Carrer_summary.message}</p>
+                        )}
+                      </div>
+                    )}
                   />
                 </div>
-                {errors?.career_sumaray && (
-                  <span className="text-danger">
-                    {errors?.career_sumaray.message}
-                  </span>
-                )}
-
+                <br /> <br />
                 <div className="mt-2">
-                  <label className="" htmlFor="">
-                    Special Qualification
-                  </label>
-                  <ReactQuill
-                  // {...register("Special_qulifi", {
-                  //   required: "This is required feild",
-                  // })}
-                    style={{height: "250px"}}
-                    className="py-5"
-                    theme="snow"
-                    defaultValue={spceial}
-                    onChange={(e) => setSpceial(e)}
-                  />
+                  <div>
+                    <label className="fw-medium my-2">
+                      Special Qulification <span className="text-danger">*</span>
+                    </label>
+                    <Controller
+                      name="Special_summary"
+                      control={control}
+                      defaultValue="This  section is Special Summary  "
+                      rules={{required: " This field is required"}} // Add required rule
+                      render={({field}) => (
+                        <div>
+                          <ReactQuill
+                            style={{height: "150px"}}
+                            value={field.value}
+                            onChange={field.onChange}
+                          />
+                          {errors.Special_summary && (
+                            <p>{errors.Special_summary.message}</p>
+                          )}
+                        </div>
+                      )}
+                    />
+                  </div>
+                  <br /> <br/>
                 </div>
-                {errors?.Special_qulifi && (
-                  <span className="text-danger">
-                    {errors?.Special_qulifi.message}
-                  </span>
-                )}
-                 <br />
-
+                <br />
                 <label className="mb-1 mt-2" htmlFor="disbility">
                   Keywords <span className="text-danger">*</span>
                 </label>
@@ -87,7 +88,6 @@ const RelatioveInfo = () => {
                     required: "This is required feild",
                   })}
                 />
-
                 {errors?.Keywords && (
                   <span className="text-danger">
                     {errors?.Keywords.message}

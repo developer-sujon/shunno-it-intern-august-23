@@ -8,14 +8,12 @@ const Inside = ({present,setPresentAddress}) => {
     handleSubmit,
     watch,
     formState: {errors},
-  } = useForm({defaultValues:({House_no:'2323/222'})});
+  } = useForm({defaultValues:({House_no:'2323/222',Thana:'Mhegna',District:'Tangail', Village:'Amtai' })});
 
   const onSubmit = (data) => {
-    const presentData = {
-        data
-    }
+
     if(present == 'Inside_Bangladesh-present'){
-            setPresentAddress(presentData)
+            setPresentAddress(data)
     }
   };
 
@@ -25,7 +23,7 @@ const Inside = ({present,setPresentAddress}) => {
         <div className=" row  gap-4  my-4">
           <div className="col">
             <select
-              {...register("District")}
+              {...register("District", {required: "Enter your house No"})}
               className="form-select"
               aria-label="Default select example">
               <option value="Tangail">Tangail</option>
@@ -33,11 +31,16 @@ const Inside = ({present,setPresentAddress}) => {
               <option value="Noakhali">Noakhali</option>
               <option value="Sherpur">Sherpur</option>
             </select>
+            {errors?.District && (
+          <span className="text-danger fw-bold">
+            {errors?.District.message}
+          </span>
+        )}
           </div>
 
           <div className="col">
             <select
-              {...register("Thana")}
+              {...register("Thana", {required: "Enter your house No"})}
               className="form-select "
               aria-label="Default select example">
               <option value="Titas">Titas</option>
@@ -45,11 +48,16 @@ const Inside = ({present,setPresentAddress}) => {
               <option value="Comilla_sadar">Comilla Sadar</option>
               <option value="Lalmai">Lalmai</option>
             </select>
+            {errors?.Thana && (
+          <span className="text-danger fw-bold">
+            {errors?.Thana.message}
+          </span>
+        )}
           </div>
 
           <div className="col">
             <select
-              {...register("Village")}
+              {...register("Village", {required: "Enter your house No"})}
               className="form-select "
               aria-label="Default select example">
               <option value="Amtai">Amtai</option>
@@ -57,6 +65,11 @@ const Inside = ({present,setPresentAddress}) => {
               <option value="Beta_gi">Beta gi</option>
               <option value="Bamna">Bamna</option>
             </select>
+            {errors?.Village && (
+          <span className="text-danger fw-bold">
+            {errors?.Village.message}
+          </span>
+        )}
           </div>
         </div>
 

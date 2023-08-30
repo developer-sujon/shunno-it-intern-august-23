@@ -2,7 +2,7 @@ import * as React from "react";
 import { Button } from "react-bootstrap";
 import {useForm, useFieldArray, useWatch} from "react-hook-form";
 
-const datafeld1 = ({Experiance,setDepart }) => {
+const datafeld1 = ({setDepart }) => {
     const defalValue = {
         name : 'alfaz' ,
         exp : '2 year'

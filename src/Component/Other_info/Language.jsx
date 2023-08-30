@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
 
-const Language = () => {
+const Language = ({setLanguage1}) => {
   const [language, setLanguage] = useState([]);
   const values = {
     defaultValues: {
@@ -20,10 +20,16 @@ const Language = () => {
     }
   );
   const onSubmitData = (data) => {
+<<<<<<< HEAD
     // data.preventDefault();
     // console.log(data);
     setLanguage([...language, data]);
     // console.log(language);
+=======
+    
+    setLanguage1([...language, data]);
+   
+>>>>>>> 704ad67b29461596e3188f44db9acae8da60aed5
   };
   return (
     <Accordion>

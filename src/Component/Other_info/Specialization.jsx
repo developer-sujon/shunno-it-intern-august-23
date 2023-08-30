@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
 
-const Specialization = () => {
-  const [specialization, setSpecialization] = useState([]);
+const Specialization = ({setSpecial1}) => {
   const values = {
     defaultValues: {
       extracurricularActivities: "Problem Solving",
@@ -18,11 +17,10 @@ const Specialization = () => {
     name: "specializationInfo", // unique name for your Field Array
   });
   const onSubmitData = (data) => {
-    // data.preventDefault();
-    // console.log(data);
-    setSpecialization(data);
+   
+    setSpecial1(data)
+   
   };
-  // console.log(specialization);
   return (
     <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="0">

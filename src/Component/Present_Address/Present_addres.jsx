@@ -4,19 +4,19 @@ import Inside from "./Present/Inside";
 import OutSide from "./Present/OutSide";
 import ParmanentIn from "./Present/parmanentIn";
 import ParmanentOut from "./Present/ParmanentOut";
+import { useDispatch } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
 const Present_addres = () => {
+  const dispatch = useDispatch()
   const [present, setPresent] = useState("");
   const [parmanent, setParmanet] = useState("");
   const [PresentAddress, setPresentAddress] = useState({});
   const [ParmanentAddress, setParmanetAddress] = useState({});  
+ 
+  // dispatch(GetFromData(PresentAddress))
+  // dispatch(GetFromData(ParmanentAddress))
 
-  const AddressDetails = {
-      presentAddressIs : PresentAddress ,
-      parmanetAddressIs  :  ParmanentAddress ,
-  }
-
-  console.log(AddressDetails)
 
 
   return (
@@ -57,11 +57,7 @@ const Present_addres = () => {
               <OutSide present={present} setPresentAddress={setPresentAddress} />
             )}
 
-
-
-
-
-
+            
             {/* parmaner Address  */}
             <p className="mt-5">
               Parmanent Address <span className="text-danger">*</span>
