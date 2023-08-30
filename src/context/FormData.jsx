@@ -12,7 +12,27 @@ const defaultValues = {
     fatherName: "Father Name",
     motherName: "Mother Name",
     dob: "01-01-2000",
-    gender: "male",
+    gender: "Male",
+    maritalStatus: "Single",
+    nationalId: "",
+    passportIssueDate: "",
+    secondaryPhone: "",
+    weightKG: "",
+    height: "",
+    primaryPhone: "",
+    passportNumber: "",
+    nationality: "",
+    religion: "",
+  },
+  addressDetails: {
+    presentAddress: {
+      insideBangladesh: {
+        division: "",
+        district: "",
+        upazila: "",
+        country: "",
+      },
+    },
   },
 };
 const FormData = ({ children }) => {

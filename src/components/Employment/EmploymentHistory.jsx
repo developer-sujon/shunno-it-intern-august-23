@@ -11,7 +11,7 @@ const EmploymentHistory = () => {
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
+    name: "EmployeeHistory",
   });
   return (
     <div>
@@ -89,6 +89,7 @@ const EmploymentHistory = () => {
                   >
                     Add department <AiOutlinePlus></AiOutlinePlus>
                   </button>
+
                   {fields.map((item2, i) => (
                     <Row key={item2.id}>
                       <Col md={6}>
@@ -96,7 +97,7 @@ const EmploymentHistory = () => {
                           <Form.Label className="fw-medium">Name</Form.Label>
                           <Form.Control
                             {...register(
-                              `EmployeeHistory.${index}.Department.Name`
+                              `EmployeeHistory.${index}.Department.${i}.Name`
                             )}
                             type="text"
                             className="bg-light"
@@ -108,7 +109,7 @@ const EmploymentHistory = () => {
                           <Form.Label className="fw-medium">Exp</Form.Label>
                           <Form.Control
                             {...register(
-                              `EmployeeHistory.${index}.Department.Exp`
+                              `EmployeeHistory.${index}.Department.${i}.Exp`
                             )}
                             type="number"
                             className="bg-light"
@@ -121,7 +122,7 @@ const EmploymentHistory = () => {
                         <button
                           type="button"
                           className="btn btn-danger px-4 mb-5 mt-2"
-                          onClick={() => remove(i)}
+                          onClick={() => remove(item2.id)}
                         >
                           <AiOutlineMinusCircle></AiOutlineMinusCircle>
                         </button>
@@ -200,7 +201,7 @@ const EmploymentHistory = () => {
               <button
                 type="button"
                 className="btn btn-danger px-4 mb-5 mt-2"
-                onClick={() => remove(index)}
+                onClick={() => remove(item.id)}
               >
                 <AiOutlineMinusCircle></AiOutlineMinusCircle>
               </button>

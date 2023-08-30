@@ -95,7 +95,11 @@ const PersonalDetails = () => {
             </Form.Group>
             <Form.Group className="mb-3">
               <Form.Label>Height (meters)</Form.Label>
-              <Form.Control type="text" placeholder="Height (meters)" />
+              <Form.Control
+                {...register("personalInfo.height")}
+                type="text"
+                placeholder="Height (meters)"
+              />
             </Form.Group>
           </Col>
 
@@ -146,7 +150,8 @@ const PersonalDetails = () => {
                 <option>...</option>
                 <option>Married</option>
                 <option>Unmarried</option>
-                <option>Others</option>
+                <option>Single</option>
+                <option>Complicated</option>
               </Form.Select>
             </Form.Group>
             <Form.Group className="mb-3">
