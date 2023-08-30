@@ -46,6 +46,7 @@ const FormData = ({ children }) => {
     formState: { errors },
   } = useForm({
     defaultValues,
+    // mode: "onChange",
   });
   // react hook-form submit event
   const onSubmit = (data) => console.log(data);
@@ -60,6 +61,7 @@ const FormData = ({ children }) => {
     setError,
     setValue,
     control,
+    setError,
   };
 
   return <FormContext.Provider value={data}>{children}</FormContext.Provider>;

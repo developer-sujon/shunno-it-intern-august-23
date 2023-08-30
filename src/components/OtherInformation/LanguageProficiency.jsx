@@ -6,11 +6,11 @@ import { useContext } from "react";
 import { FormContext } from "../../context/FormData";
 
 const LanguageProficiency = () => {
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
+    name: "LanguageProficiency",
   });
   return (
     <div>
@@ -33,17 +33,33 @@ const LanguageProficiency = () => {
                       Language<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
-                      {...register(`LanguageProficiency.${index}.Language`)}
+                      {...register(`LanguageProficiency.${index}.Language`, {
+                        required: {
+                          value: true,
+                          message: "language is required",
+                        },
+                      })}
                       type="text"
                       placeholder="language"
                     />
+                    {/* {console.log(errors)} */}
+                    {errors?.LanguageProficiency?.[index].Language && (
+                      <small className="text-danger">
+                        {errors?.LanguageProficiency[index].Language.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">
                       Writing<span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Select
-                      {...register(`LanguageProficiency.${index}.writing`)}
+                      {...register(`LanguageProficiency.${index}.writing`, {
+                        required: {
+                          value: true,
+                          message: "this field is required",
+                        },
+                      })}
                       aria-label="Default select example"
                     >
                       <option>High</option>
@@ -51,6 +67,11 @@ const LanguageProficiency = () => {
                       <option>Secondary</option>
                       <option>Low</option>
                     </Form.Select>
+                    {errors?.LanguageProficiency?.[index].writing && (
+                      <small className="text-danger">
+                        {errors?.LanguageProficiency[index].writing.message}
+                      </small>
+                    )}
                   </Form.Group>
                 </Col>
                 <Col md={6}>
