@@ -5,7 +5,7 @@ import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
 import { FormContext } from "../../context/FormData";
 
 const ProfessionalSummery = () => {
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -37,6 +37,11 @@ const ProfessionalSummery = () => {
                       className="bg-light"
                       {...register(`Professionals.${index}.Certification`)}
                     />
+                    {errors?.Professionals?.[index]?.Certification?.message && (
+                      <small className="text-danger">
+                        {errors?.Professionals?.[index]?.Certification?.message}
+                      </small>
+                    )}
                   </Form.Group>
 
                   <Form.Group className="mb-3">
@@ -46,6 +51,11 @@ const ProfessionalSummery = () => {
                       className="bg-light"
                       {...register(`Professionals.${index}.Location`)}
                     />
+                    {errors?.Professionals?.[index]?.Location?.message && (
+                      <small className="text-danger">
+                        {errors?.Professionals?.[index]?.Location?.message}
+                      </small>
+                    )}
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -59,6 +69,11 @@ const ProfessionalSummery = () => {
                       className="bg-light"
                       {...register(`Professionals.${index}.Institute`)}
                     />
+                    {errors?.Professionals?.[index]?.Institute?.message && (
+                      <small className="text-danger">
+                        {errors?.Professionals?.[index]?.Institute?.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Row>
                     <Col md={6}>

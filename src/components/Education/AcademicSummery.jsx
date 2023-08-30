@@ -2,11 +2,13 @@ import { useContext } from "react";
 import { Accordion, Col, Form, Row } from "react-bootstrap";
 import { useFieldArray } from "react-hook-form";
 import { AiOutlineMinusCircle, AiOutlinePlus } from "react-icons/ai";
+
 import { FormContext } from "../../context/FormData";
+//validation
 
 const AcademicSummery = () => {
   //Form Context
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -36,7 +38,9 @@ const AcademicSummery = () => {
                     <Form.Select
                       aria-label="Default select example"
                       className="bg-light"
-                      {...register(`Educations.${index}.LevelEducation`)}
+                      {...register(`Educations.${index}.LevelEducation`, {
+                        required: true,
+                      })}
                     >
                       <option>PSC</option>
                       <option>JSC/JDC</option>
@@ -59,6 +63,12 @@ const AcademicSummery = () => {
                       placeholder="Computer Science"
                       {...register(`Educations.${index}.Major_group`)}
                     />
+
+                    {errors?.Educations?.[index]?.Major_group?.message && (
+                      <small className="text-danger">
+                        {errors?.Educations?.[index]?.Major_group?.message}
+                      </small>
+                    )}
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -114,6 +124,12 @@ const AcademicSummery = () => {
                   className="bg-light"
                   {...register(`Educations.${index}.Institute_name`)}
                 />
+
+                {errors?.Educations?.[index]?.Institute_name?.message && (
+                  <small className="text-danger">
+                    {errors?.Educations?.[index]?.Institute_name?.message}
+                  </small>
+                )}
               </Form.Group>
 
               <Row>
@@ -127,6 +143,11 @@ const AcademicSummery = () => {
                       className="bg-light"
                       {...register(`Educations.${index}.result`)}
                     >
+                      {errors?.Educations?.[index]?.result?.message && (
+                        <small className="text-danger">
+                          {errors?.Educations?.[index]?.result?.message}
+                        </small>
+                      )}
                       <option>First Division/class</option>
                       <option>Second Division/class</option>
                       <option>Third Division/class</option>
@@ -146,6 +167,11 @@ const AcademicSummery = () => {
                       className="bg-light"
                       {...register(`Educations.${index}.Duration_Year`)}
                     />
+                    {errors?.Educations?.[index]?.Duration_Year?.message && (
+                      <small className="text-danger">
+                        {errors?.Educations?.[index]?.Duration_Year?.message}
+                      </small>
+                    )}
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -175,6 +201,11 @@ const AcademicSummery = () => {
                       className="bg-light"
                       {...register(`Educations.${index}. Achievement`)}
                     />
+                    {errors?.Educations?.[index]?.Achievement?.message && (
+                      <small className="text-danger">
+                        {errors?.Educations?.[index]?.Achievement?.message}
+                      </small>
+                    )}
                   </Form.Group>
                 </Col>
               </Row>

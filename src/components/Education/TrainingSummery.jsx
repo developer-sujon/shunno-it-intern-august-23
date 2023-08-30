@@ -6,7 +6,7 @@ import { FormContext } from "../../context/FormData";
 
 const TrainingSummery = () => {
   //Form Context
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -40,6 +40,11 @@ const TrainingSummery = () => {
                       className="bg-light"
                       {...register(`Trainings.${index}.Title`)}
                     />
+                    {errors?.Trainings?.[index]?.Title?.message && (
+                      <small className="text-danger">
+                        {errors?.Trainings?.[index]?.Title?.message}
+                      </small>
+                    )}
                   </Form.Group>
 
                   <Form.Group className="mb-3">
@@ -51,6 +56,11 @@ const TrainingSummery = () => {
                       className="bg-light"
                       {...register(`Trainings.${index}.Covered`)}
                     />
+                    {errors?.Trainings?.[index]?.Covered?.message && (
+                      <small className="text-danger">
+                        {errors?.Trainings?.[index]?.Covered?.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">
@@ -62,6 +72,11 @@ const TrainingSummery = () => {
                       className="bg-light"
                       {...register(`Trainings.${index}.Institute`)}
                     />
+                    {errors?.Trainings?.[index]?.Institute?.message && (
+                      <small className="text-danger">
+                        {errors?.Trainings?.[index]?.Institute?.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">Location</Form.Label>
@@ -70,6 +85,11 @@ const TrainingSummery = () => {
                       className="bg-light"
                       {...register(`Trainings.${index}.Location`)}
                     />
+                    {errors?.Trainings?.[index]?.Location?.message && (
+                      <small className="text-danger">
+                        {errors?.Trainings?.[index]?.Location?.message}
+                      </small>
+                    )}
                   </Form.Group>
                 </Col>
                 <Col md={6}>
@@ -83,6 +103,11 @@ const TrainingSummery = () => {
                       className="bg-light"
                       {...register(`Trainings.${index}.Country`)}
                     />
+                    {errors?.Trainings?.[index]?.Country?.message && (
+                      <small className="text-danger">
+                        {errors?.Trainings?.[index]?.Country?.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label>
