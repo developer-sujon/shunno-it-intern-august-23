@@ -6,7 +6,7 @@ import { FormContext } from "../../context/FormData";
 
 const OtherRelevantInfo = () => {
   // form context
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
   return (
     <Accordion.Item eventKey="4">
       <Accordion.Header>Other Relevant Information</Accordion.Header>
@@ -45,10 +45,20 @@ const OtherRelevantInfo = () => {
             Keywords <span className="text-danger">*</span>
           </Form.Label>
           <Form.Control
-            {...register("otherRelevantInfo.careerKeywords")}
+            {...register("otherRelevantInfo.careerKeywords", {
+              required: {
+                value: true,
+                message: "keyword field is required",
+              },
+            })}
             type="text"
             placeholder="HTML, CSS, Js"
           />
+          {errors?.otherRelevantInfo?.careerKeywords && (
+            <small className="text-danger">
+              {errors?.otherRelevantInfo.careerKeywords.message}
+            </small>
+          )}
         </Form.Group>
       </Accordion.Body>
     </Accordion.Item>

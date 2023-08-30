@@ -9,6 +9,7 @@ const PhotographPage = () => {
 
   const uploadImage = async (e) => {
     const file = e.target.files[0];
+
     const base64 = await convertBase64(file);
     setBaseImage(base64);
     setValue("image", base64);
@@ -50,7 +51,13 @@ const PhotographPage = () => {
       <Row>
         <Col md="4">
           <Form.Group controlId="formFile" className="my-2 w-full rounded-2">
-            <Form.Control type="file" onChange={uploadImage} accept="image/*" />
+            <Form.Control
+              type="file"
+              name="file"
+              onChange={uploadImage}
+              accept="image/*"
+              required
+            />
           </Form.Group>
         </Col>
       </Row>

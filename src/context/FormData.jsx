@@ -119,6 +119,7 @@ const FormData = ({ children }) => {
     handleSubmit,
     watch,
     setValue,
+    setError,
     control,
     formState: { errors },
   } = useForm({
@@ -138,6 +139,7 @@ const FormData = ({ children }) => {
     handleSubmit,
     watch,
     errors,
+    setError,
     setValue,
     control,
   };

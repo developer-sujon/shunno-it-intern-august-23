@@ -6,7 +6,7 @@ import { FormContext } from "../../context/FormData";
 
 const CareerAndAppInfo = () => {
   // form context
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   return (
     <Accordion.Item eventKey="2">
@@ -21,13 +21,18 @@ const CareerAndAppInfo = () => {
           render={({ field: { onChange, value } }) => (
             <ReactQuill
               style={{ height: "100px" }}
-              className="mb-5"
               theme="snow"
               onChange={onChange}
               value={value}
+              rules={{ required: true }}
             />
           )}
         />
+        {errors?.addressDetails?.presentAddress?.houseNo && (
+          <p className="text-danger mt-5">
+            {errors?.addressDetails?.presentAddress?.houseNo?.message}
+          </p>
+        )}
         <Row>
           <Col md={6} sm={12}>
             <Form.Group className="my-3 pt-3">

@@ -8,7 +8,7 @@ import useDivisionList from "../../hooks/useDivisionList";
 
 const AddressDetails = () => {
   // form context
-  const { register } = useContext(FormContext);
+  const { register, errors } = useContext(FormContext);
 
   // address state
   const [presentAddressInOut, setPresentAddressInOut] = useState(true);
@@ -57,8 +57,18 @@ const AddressDetails = () => {
               <Form.Group className="mb-3">
                 <Form.Select
                   {...register(
-                    "addressDetails.presentAddress.insideBangladesh.division"
+                    "addressDetails.presentAddress.insideBangladesh.division",
+                    {
+                      required: {
+                        value: true,
+                        message: "This filed is required",
+                      },
+                    }
                   )}
+                  className={`form-control ${
+                    errors?.addressDetails?.presentAddress?.insideBangladesh
+                      ?.division?.message && "is-invalid"
+                  }`}
                   aria-label="Default select example"
                 >
                   {divisionList.map((division) => (
@@ -67,6 +77,15 @@ const AddressDetails = () => {
                     </option>
                   ))}
                 </Form.Select>
+                {errors?.addressDetails?.presentAddress?.insideBangladesh
+                  ?.division && (
+                  <p className="text-danger">
+                    {
+                      errors?.addressDetails?.presentAddress?.insideBangladesh
+                        ?.division?.message
+                    }
+                  </p>
+                )}
               </Form.Group>
             </Col>
             <Col md={4} sm={12}>
@@ -74,8 +93,18 @@ const AddressDetails = () => {
                 <Form.Select
                   aria-label="Default select example"
                   {...register(
-                    "addressDetails.presentAddress.insideBangladesh.district"
+                    "addressDetails.presentAddress.insideBangladesh.district",
+                    {
+                      required: {
+                        value: true,
+                        message: "This filed is required",
+                      },
+                    }
                   )}
+                  className={`form-control ${
+                    errors?.addressDetails?.presentAddress?.insideBangladesh
+                      ?.district?.message && "is-invalid"
+                  }`}
                 >
                   {districtList.map((district) => (
                     <option key={district.id}>
@@ -83,6 +112,15 @@ const AddressDetails = () => {
                     </option>
                   ))}
                 </Form.Select>
+                {errors?.addressDetails?.presentAddress?.insideBangladesh
+                  ?.district && (
+                  <p className="text-danger">
+                    {
+                      errors?.addressDetails?.presentAddress?.insideBangladesh
+                        ?.district?.message
+                    }
+                  </p>
+                )}
               </Form.Group>
             </Col>
             <Col md={4} sm={12}>
@@ -90,8 +128,18 @@ const AddressDetails = () => {
                 <Form.Select
                   aria-label="Default select example"
                   {...register(
-                    "addressDetails.presentAddress.insideBangladesh.upazila"
+                    "addressDetails.presentAddress.insideBangladesh.upazila",
+                    {
+                      required: {
+                        value: true,
+                        message: "This filed is required",
+                      },
+                    }
                   )}
+                  className={`form-control ${
+                    errors?.addressDetails?.presentAddress?.insideBangladesh
+                      ?.upazila?.message && "is-invalid"
+                  }`}
                 >
                   {upazilaList.map((upazila) => (
                     <option key={upazila.id}>
@@ -99,31 +147,78 @@ const AddressDetails = () => {
                     </option>
                   ))}
                 </Form.Select>
+                {errors?.addressDetails?.presentAddress?.insideBangladesh
+                  ?.upazila && (
+                  <p className="text-danger">
+                    {
+                      errors?.addressDetails?.presentAddress?.insideBangladesh
+                        ?.upazila?.message
+                    }
+                  </p>
+                )}
               </Form.Group>
             </Col>
           </Row>
         ) : (
-          <Form.Select
-            className="mb-3"
-            aria-label="Default select example"
-            {...register(
-              "addressDetails.presentAddress.insideBangladesh.country"
+          <>
+            <Form.Select
+              aria-label="Default select example"
+              {...register(
+                "addressDetails.presentAddress.insideBangladesh.country",
+                {
+                  required: {
+                    value: true,
+                    message: "This filed is required",
+                  },
+                }
+              )}
+              className={`mb-3 ${
+                errors?.addressDetails?.presentAddress?.insideBangladesh
+                  ?.country?.message && "is-invalid"
+              }`}
+            >
+              {nationalities.map((name, index) => (
+                <option key={index} value={name.nationality}>
+                  {name.nationality}
+                </option>
+              ))}
+            </Form.Select>
+            {errors?.addressDetails?.presentAddress?.insideBangladesh
+              ?.country && (
+              <p className="text-danger">
+                {
+                  errors?.addressDetails?.presentAddress?.insideBangladesh
+                    ?.country?.message
+                }
+              </p>
             )}
-          >
-            {nationalities.map((name, index) => (
-              <option key={index} value={name.nationality}>
-                {name.nationality}
-              </option>
-            ))}
-          </Form.Select>
+          </>
         )}
 
         <Form.Group className="mb-3">
           <Form.Control
-            {...register("addressDetails.presentAddress.houseNo")}
+            {...register("addressDetails.presentAddress.houseNo", {
+              required: {
+                value: true,
+                message: "This filed is required",
+              },
+              minLength: {
+                value: 10,
+                message: "Minimum number should be 10",
+              },
+            })}
+            className={
+              errors?.addressDetails?.presentAddress?.houseNo?.message &&
+              "is-invalid"
+            }
             type="text"
             placeholder="Type your House No/Road/Village"
           />
+          {errors?.addressDetails?.presentAddress?.houseNo && (
+            <p className="text-danger">
+              {errors?.addressDetails?.presentAddress?.houseNo?.message}
+            </p>
+          )}
         </Form.Group>
         <Form.Group className="mt-5">
           <Form.Label>
@@ -163,8 +258,18 @@ const AddressDetails = () => {
                 <Form.Select
                   aria-label="Default select example"
                   {...register(
-                    "addressDetails.permanentAddress.outsideBangladesh.division"
+                    "addressDetails.permanentAddress.outsideBangladesh.division",
+                    {
+                      required: {
+                        value: true,
+                        message: "This filed is required",
+                      },
+                    }
                   )}
+                  className={`form-control ${
+                    errors?.addressDetails?.permanentAddress?.outsideBangladesh
+                      ?.division?.message && "is-invalid"
+                  }`}
                 >
                   {divisionList.map((division) => (
                     <option key={division.id}>
@@ -172,6 +277,15 @@ const AddressDetails = () => {
                     </option>
                   ))}
                 </Form.Select>
+                {errors?.addressDetails?.permanentAddress?.outsideBangladesh
+                  ?.division && (
+                  <p className="text-danger">
+                    {
+                      errors?.addressDetails?.permanentAddress
+                        ?.outsideBangladesh?.division?.message
+                    }
+                  </p>
+                )}
               </Form.Group>
             </Col>
             <Col md={4} sm={12}>
@@ -179,8 +293,18 @@ const AddressDetails = () => {
                 <Form.Select
                   aria-label="Default select example"
                   {...register(
-                    "addressDetails.permanentAddress.outsideBangladesh.district"
+                    "addressDetails.permanentAddress.outsideBangladesh.district",
+                    {
+                      required: {
+                        value: true,
+                        message: "This filed is required",
+                      },
+                    }
                   )}
+                  className={`form-control ${
+                    errors?.addressDetails?.permanentAddress?.outsideBangladesh
+                      ?.district?.message && "is-invalid"
+                  }`}
                 >
                   {districtList.map((district) => (
                     <option key={district.id}>
@@ -188,6 +312,15 @@ const AddressDetails = () => {
                     </option>
                   ))}
                 </Form.Select>
+                {errors?.addressDetails?.permanentAddress?.outsideBangladesh
+                  ?.district && (
+                  <p className="text-danger">
+                    {
+                      errors?.addressDetails?.permanentAddress
+                        ?.outsideBangladesh?.district?.message
+                    }
+                  </p>
+                )}
               </Form.Group>
             </Col>
             <Col md={4} sm={12}>
@@ -195,8 +328,18 @@ const AddressDetails = () => {
                 <Form.Select
                   aria-label="Default select example"
                   {...register(
-                    "addressDetails.permanentAddress.outsideBangladesh.upazila"
+                    "addressDetails.permanentAddress.outsideBangladesh.upazila",
+                    {
+                      required: {
+                        value: true,
+                        message: "This filed is required",
+                      },
+                    }
                   )}
+                  className={`form-control ${
+                    errors?.addressDetails?.permanentAddress?.outsideBangladesh
+                      ?.upazila?.message && "is-invalid"
+                  }`}
                 >
                   {upazilaList.map((upazila) => (
                     <option key={upazila.id}>
@@ -204,6 +347,15 @@ const AddressDetails = () => {
                     </option>
                   ))}
                 </Form.Select>
+                {errors?.addressDetails?.permanentAddress?.outsideBangladesh
+                  ?.upazila && (
+                  <p className="text-danger">
+                    {
+                      errors?.addressDetails?.permanentAddress
+                        ?.outsideBangladesh?.upazila?.message
+                    }
+                  </p>
+                )}
               </Form.Group>
             </Col>
           </Row>
@@ -224,10 +376,28 @@ const AddressDetails = () => {
         )}
         <Form.Group className="mb-3">
           <Form.Control
-            {...register("addressDetails.permanentAddress.houseNo")}
+            {...register("addressDetails.permanentAddress.houseNo", {
+              required: {
+                value: true,
+                message: "This filed is required",
+              },
+              minLength: {
+                value: 10,
+                message: "Minimum number should be 10",
+              },
+            })}
             type="text"
             placeholder="Type your House No/Road/Village"
+            className={
+              errors?.addressDetails?.permanentAddress?.houseNo?.message &&
+              "is-invalid"
+            }
           />
+          {errors?.addressDetails?.permanentAddress?.houseNo && (
+            <p className="text-danger">
+              {errors?.addressDetails?.permanentAddress?.houseNo?.message}
+            </p>
+          )}
         </Form.Group>
       </Accordion.Body>
     </Accordion.Item>

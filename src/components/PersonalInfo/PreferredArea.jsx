@@ -7,7 +7,7 @@ import useDistrictList from "../../hooks/useDistrictList";
 
 const PreferredArea = () => {
   // form context
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   // custom hooks
   const [districtList] = useDistrictList();
