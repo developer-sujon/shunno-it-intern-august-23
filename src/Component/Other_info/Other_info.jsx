@@ -12,9 +12,8 @@ const OtherInfo = () => {
   const [Referance , setRefaceData1] = useState({})
 
   const dispatch = useDispatch() ; 
-  
-    const  {FromData} = useSelector(state => state.FromGetData)
-    
+
+        
     const Otheringo = () => {
       dispatch(GetFromData(specialDAta))
       dispatch(GetFromData(Language1))

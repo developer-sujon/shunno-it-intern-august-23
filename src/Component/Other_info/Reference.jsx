@@ -26,7 +26,7 @@ const Reference = ({setRefaceData1}) => {
   );
   const onSubmitData = (data) => {
 
-    setReference([...reference, data]);
+    setRefaceData1([...reference, data]);
   
   };
   return (
