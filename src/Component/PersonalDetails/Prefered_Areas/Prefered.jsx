@@ -9,8 +9,6 @@ const Prefered = ({setPrefered}) => {
   const [value2, setValue2] = useState({});
   const [value3, setValue3] = useState({});
 
-
-
   //  const valueMaxinum = () => {
   //    if(value1?.length < 4){
   //     return value1
@@ -26,7 +24,7 @@ const Prefered = ({setPrefered}) => {
   //       (data) => data.value !== seletedOption.value
   //     );
   //     setValue1(value1Data);
-  //   } 
+  //   }
   //   else {
   //     alert("maxium added 3 ");
   //   }
@@ -38,17 +36,9 @@ const Prefered = ({setPrefered}) => {
   //   console.log("handle2", seletedOption);
   // };
 
-  const preferedData =  {
-    SkillCategory,
-    specialCtegory: special,
-    inside_banglasesh: value1,
-    outside_bangladesh: value2,
-    Prefered_type: value3,
-  };
+  const preferedData = [SkillCategory, special, value1, value2, value3];
   // setPreferValue(preferedData)
   // console.log(preferedData)
-
-
 
   const option = [
     {value: "Dhaka", label: "Dhaka"},
@@ -72,41 +62,31 @@ const Prefered = ({setPrefered}) => {
   ];
 
   const skillCate = (e) => {
-
-   
-      if (e.target.checked) {
-        if(SkillCategory.length < 3){
-          setSkillCategory([...SkillCategory, e.target.value]);
-        }
-        else{
-           alert('maxium added 3 Skill')
-        }
-      } 
-      else {
-        const filterSkill = SkillCategory.filter(
-          (skill) => skill != e.target.value
-        );
-        setSkillCategory(filterSkill);
+    if (e.target.checked) {
+      if (SkillCategory.length < 3) {
+        setSkillCategory([...SkillCategory, e.target.value]);
+      } else {
+        alert("maxium added 3 Skill");
       }
-    
-
+    } else {
+      const filterSkill = SkillCategory.filter(
+        (skill) => skill != e.target.value
+      );
+      setSkillCategory(filterSkill);
+    }
   };
 
   const specialCategory = (e) => {
-
-      if (e.target.checked) {
-        if(special.length < 1){
-          setSpecial([...special, e.target.value]);
-        }
-
-        else {
-          alert(" special cateGory seleted 1");
-        }
-      } 
-      else {
-        const filterSkill = special.filter((skill) => skill != e.target.value);
-        setSpecial(filterSkill);
+    if (e.target.checked) {
+      if (special.length < 1) {
+        setSpecial([...special, e.target.value]);
+      } else {
+        alert(" special cateGory seleted 1");
       }
+    } else {
+      const filterSkill = special.filter((skill) => skill != e.target.value);
+      setSpecial(filterSkill);
+    }
   };
 
   return (
