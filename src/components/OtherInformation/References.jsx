@@ -6,7 +6,7 @@ import { useContext } from "react";
 import { FormContext } from "../../context/FormData";
 
 const References = () => {
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
@@ -33,27 +33,44 @@ const References = () => {
                       Name <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
-                      {...register(`References.${index}.Name`)}
+                      {...register(`References.${index}.Name`, {
+                        required: {
+                          value: true,
+                          message: "reference name is required",
+                        },
+                      })}
                       type="text"
                       placeholder=" Name"
                     />
+                    {errors?.References?.[index].Name && (
+                      <small className="text-danger">
+                        {errors?.References?.[index].Name.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">
                       Organization <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
-                      {...register(`References.${index}.Organization`)}
+                      {...register(`References.${index}.Organization`, {
+                        required: {
+                          value: true,
+                          message: "reference organization is required",
+                        },
+                      })}
                       type="text"
                       placeholder=" Organization"
                     />
+                    {errors?.References?.[index].Organization && (
+                      <small className="text-danger">
+                        {errors?.References?.[index].Organization.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">Relation </Form.Label>
-                    <Form.Select
-                      {...register(`References.${index}.relation`)}
-                      aria-label="Default select example"
-                    >
+                    <Form.Select aria-label="Default select example">
                       <option>Relative</option>
                       <option>Family Friend</option>
                       <option>Academic</option>
@@ -76,10 +93,20 @@ const References = () => {
                       Designation <span className="text-danger">*</span>
                     </Form.Label>
                     <Form.Control
-                      {...register(`References.${index}.Designation`)}
+                      {...register(`References.${index}.Designation`, {
+                        required: {
+                          value: true,
+                          message: "reference Designation is required",
+                        },
+                      })}
                       type="text"
                       placeholder=" Designation"
                     />
+                    {errors?.References?.[index].Designation && (
+                      <small className="text-danger">
+                        {errors?.References?.[index].Designation.message}
+                      </small>
+                    )}
                   </Form.Group>
                   <Form.Group className="mb-3">
                     <Form.Label className="fw-medium">Email</Form.Label>

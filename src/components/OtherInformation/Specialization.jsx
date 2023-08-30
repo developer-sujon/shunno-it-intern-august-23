@@ -6,11 +6,11 @@ import { useContext } from "react";
 import { FormContext } from "../../context/FormData";
 
 const Specialization = () => {
-  const { register, control } = useContext(FormContext);
+  const { register, control, errors } = useContext(FormContext);
 
   const { fields, append, remove } = useFieldArray({
     control,
-    name: "test",
+    name: "Specialization",
   });
   return (
     <div>
@@ -32,10 +32,20 @@ const Specialization = () => {
                   Skill<span className="text-danger">*</span>
                 </Form.Label>
                 <Form.Control
-                  {...register(`Specialization.${index}.skill`)}
+                  {...register(`Specialization.${index}.skill`, {
+                    required: { value: true, message: "Skill is required" },
+                    minLength: 3,
+                  })}
+                  // aria-invalid={errors.skill ? "true" : "false"}
                   type="text"
                   placeholder="Skill"
                 />
+                {/* {console.log(errors)} */}
+                {errors?.Specialization?.[index].skill && (
+                  <small className="text-danger">
+                    {errors?.Specialization[index].skill.message}
+                  </small>
+                )}
               </Form.Group>
               <Form.Group className="mb-5 mt-4">
                 <Form.Label>How did you learn the skill? </Form.Label>
@@ -107,8 +117,19 @@ const Specialization = () => {
                   as="textarea"
                   rows={3}
                   className="py-4 bg-light"
-                  {...register(`Specialization.${index}.SkillDescription`)}
+                  {...register(`Specialization.${index}.SkillDescription`, {
+                    required: {
+                      value: true,
+                      message: "Description is required",
+                    },
+                    minLength: 20,
+                  })}
                 />
+                {errors?.Specialization?.[index].SkillDescription && (
+                  <small className="text-danger">
+                    {errors?.Specialization[index].SkillDescription.message}
+                  </small>
+                )}
               </Form.Group>
               <Form.Group
                 className="mt-4 mb-5"
@@ -122,9 +143,24 @@ const Specialization = () => {
                   rows={3}
                   className="py-4 bg-light"
                   {...register(
-                    `Specialization.${index}.ExtracurricularActivities`
+                    `Specialization.${index}.ExtracurricularActivities`,
+                    {
+                      required: {
+                        value: true,
+                        message: "extra activities is required",
+                      },
+                      minLength: 20,
+                    }
                   )}
                 />
+                {errors?.Specialization?.[index].ExtracurricularActivities && (
+                  <small className="text-danger">
+                    {
+                      errors?.Specialization[index].ExtracurricularActivities
+                        .message
+                    }
+                  </small>
+                )}
               </Form.Group>
 
               <div className=" border border-top-0 border-start-0 border-end-0 border-5 border-primary mb-4"></div>
