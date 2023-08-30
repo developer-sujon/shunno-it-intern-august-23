@@ -20,9 +20,16 @@ const Language = ({setLanguage1}) => {
     }
   );
   const onSubmitData = (data) => {
+<<<<<<< HEAD
+    // data.preventDefault();
+    // console.log(data);
+    setLanguage([...language, data]);
+    // console.log(language);
+=======
     
     setLanguage1([...language, data]);
    
+>>>>>>> 704ad67b29461596e3188f44db9acae8da60aed5
   };
   return (
     <Accordion>
@@ -93,13 +100,13 @@ const Language = ({setLanguage1}) => {
                   (-)
                 </button>
                 <br />
-                <br />
+                {/* <br />
                 <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>

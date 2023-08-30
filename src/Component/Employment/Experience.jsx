@@ -3,9 +3,13 @@ import {Accordion, Button} from "react-bootstrap";
 import {useForm, useFieldArray} from "react-hook-form";
 import {FaTimes} from "react-icons/fa";
 import Department from "./Department";
+import { useDispatch } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
+
 
 const Experience = ({setEmplyHis}) => {
-  const [depart , setDepart] = useState({})
+  const [depart , setDepart] = useState([])
+  const dispatch = useDispatch(); 
 
  
   const DataDefault = {
@@ -14,6 +18,7 @@ const Experience = ({setEmplyHis}) => {
     CompanyBusiness: "Marketing",
     Responsibilities: "Coding",
     CompanyLocation: "Talaimari,Rajshahi",
+    DepartMent : {}
   };
   const {
     register,
@@ -31,7 +36,10 @@ const Experience = ({setEmplyHis}) => {
   });
 
   const onSubmitData = (data) => {
-    setEmplyHis({...depart , data})
+     for(var i = 0 ; i < data.Experience.length ; i++){
+       data.Experience[i]['DepartMent'] = depart
+     }
+     setEmplyHis(data) 
   };
 
   return (
@@ -50,7 +58,7 @@ const Experience = ({setEmplyHis}) => {
                 +
               </button>
             </p>
-            <form onBlur={handleSubmit(onSubmitData)}>
+            <form onChange={handleSubmit(onSubmitData)}>
               {fields.map((field, index) => {
                 return (
                   <section key={field?.id}>

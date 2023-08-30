@@ -11,6 +11,20 @@ for (let a in obj.quantity) {
 }
 console.log(subTotal)
 
+let i = 0
+Object.values(obj).reduce((acc, curr) => {
+    console.log(i)
+    console.log(Object.keys(acc), Object.keys(curr))    
+    if(Object.keys(acc)[i] === Object.keys(curr)[i]){
+        console.log('i',i)
+        let a = Object.values(acc)[i] * Object.values(curr)[i]
+        // console.log("a",a)
+    }
+    i = i + 1;
+    console.log(i)
+    // subTotal += acc[a] * curr[a]
+})
+
 
 
 // let subTotal =  0

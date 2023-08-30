@@ -25,8 +25,15 @@ const Reference = ({setRefaceData1}) => {
     }
   );
   const onSubmitData = (data) => {
+<<<<<<< HEAD
+    // data.preventDefault();
+    // console.log(data);
+    setReference([...reference, data]);
+    // console.log(reference);
+=======
  
     setRefaceData1([...reference, data]);
+>>>>>>> 704ad67b29461596e3188f44db9acae8da60aed5
   };
   return (
     <Accordion>
@@ -173,13 +180,15 @@ const Reference = ({setRefaceData1}) => {
                   onClick={() => remove(index)}
                 >
                   (-)
-                </button> <br /><br />
+                </button>
+                <br />
+                {/* <br />
                 <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>

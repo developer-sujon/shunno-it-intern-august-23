@@ -4,17 +4,18 @@ import Inside from "./Present/Inside";
 import OutSide from "./Present/OutSide";
 import ParmanentIn from "./Present/parmanentIn";
 import ParmanentOut from "./Present/ParmanentOut";
+import { useDispatch } from "react-redux";
+import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
-const Present_addres = ({setAddressField}) => {
+const Present_addres = () => {
+  const dispatch = useDispatch()
   const [present, setPresent] = useState("");
   const [parmanent, setParmanet] = useState("");
   const [PresentAddress, setPresentAddress] = useState({});
   const [ParmanentAddress, setParmanetAddress] = useState({});  
-
  
-  const Address = [PresentAddress,ParmanentAddress]
-  console.log(Address)
-
+  // dispatch(GetFromData(PresentAddress))
+  // dispatch(GetFromData(ParmanentAddress))
 
 
 

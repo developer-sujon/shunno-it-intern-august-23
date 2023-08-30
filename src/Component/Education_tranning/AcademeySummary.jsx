@@ -51,7 +51,7 @@ const AcademeySummary = ({setAcademey}) => {
                 +
               </button>
             </p>
-            <form onBlur={handleSubmit(onSubmitData)}>
+            <form onClick={handleSubmit(onSubmitData)}>
               {fields.map((field, index) => {
                 return (
                   <section key={field?.id}>
