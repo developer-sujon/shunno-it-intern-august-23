@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
 
-const Reference = () => {
+const Reference = ({setRefaceData1}) => {
   const [reference, setReference] = useState([]);
   const values = {
     defaultValues: {
@@ -25,17 +25,15 @@ const Reference = () => {
     }
   );
   const onSubmitData = (data) => {
-    // data.preventDefault();
-    // console.log(data);
-    setReference([...reference, data]);
-    console.log(reference);
+ 
+    setRefaceData1([...reference, data]);
   };
   return (
     <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>References</Accordion.Header>
         <Accordion.Body>
-          <form onSubmit={handleSubmit(onSubmitData)} className="">
+          <form onBlur={handleSubmit(onSubmitData)} className="">
             {fields.map((item, index) => (
               <div
                 key={item.id}

@@ -9,14 +9,12 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
     handleSubmit,
     watch,
     formState: {errors},
-  } = useForm({defaultValues:({House_no: '123/566'})});
+  } = useForm({defaultValues:({House_no:'2323/222',Thana:'Mhegna',District:'Tangail', Village:'Amtai' })});
 
   const onSubmit = (data) => {
-    const parmanentData = {
-        data
-    }
+  
     if(parmanent === 'Inside-Bangladesh-parmanent'){
-        setParmanetAddress(parmanentData)
+        setParmanetAddress(data)
     }
   };
 
@@ -26,7 +24,7 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
         <div className=" row  gap-4  my-4">
           <div className="col">
             <select
-              {...register("District")}
+              {...register("District",{required: "this required field"})}
               className="form-select"
               aria-label="Default select example">
               <option value="Tangail">Tangail</option>
@@ -34,11 +32,16 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
               <option value="Noakhali">Noakhali</option>
               <option value="Sherpur">Sherpur</option>
             </select>
+            {errors?.Thana && (
+          <span className="text-danger fw-bold">
+            {errors?.Thana.message}
+          </span>
+        )}
           </div>
 
           <div className="col">
             <select
-              {...register("Thana")}
+              {...register("Thana",{required: "this required field"})}
               className="form-select "
               aria-label="Default select example">
               <option value="Titas">Titas</option>
@@ -46,11 +49,16 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
               <option value="Comilla_sadar">Comilla Sadar</option>
               <option value="Lalmai">Lalmai</option>
             </select>
+            {errors?.Thana && (
+          <span className="text-danger fw-bold">
+            {errors?.Thana.message}
+          </span>
+        )}
           </div>
 
           <div className="col">
             <select
-              {...register("Village")}
+              {...register("Village",{required: "this required field"})}
               className="form-select "
               aria-label="Default select example">
               <option value="Amtai">Amtai</option>
@@ -58,6 +66,11 @@ const ParmanentIn = ({parmanent,setParmanetAddress}) => {
               <option value="Beta_gi">Beta gi</option>
               <option value="Bamna">Bamna</option>
             </select>
+            {errors?.Village && (
+          <span className="text-danger fw-bold">
+            {errors?.Village.message}
+          </span>
+        )}
           </div>
         </div>
 

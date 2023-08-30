@@ -4,7 +4,7 @@ import {Controller, useForm} from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-const RelatioveInfo = () => {
+const RelatioveInfo = ({setRelventData}) => {
   const {
     register,
     handleSubmit,
@@ -13,7 +13,7 @@ const RelatioveInfo = () => {
   } = useForm({defaultValues: {Keywords: "html Css javaScript"}});
 
   const onSubmit = (data) => {
-    console.log(data);
+    setRelventData(data);
   };
 
   return (

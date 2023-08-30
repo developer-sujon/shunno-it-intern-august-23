@@ -4,9 +4,8 @@ import { useForm } from "react-hook-form";
 import ReactQuill from "react-quill";
 import "react-quill/dist/quill.snow.css";
 
-const CareerInfo = () => {
+const CareerInfo = ({setCarrerInfo}) => {
   const [text, setText] = useState("");
-  const [careerInfo, setCareerInfo] = useState();
   const values = {
     defaultValues: {
       presentSalary: "18000",
@@ -20,9 +19,7 @@ const CareerInfo = () => {
     formState: { errors },
   } = useForm(values);
   const onSubmit = (data) => {
-    // console.log(data);
-    console.log({...data, editText: text});
-    setCareerInfo({...data, editText: text});
+    setCarrerInfo({...data, editText: text});
   };
   // console.log(careerInfo);
 

@@ -9,6 +9,8 @@ const EducationTrannig = () => {
   const [profesonal, setprofesonal] = useState({});
   const [Traning, setTraning] = useState({});
 
+  
+
   const EducatonAndTraning = () => {
      const EduactionTraningData = {
         AcaDemeySummaryData : Academey ,

@@ -11,7 +11,12 @@ const Present_addres = ({setAddressField}) => {
   const [PresentAddress, setPresentAddress] = useState({});
   const [ParmanentAddress, setParmanetAddress] = useState({});  
 
-  setAddressField(PresentAddress, ParmanentAddress)
+ 
+  const Address = [PresentAddress,ParmanentAddress]
+  console.log(Address)
+
+
+
 
   return (
     <div className="my-3">
@@ -51,11 +56,7 @@ const Present_addres = ({setAddressField}) => {
               <OutSide present={present} setPresentAddress={setPresentAddress} />
             )}
 
-
-
-
-
-
+            
             {/* parmaner Address  */}
             <p className="mt-5">
               Parmanent Address <span className="text-danger">*</span>

@@ -8,14 +8,12 @@ const OutSide = ({present,setPresentAddress}) => {
     handleSubmit,
     watch,
     formState: {errors},
-  } = useForm({defaultValues:{House_no:'122/55'}});
+  } = useForm({defaultValues:{House_no:'122/55', country:'Afghanistan'}});
 
   const onSubmit = (data) => {
-    const presentData = {
-        data
-    }
+ 
     if(present != 'Inside_Bangladesh-present'){
-        setPresentAddress(presentData)
+        setPresentAddress(data)
     }
   };
   return (
@@ -23,7 +21,7 @@ const OutSide = ({present,setPresentAddress}) => {
       <form onBlur={handleSubmit(onSubmit)}>
         <div className="  my-4">
           <select
-            {...register("District")}
+            {...register("country",{required: "This is required field"})}
             className="form-select form-control"
             aria-label="Default select example">
             <option value="Afghanistan">Afghanistan</option>
@@ -31,6 +29,11 @@ const OutSide = ({present,setPresentAddress}) => {
             <option value="Argenttina">Argenttina</option>
             <option value="Usa">Usa</option>
           </select>
+          {errors?.country && (
+          <span className="text-danger fw-bold">
+            {errors?.country.message}
+          </span>
+        )}
         </div>
 
         <input

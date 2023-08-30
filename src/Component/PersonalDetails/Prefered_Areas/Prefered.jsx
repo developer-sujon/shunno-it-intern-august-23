@@ -9,6 +9,9 @@ const Prefered = ({setPrefered}) => {
   const [value2, setValue2] = useState(null);
   const [value3, setValue3] = useState(null);
 
+  const [preferValue , setPreferValue] = useState()
+
+
   //  const valueMaxinum = () => {
   //    if(value1?.length < 4){
   //     return value1
@@ -43,7 +46,7 @@ const Prefered = ({setPrefered}) => {
     outside_bangladesh: value2,
     Prefered_type: value3,
   };
-  // setPrefered(preferedData)
+  // setPreferValue(preferedData)
 
 
 

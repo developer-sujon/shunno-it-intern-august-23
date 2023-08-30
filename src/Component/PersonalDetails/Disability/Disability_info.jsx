@@ -2,7 +2,7 @@ import React from "react";
 import {Accordion} from "react-bootstrap";
 import {useForm} from "react-hook-form";
 
-const DisabilityInfo = () => {
+const DisabilityInfo = ({setDisbilty}) => {
   const {
     register,
     handleSubmit,
@@ -10,7 +10,7 @@ const DisabilityInfo = () => {
   } = useForm({defaultValues:{Disability_info:'2389023812038209'}});
 
   const onSubmit = (data) => {
-      console.log(data)
+    setDisbilty(data)
   };
   return (
     <div className="my-2">

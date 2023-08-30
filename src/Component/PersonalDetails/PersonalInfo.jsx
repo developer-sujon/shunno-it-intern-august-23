@@ -13,18 +13,21 @@ const PersonalInfo = () => {
    const [carredInfo ,setCarrerInfo] = useState({}) ; 
    const [prefered , setPrefered] =  useState([]) ; 
    const [Reveent , setRelventData] = useState({})
+   const[Disability, setDisbilty] = useState({})
     const perinfoData = () => {
      console.log(PersonalData)
-     console.log(Addressfield)
+     console.log(carredInfo)
+     console.log(Disability)
+     console.log(Reveent)
    }
   return (
     <div>
       <PersonalDetails setPersonal={setPersonal}/>
-      <Present_addres setAddressField={setAddressField}/>
+      <Present_addres setAddressField={setAddressField} />
       <CareerInfo setCarrerInfo={setCarrerInfo}></CareerInfo>
-      <Prefered setPrefered={setPrefered}/>
-      <RelatioveInfo/>
-      <DisabilityInfo/>
+      <Prefered  setPrefered={setPrefered}/>
+      <RelatioveInfo setRelventData={setRelventData}/>
+      <DisabilityInfo setDisbilty={setDisbilty}/>
       <Button onClick={()=>perinfoData()} className="btn btn-primary my-2">Update Profile</Button>
       
     </div>

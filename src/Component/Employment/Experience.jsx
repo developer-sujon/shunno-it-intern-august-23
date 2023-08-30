@@ -4,17 +4,10 @@ import {useForm, useFieldArray} from "react-hook-form";
 import {FaTimes} from "react-icons/fa";
 import Department from "./Department";
 
-const Experience = () => {
-  const [Experiance , setExpreance] = useState({})
-
+const Experience = ({setEmplyHis}) => {
   const [depart , setDepart] = useState({})
 
-  const  Employment1 = {
-      Experiance : Experiance ,
-      depart : depart
-  }
-  console.log(Employment1)
-  
+ 
   const DataDefault = {
     CompanyName: "Shunno IT",
     Designation: "Software Engineer",
@@ -38,7 +31,7 @@ const Experience = () => {
   });
 
   const onSubmitData = (data) => {
-    setExpreance(data)
+    setEmplyHis({...depart , data})
   };
 
   return (
@@ -133,7 +126,7 @@ const Experience = () => {
 
 
                     <div>
-                     <Department Experiance={Experiance} setDepart={setDepart}></Department>
+                     <Department  setDepart={setDepart}></Department>
                     </div>
 
 
