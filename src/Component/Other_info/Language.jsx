@@ -23,14 +23,14 @@ const Language = () => {
     // data.preventDefault();
     // console.log(data);
     setLanguage([...language, data]);
-    console.log(language);
+    // console.log(language);
   };
   return (
     <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>Language Proficiency</Accordion.Header>
         <Accordion.Body>
-          <form onSubmit={handleSubmit(onSubmitData)} className="">
+          <form onBlur={handleSubmit(onSubmitData)} className="">
             {fields.map((item, index) => (
               <div
                 key={item.id}
@@ -94,13 +94,13 @@ const Language = () => {
                   (-)
                 </button>
                 <br />
-                <br />
+                {/* <br />
                 <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>

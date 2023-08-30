@@ -19,16 +19,16 @@ const Specialization = () => {
   });
   const onSubmitData = (data) => {
     // data.preventDefault();
-    console.log(data);
+    // console.log(data);
     setSpecialization(data);
   };
-  console.log(specialization);
+  // console.log(specialization);
   return (
     <Accordion defaultActiveKey="0">
       <Accordion.Item eventKey="0">
         <Accordion.Header>Specialization</Accordion.Header>
         <Accordion.Body>
-          <form onSubmit={handleSubmit(onSubmitData)} className="">
+          <form onBlur={handleSubmit(onSubmitData)} className="">
             {fields.map((item, index) => (
               <div
                 key={item.id}
@@ -128,13 +128,13 @@ const Specialization = () => {
                   (-)
                 </button>
                 <br />
-                <br />
-                <button
+                {/* <br /> */}
+                {/* <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>

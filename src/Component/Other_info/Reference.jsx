@@ -28,14 +28,14 @@ const Reference = () => {
     // data.preventDefault();
     // console.log(data);
     setReference([...reference, data]);
-    console.log(reference);
+    // console.log(reference);
   };
   return (
     <Accordion>
       <Accordion.Item eventKey="0">
         <Accordion.Header>References</Accordion.Header>
         <Accordion.Body>
-          <form onSubmit={handleSubmit(onSubmitData)} className="">
+          <form onBlur={handleSubmit(onSubmitData)} className="">
             {fields.map((item, index) => (
               <div
                 key={item.id}
@@ -175,13 +175,15 @@ const Reference = () => {
                   onClick={() => remove(index)}
                 >
                   (-)
-                </button> <br /><br />
+                </button>
+                <br />
+                {/* <br />
                 <button
                   type="submit"
                   className="btn btn-primary fs-5 px-3 mt-2"
                 >
                   Update Profile
-                </button>
+                </button> */}
               </div>
             ))}
           </form>
