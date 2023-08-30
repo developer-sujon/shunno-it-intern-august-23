@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { Accordion, Button } from "react-bootstrap";
 import "./EmplpymentStyle.css";
 
-const ArmayPerson = ({setArmayPerson}) => {
+const ArmayPerson = ({ setArmayPerson }) => {
   const value = {
     defaultValues: {
       BANo2: "abcd",
@@ -17,7 +17,7 @@ const ArmayPerson = ({setArmayPerson}) => {
     formState: { errors },
   } = useForm(value);
   const onSubmit = (data) => {
-    setArmayPerson(data)
+    setArmayPerson(data);
   };
 
   return (
