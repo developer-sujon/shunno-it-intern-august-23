@@ -2,12 +2,19 @@ import React, {useState} from "react";
 import {Accordion} from "react-bootstrap";
 import Select from "react-select";
 
-const Prefered = ({setPrefered}) => {
-  const [SkillCategory, setSkillCategory] = useState([]);
-  const [special, setSpecial] = useState([]);
+const Prefered = ({setPrefered1,setPrefered2,setPrefered3,setPrefered4, setPrefered5 }) => {
+  const [SkillCategory, setSkillCategory] = useState(['Bank/Non-Bank Fin. Institution',]);
+  const [special, setSpecial] = useState(['ওয়েল্ডার']);
   const [value1, setValue1] = useState({});
   const [value2, setValue2] = useState({});
   const [value3, setValue3] = useState({});
+
+  setPrefered1(SkillCategory)
+  setPrefered2(special)
+  setPrefered3(value1)
+  setPrefered4(value2)
+  setPrefered5(value3)
+
 
   //  const valueMaxinum = () => {
   //    if(value1?.length < 4){
@@ -24,7 +31,7 @@ const Prefered = ({setPrefered}) => {
   //       (data) => data.value !== seletedOption.value
   //     );
   //     setValue1(value1Data);
-  //   }
+  //   } 
   //   else {
   //     alert("maxium added 3 ");
   //   }
@@ -36,9 +43,16 @@ const Prefered = ({setPrefered}) => {
   //   console.log("handle2", seletedOption);
   // };
 
-  const preferedData = [SkillCategory, special, value1, value2, value3];
-  // setPreferValue(preferedData)
+  // var preferedData =  [{
+  //   SkillCategory : SkillCategory,
+  //   specialCtegory: special,
+  //   inside_banglasesh: value1,
+  //   outside_bangladesh: value2,
+  //   Prefered_type: value3,
+  // }];
   // console.log(preferedData)
+
+
 
   const option = [
     {value: "Dhaka", label: "Dhaka"},
@@ -62,31 +76,41 @@ const Prefered = ({setPrefered}) => {
   ];
 
   const skillCate = (e) => {
-    if (e.target.checked) {
-      if (SkillCategory.length < 3) {
-        setSkillCategory([...SkillCategory, e.target.value]);
-      } else {
-        alert("maxium added 3 Skill");
+
+   
+      if (e.target.checked) {
+        if(SkillCategory.length < 3){
+          setSkillCategory([...SkillCategory, e.target.value]);
+        }
+        else{
+           alert('maxium added 3 Skill')
+        }
+      } 
+      else {
+        const filterSkill = SkillCategory.filter(
+          (skill) => skill != e.target.value
+        );
+        setSkillCategory(filterSkill);
       }
-    } else {
-      const filterSkill = SkillCategory.filter(
-        (skill) => skill != e.target.value
-      );
-      setSkillCategory(filterSkill);
-    }
+    
+
   };
 
   const specialCategory = (e) => {
-    if (e.target.checked) {
-      if (special.length < 1) {
-        setSpecial([...special, e.target.value]);
-      } else {
-        alert(" special cateGory seleted 1");
+
+      if (e.target.checked) {
+        if(special.length < 1){
+          setSpecial([...special, e.target.value]);
+        }
+
+        else {
+          alert(" special cateGory seleted 1");
+        }
+      } 
+      else {
+        const filterSkill = special.filter((skill) => skill != e.target.value);
+        setSpecial(filterSkill);
       }
-    } else {
-      const filterSkill = special.filter((skill) => skill != e.target.value);
-      setSpecial(filterSkill);
-    }
   };
 
   return (
@@ -296,7 +320,7 @@ const Prefered = ({setPrefered}) => {
               <div className="w-50">
                 <span>Inside Bangladesh Add Districts (max 15)</span>
                 <Select
-                  defaultValue={value1}
+                  defaultValue={option[0]}
                   onChange={setValue1}
                   className="mt-2"
                   options={option}
@@ -307,10 +331,9 @@ const Prefered = ({setPrefered}) => {
               <div className="w-50">
                 <span>Outside Bangladesh Add Countries (max 10)</span>
                 <Select
-                  defaultValue={value2}
+                  defaultValue={option2[0]}
                   onChange={setValue2}
                   className="mt-2"
-                  // defaultInputValue={[option2[0],option2[1]]}
                   options={option2}
                   isMulti
                 />
@@ -321,10 +344,9 @@ const Prefered = ({setPrefered}) => {
               <span>Add your preferred organization type (max 12)</span>
               <Select
                 classNames="from-control pb-5"
-                defaultValue={value3}
+                defaultValue={option3[0]}
                 onChange={setValue3}
                 className="mt-2"
-                // defaultInputValue={[option3[0] option3[1].value]}
                 options={option3}
                 isMulti
               />
