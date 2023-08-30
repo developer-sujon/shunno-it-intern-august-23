@@ -20,7 +20,7 @@ const ArmayPerson = ({setArmayPerson}) => {
     formState: { errors },
   } = useForm(value);
   const onSubmit = (data) => {
-    setArmayPerson(data)
+    setArmayPerson(data);
   };
 
   return (

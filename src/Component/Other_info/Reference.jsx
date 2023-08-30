@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Accordion } from "react-bootstrap";
 import { useFieldArray, useForm } from "react-hook-form";
 
-const Reference = ({setRefaceData1}) => {
+const Reference = ({ setRefaceData1 }) => {
   const [reference, setReference] = useState([]);
   const values = {
     defaultValues: {
@@ -20,13 +20,14 @@ const Reference = ({setRefaceData1}) => {
   const { control, handleSubmit, register } = useForm(values);
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
-      control, // control props comes from useForm (optional: if you are using FormContext)
-      name: "otherInfo", // unique name for your Field Array
+      control, 
+      name: "otherInfo", 
     }
   );
   const onSubmitData = (data) => {
- 
+
     setRefaceData1([...reference, data]);
+  
   };
   return (
     <Accordion>
