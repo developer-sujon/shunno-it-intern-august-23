@@ -7,7 +7,7 @@ import ParmanentOut from "./Present/ParmanentOut";
 import { useDispatch } from "react-redux";
 import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
-const Present_addres = () => {
+const Present_addres = ({setAddressField1,setAddressField}) => {
   const dispatch = useDispatch()
   const [present, setPresent] = useState("");
   const [parmanent, setParmanet] = useState("");
@@ -16,6 +16,9 @@ const Present_addres = () => {
  
   // dispatch(GetFromData(PresentAddress))
   // dispatch(GetFromData(ParmanentAddress))
+
+  setAddressField(PresentAddress)
+  setAddressField1(ParmanentAddress) 
 
 
 

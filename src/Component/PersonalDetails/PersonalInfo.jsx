@@ -19,15 +19,21 @@ const PersonalInfo = () => {
   const [Reveent, setRelventData] = useState({});
   const [Disability, setDisbilty] = useState({});
 
- 
+  const AddresinOut = [
+     Addressfield , Addressfield1
+  ]
+
 
   const {FromData} = useSelector((state) => state.FromGetData);
 
   const perinfoData = () => {
     dispatch(GetFromData(PersonalData));
+    dispatch(GetFromData(AddresinOut));
+    // dispatch(GetFromData(Addressfield1));
     dispatch(GetFromData(carredInfo));
     dispatch(GetFromData(Disability));
     dispatch(GetFromData(Reveent));
+    
     // dispatch(GetFromData(personalGetDAta))
   };
   return (
