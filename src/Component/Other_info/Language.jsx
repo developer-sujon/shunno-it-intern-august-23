@@ -20,16 +20,18 @@ const Language = ({setLanguage1}) => {
     }
   );
   const onSubmitData = (data) => {
+<<<<<<< HEAD
 
     // data.preventDefault();
     // console.log(data);
     setLanguage([...language, data]);
     // console.log(language);
 
+=======
+>>>>>>> e52fc6dc8719faf8f9450190d8c7c98fcec83eb0
     
     setLanguage1([...language, data]);
    
->>>>>>> 704ad67b29461596e3188f44db9acae8da60aed5
   };
   return (
     <Accordion>

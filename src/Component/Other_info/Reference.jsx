@@ -20,12 +20,18 @@ const Reference = ({ setRefaceData1 }) => {
   const { control, handleSubmit, register } = useForm(values);
   const { fields, append, prepend, remove, swap, move, insert } = useFieldArray(
     {
-      control, // control props comes from useForm (optional: if you are using FormContext)
-      name: "otherInfo", // unique name for your Field Array
+      control, 
+      name: "otherInfo", 
     }
   );
   const onSubmitData = (data) => {
+<<<<<<< HEAD
     setRefaceData1([...reference, data]);
+=======
+
+    setReference([...reference, data]);
+  
+>>>>>>> e52fc6dc8719faf8f9450190d8c7c98fcec83eb0
   };
   return (
     <Accordion>
