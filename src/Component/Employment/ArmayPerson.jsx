@@ -5,12 +5,8 @@ import "./EmplpymentStyle.css";
 import { useDispatch } from "react-redux";
 import { GetFromData } from "../../FormDataSlice/FormDAtaSlice";
 
-<<<<<<< HEAD
-const ArmayPerson = ({ setArmayPerson }) => {
-=======
 const ArmayPerson = ({setArmayPerson}) => {
   const disPatch = useDispatch() ; 
->>>>>>> 9b4ffaae5bf25154685a269801963c00ac7dc55a
   const value = {
     defaultValues: {
       BANo2: "abcd",
