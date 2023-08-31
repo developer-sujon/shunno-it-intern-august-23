@@ -6,7 +6,7 @@ import { useContext } from "react";
 const EmploymentHistoryArmy = () => {
   // form context
   const { register, errors } = useContext(FormContext);
-  console.log(errors);
+
   return (
     <div>
       <Accordion.Item eventKey="1">

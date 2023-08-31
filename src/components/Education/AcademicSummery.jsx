@@ -59,9 +59,17 @@ const AcademicSummery = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      className="bg-light"
+                      className={`bg-light ${
+                        errors?.Educations?.[index]?.Major_group?.message &&
+                        "is-invalid"
+                      }`}
                       placeholder="Computer Science"
-                      {...register(`Educations.${index}.Major_group`)}
+                      {...register(`Educations.${index}.Major_group`, {
+                        required: {
+                          value: true,
+                          message: "This field is required",
+                        },
+                      })}
                     />
 
                     {errors?.Educations?.[index]?.Major_group?.message && (
@@ -121,8 +129,16 @@ const AcademicSummery = () => {
                 </Form.Label>
                 <Form.Control
                   type="text"
-                  className="bg-light"
-                  {...register(`Educations.${index}.Institute_name`)}
+                  {...register(`Educations.${index}.Institute_name`, {
+                    required: {
+                      value: true,
+                      message: "This field is required",
+                    },
+                  })}
+                  className={`bg-light ${
+                    errors?.Educations?.[index]?.Institute_name?.message &&
+                    "is-invalid"
+                  }`}
                 />
 
                 {errors?.Educations?.[index]?.Institute_name?.message && (

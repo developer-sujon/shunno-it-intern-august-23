@@ -37,8 +37,15 @@ const TrainingSummery = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      className="bg-light"
-                      {...register(`Trainings.${index}.Title`)}
+                      className={`bg-light ${
+                        errors?.Trainings?.[index]?.Title && "is-invalid"
+                      }`}
+                      {...register(`Trainings.${index}.Title`, {
+                        required: {
+                          value: true,
+                          message: "This filed is required",
+                        },
+                      })}
                     />
                     {errors?.Trainings?.[index]?.Title?.message && (
                       <small className="text-danger">
@@ -69,8 +76,15 @@ const TrainingSummery = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      className="bg-light"
-                      {...register(`Trainings.${index}.Institute`)}
+                      className={`bg-light ${
+                        errors?.Trainings?.[index]?.Institute && "is-invalid"
+                      }`}
+                      {...register(`Trainings.${index}.Institute`, {
+                        required: {
+                          value: true,
+                          message: "This filed is required",
+                        },
+                      })}
                     />
                     {errors?.Trainings?.[index]?.Institute?.message && (
                       <small className="text-danger">
@@ -100,8 +114,15 @@ const TrainingSummery = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      className="bg-light"
-                      {...register(`Trainings.${index}.Country`)}
+                      className={`bg-light ${
+                        errors?.Trainings?.[index]?.Country && "is-invalid"
+                      }`}
+                      {...register(`Trainings.${index}.Country`, {
+                        required: {
+                          value: true,
+                          message: "This field is required",
+                        },
+                      })}
                     />
                     {errors?.Trainings?.[index]?.Country?.message && (
                       <small className="text-danger">

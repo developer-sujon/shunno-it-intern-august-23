@@ -34,8 +34,16 @@ const ProfessionalSummery = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      className="bg-light"
-                      {...register(`Professionals.${index}.Certification`)}
+                      className={`bg-light ${
+                        errors?.Professionals?.[index]?.Certification &&
+                        "is-invalid"
+                      }`}
+                      {...register(`Professionals.${index}.Certification`, {
+                        required: {
+                          value: true,
+                          message: "This field is required",
+                        },
+                      })}
                     />
                     {errors?.Professionals?.[index]?.Certification?.message && (
                       <small className="text-danger">
@@ -66,10 +74,18 @@ const ProfessionalSummery = () => {
                     </Form.Label>
                     <Form.Control
                       type="text"
-                      className="bg-light"
-                      {...register(`Professionals.${index}.Institute`)}
+                      className={`bg-light ${
+                        errors?.Professionals?.[index]?.Institute &&
+                        "is-invalid"
+                      }`}
+                      {...register(`Professionals.${index}.Institute`, {
+                        required: {
+                          value: true,
+                          message: "This field is required",
+                        },
+                      })}
                     />
-                    {errors?.Professionals?.[index]?.Institute?.message && (
+                    {errors?.Professionals?.[index]?.Institute && (
                       <small className="text-danger">
                         {errors?.Professionals?.[index]?.Institute?.message}
                       </small>
