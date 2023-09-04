@@ -39,7 +39,7 @@ let emptyStr = ''
 for (var i = strNum.length - 1; i >= 0; i--) {
     emptyStr += strNum[i]
 }
-// console.log(parseFloat(emptyStr))
+console.log(parseFloat(emptyStr))
 
 
 // problem 4 solution
@@ -48,7 +48,7 @@ let nestedTeam = [];
 for(var i = 0; i < team.length; i += 2){
     nestedTeam.push(team.slice(i, i+2))
 }
-// console.log(nestedTeam)
+console.log(nestedTeam)
 
 
 
@@ -72,7 +72,7 @@ let totalCab = n;
     }
     
 
-console.log('totalCab',totalCab)
+// console.log('totalCab',totalCab)
 
 
 // let n = 12;
