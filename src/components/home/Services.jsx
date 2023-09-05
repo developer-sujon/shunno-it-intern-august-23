@@ -1,47 +1,17 @@
-import { Component } from "react";
+import { useEffect } from "react";
+import getServiceInfo from "../../RestApi/service.service";
+import { useSelector } from "react-redux";
 
-// import images
-import serviceImg1 from "../../assets/hisabNikash.png";
-import serviceImg2 from "../../assets/netFee.png";
-import serviceImg3 from "../../assets/bayannoPay.png";
-import serviceImg4 from "../../assets/utility.jpeg";
-import serviceImg5 from "../../assets/support.jfif";
+const Services = () => {
+  const {serviceFeature} = useSelector((state) => state);
+  const {data, apiResponse} = serviceFeature;
+  console.log(data)
+  
+  useEffect(()=>{
+    getServiceInfo()
+  },[])
 
-class Services extends Component {
-  services = [
-    {
-      img: serviceImg1,
-      title: "Hisab Nikash",
-      description:
-        "Online based inventory management software which provides stock management, customer management, customer payment in installment, SMS service etc.",
-    },
-    {
-      img: serviceImg2,
-      title: "NetFee",
-      description:
-        "ISP billing and management software service which provides customer online payment, automatic connection on/off, customized messaging service, mac reseller etc.",
-    },
-    {
-      img: serviceImg3,
-      title: "Bayanno Pay",
-      description:
-        "Billing software in Bangla which is easy to use for cable operators and their staffs. It provides bill confirmation and alert message, mini invoice, daily/monthly report etc.",
-    },
-    {
-      img: serviceImg4,
-      title: "Utility Bill",
-      description:
-        "House/office rent, electricity bill, water bill, any kind of utility bill or monthly fee collection management software which is easy to use.",
-    },
-    {
-      img: serviceImg5,
-      title: "24/7 Help &amp; Support",
-      description:
-        "A team of dedicated support agents thatcan get help customers to find answers to questions as soon as they want.up—24/7 and in real-time.",
-    },
-  ];
-
-  render() {
+  if(apiResponse.isSuccess){
     return (
       <div>
         <div id="service" className="best-service section-padding">
@@ -50,27 +20,23 @@ class Services extends Component {
               <div className="col-lg-6 col-sm-6 col-xs-12">
                 <div className="service-title">
                   <h4>Our Services</h4>
-                  <h1>
-                    We Provide Software Solution and Improve Business Criteria !
-                  </h1>
+                  <h1>We Provide Software Solution and Improve Business Criteria!</h1>
                 </div>
               </div>
               <div className="col-lg-6 col-sm-6 col-xs-12">
                 <div className="service-content">
-                  <p>
-                    We have successfully established a strong presence by
-                    Providing services to 1000+ clients.
-                  </p>
+                  <p>We have successfully established a strong presence by Providing services to 1000+ clients.</p>
                 </div>
               </div>
             </div>
             <div className="row">
-              {this.services.map((service, index) => (
-                <div key={index} className="col-lg-4 col-sm-6 col-xs-12 ">
-                  <div className="single_service ss_five">
-                    <img src={service.img} alt />
-                    <h3>{service.title}</h3>
-                    <p>{service.description}</p>
+              {data?.map((singleData, index) => (
+                <div key={index} className="col-lg-4 col-sm-6 col-xs-12">
+                  {console.log(singleData)}
+                  <div className="single_service ss_five h-full">
+                    <img src={singleData?.avatar} alt="" />
+                    <h3>{singleData?.name}</h3>
+                    <p>{singleData?.review}</p>
                   </div>
                 </div>
               ))}
@@ -79,7 +45,11 @@ class Services extends Component {
         </div>
       </div>
     );
+  }else if (apiResponse.isLoading) {
+    return "Loading Data Astece";
+  } else if (apiResponse.isError) {
+    return "Error Astece";
   }
-}
+};
 
 export default Services;

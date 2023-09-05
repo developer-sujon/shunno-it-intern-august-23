@@ -13,7 +13,7 @@ const Experience = () => {
 
   const experienceInfoService = () => {
     setIsLoading(true);
-    fetch("http://localhost:6100/api/v1/client/siteinfo")
+    fetch("https://anf3-production.up.railway.app/api/v1/client/siteinfo")
       .then((res) => res.json())
       .then((data) => {
         if (data?.data) {

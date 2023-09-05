@@ -1,10 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./style/animate.css";
-import "./style/bootstrap.min.css";
+import "../src/style/bootstrap.min.css";
 import "./style/font-awesome.min.css";
 import "./style/magnific-popup.css";
-import "./style/materialdesignicons-min.css";
+import "../src/style/materialdesignicons-min.css";
 import "./style/owl.carousel.css";
 import "./style/owl.theme.css";
 import "./style/slicknav.css";

@@ -12,7 +12,7 @@ export const heroFeature = createSlice({
     apiResponse: {
       isSuccess: false,
       isError: false,
-      isLoading: true,
+      isLoading: false,
     },
   },
   reducers: {
