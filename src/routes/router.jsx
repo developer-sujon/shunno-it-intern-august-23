@@ -10,6 +10,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Career from "../pages/Career";
 import Tos from "../pages/Tos";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import SingleBlog from "../pages/SingleBlog";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         element: <Blog />,
         path: "blog",
+      },
+      {
+        element: <SingleBlog />,
+        path: "blog/:id",
       },
       {
         element: <Contact />,
