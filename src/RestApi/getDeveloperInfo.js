@@ -1,10 +1,10 @@
-import { setTestimonialInfo } from "../redux/features/testimonial.feature";
+import { setDeveloperInfo } from "../redux/features/developer.feature";
 import { store } from "../redux/store";
 import publicInstance from "./axiosConfig";
 
-const getTestimonialInfo = () => {
+const getDeveloperInfo = () => {
     store.dispatch(
-        setTestimonialInfo({
+        setDeveloperInfo({
             data:[],
             isLoading: true,
             isError: false,
@@ -12,11 +12,11 @@ const getTestimonialInfo = () => {
         })
     )
     publicInstance
-    .get("/testimonials")
+    .get("/teams")
     .then(({data})=>{
         // console.log(data.data)
         store.dispatch(
-            setTestimonialInfo({
+            setDeveloperInfo({
                 data:data?.data,
                 isLoading: false,
                 isError: false,
@@ -26,7 +26,7 @@ const getTestimonialInfo = () => {
     })
     .catch(()=>{
         store.dispatch(
-            setTestimonialInfo({
+            setDeveloperInfo({
                 data:null,
                 isLoading: false,
                 isError: true,
@@ -36,4 +36,4 @@ const getTestimonialInfo = () => {
     })
 };
 
-export default getTestimonialInfo;
+export default getDeveloperInfo;

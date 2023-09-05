@@ -5,6 +5,7 @@ import heroFeature from "./features/hero.feature";
 import serviceFeature from "./features/service.feature";
 import experienceFeature from "./features/experience.feature";
 import testimonialFeature from "./features/testimonial.feature";
+import developerFeature from "./features/developer.feature";
 
 export const store = configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export const store = configureStore({
     experienceFeature,
     testimonialFeature,
     globalFeature,
+    developerFeature,
   },
 });

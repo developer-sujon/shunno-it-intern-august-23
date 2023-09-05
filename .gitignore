@@ -26,3 +26,9 @@ dist-ssr
 #Ignore env file
 .env
 .env.local
+
+# extra some files
+test.html
+test.js
+test2.js
+testExam.js
