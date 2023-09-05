@@ -5,7 +5,7 @@ import heroBg from "../../assets/hero-bg.png";
 
 const Hero = () => {
   const { heroFeature } = useSelector((state) => state);
-  const { apiResponse, siteInfo } = heroFeature;
+  const { apiResponse, data } = heroFeature;
 
   useEffect(() => {
     getHeroInfo();
@@ -26,9 +26,9 @@ const Hero = () => {
           <div className="row">
             <div className="offset-lg-1 col-lg-10 col-sm-12 col-xs-12 text-center">
               <div className="about_me_content">
-                <h1>{siteInfo.homeTitle}</h1>
+                <h1>{data?.homeTitle}</h1>
                 <p>
-                  {siteInfo.homeSubtitle}
+                  {data?.homeSubtitle}
                   {/* {this.state.counter} */}
                 </p>
                 {/* <button
@@ -45,8 +45,8 @@ const Hero = () => {
          </button> */}
               </div>
               <div className="home_btn">
-                <a href={siteInfo.homeLink} className="home_one">
-                  {siteInfo.homeLinkLabel}
+                <a href={data.homeLink} className="home_one">
+                  {data?.homeLinkLabel}
                 </a>
               </div>
             </div>

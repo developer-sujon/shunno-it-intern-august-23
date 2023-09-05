@@ -1,5 +1,3 @@
-import { Component } from "react";
-
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -10,43 +8,19 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Autoplay, Pagination } from "swiper/modules";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import getTestimonialInfo from "../../RestApi/getTestimonialInfo";
 
-class Testimonial extends Component {
-  testimonials = [
-    {
-      feedback: "ডিশ এবং ইন্টারনেট বিলিং এর বাংলা ভাষায় সহজ একটি এপ।",
-      name: "Shahadat Hossain",
-      position: "Web Developer",
-      img: "https://www.shunnoit.com/assets/img/testimonial/rasel.png",
-    },
-    {
-      feedback:
-        "ডিস ও নেট বিল কালেকশন করার ✌ চমৎকার এপ। বায়ান্নপে টিমকে ধন্যবাদ।",
-      name: "Md. Roknuzzaman Suruz",
-      position: "ISP owner",
-      img: "https://www.shunnoit.com/assets/img/testimonial/rokon.jpg",
-    },
-    {
-      feedback: "দেশ সেরা বিলিং সফটওয়্যার",
-      name: "MD. Rasel Akram",
-      position: "Businessman",
-      img: "https://www.shunnoit.com/assets/img/testimonial/rasel.png",
-    },
-    {
-      feedback:
-        " বাংলা পে এপের নতুন ভার্সন এখন বায়ান্ন পে৷ নতুন লুকে এপটিকে চমৎকার লাগছে। অনেক সুন্দর হয়েছে। অনেক ফার্স্ট কাজ করা যাচ্ছে। ধন্যবাদ।",
-      name: "Shahriar Alam",
-      position: "Manager",
-      img: "https://www.shunnoit.com/assets/img/testimonial/shahriar.webp",
-    },
-    {
-      feedback: "এক্সিলেন্ট সফটওয়্যার",
-      name: "S M Mehedi Hasan Tanvir",
-      position: "- Senior Developer",
-      img: "https://www.shunnoit.com/tanvir.webp",
-    },
-  ];
-  render() {
+const Testimonial = () => {
+  const { testimonialFeature } = useSelector((state) => state);
+  const { data, apiResponse } = testimonialFeature;
+
+  useEffect(() => {
+    getTestimonialInfo();
+  }, []);
+  // console.log(data)
+  if(apiResponse.isSuccess){
     return (
       <section className="testimonials_area section-padding">
         <div className="container">
@@ -54,7 +28,7 @@ class Testimonial extends Component {
             <h4 className="section-title-white">Testimonials</h4>
             <h1 className="section-title-white">Best Reviews</h1>
           </div>
-
+  
           <Swiper
             spaceBetween={30}
             centeredSlides={true}
@@ -68,18 +42,18 @@ class Testimonial extends Component {
             modules={[Autoplay, Pagination]}
             className="mySwiper"
           >
-            {this.testimonials.map((testimonial, index) => (
+            {data?.map((testimonial, index) => (
               <SwiperSlide key={index}>
                 <div className="testimonial mb-5">
                   <div className="testimonial_content">
-                    <p>{testimonial.feedback}</p>
+                    <p>{testimonial?.review}</p>
                   </div>
                   <div className="testi_pic_title mx-auto">
                     <div className="pic mx-auto">
-                      <img src={testimonial.img} alt="" />
+                      <img src={testimonial?.avatar} alt="" />
                     </div>
-                    <h4>{testimonial.name}</h4>
-                    <small className="post">- {testimonial.position}</small>
+                    <h4>{testimonial?.name}</h4>
+                    <small className="post">- {testimonial?.position}</small>
                   </div>
                 </div>
               </SwiperSlide>
@@ -88,7 +62,11 @@ class Testimonial extends Component {
         </div>
       </section>
     );
+  }else if (apiResponse.isLoading) {
+    return "Loading Data Astece";
+  } else if (apiResponse.isError) {
+    return "Error Astece";
   }
-}
+};
 
 export default Testimonial;

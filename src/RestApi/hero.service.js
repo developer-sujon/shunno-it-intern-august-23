@@ -14,7 +14,7 @@ const getHeroInfo = () => {
   publicInstance
     .get("/siteinfo")
     .then(({ data }) => {
-      console.log(data)
+      // console.log(data)
       store.dispatch(
         setHeroInfo({
           data: data?.data?.[0],
@@ -24,7 +24,7 @@ const getHeroInfo = () => {
         })
       );
     })
-    .catch((err) => {
+    .catch(() => {
       store.dispatch(
         setHeroInfo({
           data: null,
@@ -33,7 +33,7 @@ const getHeroInfo = () => {
           isSuccess: false,
         })
       );
-      console.log(err);
+      // console.log(err);
     });
 };
 

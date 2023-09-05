@@ -3,7 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 export const heroFeature = createSlice({
   name: "heroFeature",
   initialState: {
-    siteInfo: {
+    data: {
       homeTitle: "..................",
       homeSubtitle: "................",
       homeLinkLabel: ".............",
@@ -17,7 +17,7 @@ export const heroFeature = createSlice({
   },
   reducers: {
     setHeroInfo: (state, actions) => {
-      state.siteInfo = actions.payload.data;
+      state.data = actions.payload.data;
       state.apiResponse = {
         isSuccess: actions.payload.isSuccess,
         isError: actions.payload.isError,

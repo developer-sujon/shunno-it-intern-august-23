@@ -1,11 +1,11 @@
 import { useEffect } from "react";
-import getServiceInfo from "../../RestApi/service.service";
+import getServiceInfo from "../../RestApi/getServiceInfo";
 import { useSelector } from "react-redux";
 
 const Services = () => {
   const {serviceFeature} = useSelector((state) => state);
   const {data, apiResponse} = serviceFeature;
-  console.log(data)
+  // console.log(data)
   
   useEffect(()=>{
     getServiceInfo()
@@ -32,7 +32,7 @@ const Services = () => {
             <div className="row">
               {data?.map((singleData, index) => (
                 <div key={index} className="col-lg-4 col-sm-6 col-xs-12">
-                  {console.log(singleData)}
+                  {/* {console.log(singleData)} */}
                   <div className="single_service ss_five h-full">
                     <img src={singleData?.avatar} alt="" />
                     <h3>{singleData?.name}</h3>
