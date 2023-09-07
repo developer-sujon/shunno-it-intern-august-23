@@ -11,6 +11,8 @@ import { Autoplay, Pagination } from "swiper/modules";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
 import getTestimonialInfo from "../../RestApi/getTestimonialInfo";
+import Loading from "../common/Loading";
+import Error from "../common/Error";
 
 const Testimonial = () => {
   const { globalFeature, testimonialFeature } = useSelector((state) => state);
@@ -64,9 +66,9 @@ const Testimonial = () => {
       </section>
     );
   }else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 };
 

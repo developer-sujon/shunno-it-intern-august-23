@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import getBlogInfo from "../RestApi/getBlogInfo";
 import { Link } from "react-router-dom";
+import Loading from "../components/common/Loading";
+import Error from "../components/common/Error";
 
 const Blog = () => {
   const {globalFeature, blogFeature} = useSelector((state) => state);
@@ -84,9 +86,9 @@ const Blog = () => {
       </>
     );
   }else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 };
 

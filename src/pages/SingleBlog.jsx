@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getSingleBlogInfo } from "../RestApi/getBlogInfo";
 import { useSelector } from "react-redux";
+import Loading from "../components/common/Loading";
+import Error from "../components/common/Error";
 
 const SingleBlog = () => {
   const { id } = useParams();
@@ -49,9 +51,9 @@ const SingleBlog = () => {
       </section>
     );
   } else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 };
 

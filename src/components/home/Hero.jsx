@@ -2,6 +2,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import heroBg from "../../assets/hero-bg.png";
 import getHeroInfo from "../../RestApi/hero.service";
+import Loading from "../common/Loading";
+import Error from "../common/Error";
 
 const Hero = () => {
   const { heroFeature, globalFeature } = useSelector((state) => state);
@@ -57,9 +59,9 @@ const Hero = () => {
       </section>
     );
   } else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 };
 

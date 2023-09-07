@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import getServiceInfo from "../../RestApi/getServiceInfo";
 import { useSelector } from "react-redux";
+import Loading from "../common/Loading";
 
 const Services = () => {
   const { globalFeature, serviceFeature} = useSelector((state) => state);
@@ -47,9 +48,9 @@ const Services = () => {
       </div>
     );
   }else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 };
 

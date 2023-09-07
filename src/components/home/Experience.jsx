@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import getExperienceInfo from "../../RestApi/getExperienceInfo";
+import Loading from "../common/Loading";
+import Error from "../common/Error";
 
 const Experience = () => {
   const { globalFeature, experienceFeature } = useSelector((state) => state);
@@ -40,9 +42,9 @@ const Experience = () => {
       </section>
     );
   } else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 };
 

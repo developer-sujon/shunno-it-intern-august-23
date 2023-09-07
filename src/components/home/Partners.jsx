@@ -11,6 +11,8 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Autoplay } from "swiper/modules";
 import getBrand from "../../RestApi/brand.service";
+import Loading from "../common/Loading";
+import Error from "../common/Error";
 
 export default function Partners() {
   const { brandFeature, globalFeature } = useSelector((state) => state);
@@ -61,8 +63,8 @@ export default function Partners() {
       </>
     );
   } else if (isLoading) {
-    return "Loading Data Astece";
+    return <Loading></Loading>;
   } else if (isError) {
-    return "Error Astece";
+    return <Error></Error>;
   }
 }

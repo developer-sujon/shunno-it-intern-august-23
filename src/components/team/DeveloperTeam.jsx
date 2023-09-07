@@ -3,17 +3,20 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import getDeveloperInfo from "../../RestApi/getDeveloperInfo";
+import Loading from "../common/Loading";
+import Error from "../common/Error";
 
 const DeveloperTeam = () => {
-  const { developerFeature } = useSelector((state) => state);
-  const { data, apiResponse } = developerFeature;
+  const { globalFeature, developerFeature } = useSelector((state) => state);
+  const {isError, isLoading, isSuccess} = globalFeature;
+  const { data } = developerFeature;
 
   useEffect(() => {
     getDeveloperInfo();
   }, []);
   console.log(data);
 
-  if(apiResponse.isSuccess){
+  if(isSuccess){
     return (
       <section id="team" className="team_area section-padding">
         <div className="container">
@@ -57,10 +60,10 @@ const DeveloperTeam = () => {
         </div>
       </section>
     );
-  }else if (apiResponse.isLoading) {
-    return "Loading Data Astece";
-  } else if (apiResponse.isError) {
-    return "Error Astece";
+  }else if (isLoading) {
+    return <Loading></Loading>;
+  } else if (isError) {
+    return <Error></Error>;
   }
 };
 
