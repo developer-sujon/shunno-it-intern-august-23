@@ -3,15 +3,16 @@ import { useSelector } from "react-redux";
 import getExperienceInfo from "../../RestApi/getExperienceInfo";
 
 const Experience = () => {
-  const { experienceFeature } = useSelector((state) => state);
-  const { data, apiResponse } = experienceFeature;
+  const { globalFeature, experienceFeature } = useSelector((state) => state);
+  const { isLoading, isSuccess, isError} = globalFeature;
+  const { data} = experienceFeature;
 
   useEffect(() => {
     getExperienceInfo();
   }, []);
   // console.log(data)
 
-  if(apiResponse?.isSuccess){
+  if(isSuccess){
     return (
       <section className="complete-project-area section-padding">
         <div className="container mx-auto">
@@ -38,9 +39,9 @@ const Experience = () => {
         </div>
       </section>
     );
-  } else if (apiResponse.isLoading) {
+  } else if (isLoading) {
     return "Loading Data Astece";
-  } else if (apiResponse.isError) {
+  } else if (isError) {
     return "Error Astece";
   }
 };

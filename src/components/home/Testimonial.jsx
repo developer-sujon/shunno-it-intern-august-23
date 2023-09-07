@@ -13,14 +13,15 @@ import { useEffect } from "react";
 import getTestimonialInfo from "../../RestApi/getTestimonialInfo";
 
 const Testimonial = () => {
-  const { testimonialFeature } = useSelector((state) => state);
-  const { data, apiResponse } = testimonialFeature;
+  const { globalFeature, testimonialFeature } = useSelector((state) => state);
+  const { isError, isLoading, isSuccess } = globalFeature;
+  const { data} = testimonialFeature;
 
   useEffect(() => {
     getTestimonialInfo();
   }, []);
   // console.log(data)
-  if(apiResponse.isSuccess){
+  if(isSuccess){
     return (
       <section className="testimonials_area section-padding">
         <div className="container">
@@ -62,9 +63,9 @@ const Testimonial = () => {
         </div>
       </section>
     );
-  }else if (apiResponse.isLoading) {
+  }else if (isLoading) {
     return "Loading Data Astece";
-  } else if (apiResponse.isError) {
+  } else if (isError) {
     return "Error Astece";
   }
 };

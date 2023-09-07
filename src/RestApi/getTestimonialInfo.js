@@ -1,39 +1,15 @@
 import { setTestimonialInfo } from "../redux/features/testimonial.feature";
 import { store } from "../redux/store";
 import publicInstance from "./axiosConfig";
+import { getRequest } from "./globalApi";
 
-const getTestimonialInfo = () => {
+const getTestimonialInfo = async () => {
+    const data = await getRequest("/testimonials")
     store.dispatch(
         setTestimonialInfo({
-            data:[],
-            isLoading: true,
-            isError: false,
-            isSuccess: false,
+            data: data?.data?.data
         })
     )
-    publicInstance
-    .get("/testimonials")
-    .then(({data})=>{
-        // console.log(data.data)
-        store.dispatch(
-            setTestimonialInfo({
-                data:data?.data,
-                isLoading: false,
-                isError: false,
-                isSuccess: true,
-            })
-        )
-    })
-    .catch(()=>{
-        store.dispatch(
-            setTestimonialInfo({
-                data:null,
-                isLoading: false,
-                isError: true,
-                isSuccess: false,
-            })
-        )
-    })
 };
 
 export default getTestimonialInfo;

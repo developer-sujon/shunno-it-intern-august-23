@@ -3,21 +3,11 @@ import { createSlice } from "@reduxjs/toolkit";
 export const brandFeature = createSlice({
   name: "brandFeature",
   initialState: {
-    brands: [],
-    apiResponse: {
-      isSuccess: false,
-      isError: false,
-      isLoading: true,
-    },
+    data: []
   },
   reducers: {
     setBrand: (state, actions) => {
-      state.brands = actions.payload.data;
-      state.apiResponse = {
-        isSuccess: actions.payload.isSuccess,
-        isError: actions.payload.isError,
-        isLoading: actions.payload.isLoading,
-      };
+      state.data = actions.payload.data;
     },
   },
 });

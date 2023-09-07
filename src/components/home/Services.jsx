@@ -3,15 +3,16 @@ import getServiceInfo from "../../RestApi/getServiceInfo";
 import { useSelector } from "react-redux";
 
 const Services = () => {
-  const {serviceFeature} = useSelector((state) => state);
-  const {data, apiResponse} = serviceFeature;
+  const { globalFeature, serviceFeature} = useSelector((state) => state);
+  const {isError, isSuccess, isLoading} = globalFeature;
+  const {data} = serviceFeature;
   // console.log(data)
   
   useEffect(()=>{
     getServiceInfo()
   },[])
 
-  if(apiResponse.isSuccess){
+  if(isSuccess){
     return (
       <div>
         <div id="service" className="best-service section-padding">
@@ -45,9 +46,9 @@ const Services = () => {
         </div>
       </div>
     );
-  }else if (apiResponse.isLoading) {
+  }else if (isLoading) {
     return "Loading Data Astece";
-  } else if (apiResponse.isError) {
+  } else if (isError) {
     return "Error Astece";
   }
 };

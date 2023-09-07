@@ -3,15 +3,21 @@ import { createSlice } from "@reduxjs/toolkit";
 export const globalFeature = createSlice({
   name: "globalFeature",
   initialState: {
-    apiResponse: {
-      isSuccess: false,
-      isError: false,
-      isLoading: true,
-    },
+    isSuccess: false,
+    isError: false,
+    isLoading: true,
+    error: undefined,
+    theme: 'light',
+    language: 'en'
   },
   reducers: {
-    setGlobal: (state, actions) => {
-      state.apiResponse = actions.payload;
+    setGlobal: (state, {payload}) => {
+      // state.apiResponse = actions.payload;
+      Object.keys(state).forEach(key => {
+        if(state.hasOwnProperty(key)){
+          state[key] = payload[key]
+        }
+      })
     },
   },
 });

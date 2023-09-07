@@ -1,31 +1,14 @@
 import { setBrand } from "../redux/features/brand.feature";
 import { store } from "../redux/store";
-import publicInstance from "./axiosConfig";
+import { getRequest } from "./globalApi";
 
-const getBrand = () => {
-  publicInstance
-    .get(`/brands`)
-    .then(({ data }) => {
-      store.dispatch(
-        setBrand({
-          data: data?.data,
-          isLoading: false,
-          isError: false,
-          isSuccess: true,
-        })
-      );
+const getBrand = async () => {
+  const data = await getRequest("/brands")
+  store.dispatch(
+    setBrand({
+      data: data?.data?.data
     })
-    .catch((err) => {
-      store.dispatch(
-        setBrand({
-          data: [],
-          isLoading: false,
-          isError: true,
-          isSuccess: false,
-        })
-      );
-      console.log(err);
-    });
+  )
 };
 
 export default getBrand;

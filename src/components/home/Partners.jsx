@@ -13,14 +13,15 @@ import { Autoplay } from "swiper/modules";
 import getBrand from "../../RestApi/brand.service";
 
 export default function Partners() {
-  const { brandFeature } = useSelector((state) => state);
-  const { apiResponse, brands } = brandFeature;
+  const { brandFeature, globalFeature } = useSelector((state) => state);
+  const { isError, isSuccess, isLoading } = globalFeature;
+  const { data } = brandFeature;
 
   useEffect(() => {
     getBrand();
   }, []);
 
-  if (apiResponse.isSuccess) {
+  if (isSuccess) {
     return (
       <>
         <div className="container py-5 my-5">
@@ -45,7 +46,7 @@ export default function Partners() {
             modules={[Autoplay]}
             className="mySwiper"
           >
-            {brands.map((brand, index) => (
+            {data.map((brand, index) => (
               <SwiperSlide key={index}>
                 <img
                   style={{ height: "120px", width: "120px" }}
@@ -59,9 +60,9 @@ export default function Partners() {
         </div>
       </>
     );
-  } else if (apiResponse.isLoading) {
+  } else if (isLoading) {
     return "Loading Data Astece";
-  } else if (apiResponse.isError) {
+  } else if (isError) {
     return "Error Astece";
   }
 }

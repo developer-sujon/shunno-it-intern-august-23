@@ -4,14 +4,15 @@ import getBlogInfo from "../RestApi/getBlogInfo";
 import { Link } from "react-router-dom";
 
 const Blog = () => {
-  const {blogFeature} = useSelector((state) => state);
-  const { data, apiResponse } = blogFeature;
+  const {globalFeature, blogFeature} = useSelector((state) => state);
+  const {isError, isLoading, isSuccess} = globalFeature;
+  const { data } = blogFeature;
 
   useEffect(() => {
     getBlogInfo();
   }, []);
 
-  if(apiResponse.isSuccess){
+  if(isSuccess){
     return (
       <>
         {/* Blog banner section  */}
@@ -82,9 +83,9 @@ const Blog = () => {
         </section>
       </>
     );
-  }else if (apiResponse.isLoading) {
+  }else if (isLoading) {
     return "Loading Data Astece";
-  } else if (apiResponse.isError) {
+  } else if (isError) {
     return "Error Astece";
   }
 };

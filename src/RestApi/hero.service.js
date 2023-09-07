@@ -1,40 +1,15 @@
 import { setHeroInfo } from "../redux/features/hero.feature";
 import { store } from "../redux/store";
-import publicInstance from "./axiosConfig";
+import { getRequest } from "./globalApi";
 
-const getHeroInfo = () => {
+const getHeroInfo = async () => {
+  const {data} = await getRequest("/siteinfo")
   store.dispatch(
     setHeroInfo({
-      data:[],
-      isLoading: true,
-      isError: false,
-      isSuccess: false,
+      data: data?.data[0]
     })
   )
-  publicInstance
-    .get("/siteinfo")
-    .then(({ data }) => {
-      // console.log(data)
-      store.dispatch(
-        setHeroInfo({
-          data: data?.data?.[0],
-          isLoading: false,
-          isError: false,
-          isSuccess: true,
-        })
-      );
-    })
-    .catch(() => {
-      store.dispatch(
-        setHeroInfo({
-          data: null,
-          isLoading: false,
-          isError: true,
-          isSuccess: false,
-        })
-      );
-      // console.log(err);
-    });
+// console.log(data?.data[0])
 };
 
 export default getHeroInfo;

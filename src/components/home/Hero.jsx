@@ -1,17 +1,19 @@
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
-import getHeroInfo from "../../RestApi/hero.service";
 import heroBg from "../../assets/hero-bg.png";
+import getHeroInfo from "../../RestApi/hero.service";
 
 const Hero = () => {
-  const { heroFeature } = useSelector((state) => state);
-  const { apiResponse, data } = heroFeature;
+  const { heroFeature, globalFeature } = useSelector((state) => state);
+  const { data  } = heroFeature;
+  const { isError, isSuccess, isLoading } = globalFeature;
+  const { homeTitle, homeSubtitle, homeLink, homeLinkLabel  } = data
 
   useEffect(() => {
-    getHeroInfo();
+    getHeroInfo()
   }, []);
 
-  if (apiResponse.isSuccess) {
+  if (isSuccess) {
     return (
       <section
         id="home"
@@ -26,9 +28,9 @@ const Hero = () => {
           <div className="row">
             <div className="offset-lg-1 col-lg-10 col-sm-12 col-xs-12 text-center">
               <div className="about_me_content">
-                <h1>{data?.homeTitle}</h1>
+                <h1>{homeTitle}</h1>
                 <p>
-                  {data?.homeSubtitle}
+                  {homeSubtitle}
                   {/* {this.state.counter} */}
                 </p>
                 {/* <button
@@ -45,8 +47,8 @@ const Hero = () => {
          </button> */}
               </div>
               <div className="home_btn">
-                <a href={data.homeLink} className="home_one">
-                  {data?.homeLinkLabel}
+                <a href={homeLink} className="home_one">
+                  {homeLinkLabel}
                 </a>
               </div>
             </div>
@@ -54,9 +56,9 @@ const Hero = () => {
         </div>
       </section>
     );
-  } else if (apiResponse.isLoading) {
+  } else if (isLoading) {
     return "Loading Data Astece";
-  } else if (apiResponse.isError) {
+  } else if (isError) {
     return "Error Astece";
   }
 };
