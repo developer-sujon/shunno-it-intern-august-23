@@ -1,11 +1,8 @@
-//External lib imports
-import React from 'react';
-
-//Internal lib imports
-import Layout from '../../layout/Layout';
+import React from "react";
+import Layout from "../../layout/Layout";
 
 const Dashboard = () => {
-  return <Layout>Welcome To shunno Support</Layout>;
+  return <Layout title="dashboard">dashboard</Layout>;
 };
 
 export default Dashboard;

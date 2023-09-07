@@ -1,11 +1,11 @@
-//External lib imports
-import React from 'react';
+import Dashboard from "./screens/private/Dashboard";
 
-//Internal lib imports
-import Routes from './routes/Routes';
-
-const App = () => {
-  return <Routes />;
-};
+function App() {
+  return (
+    <>
+      <Dashboard />
+    </>
+  );
+}
 
 export default App;

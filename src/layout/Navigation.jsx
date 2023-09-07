@@ -1,26 +1,19 @@
 //External Lib Import
 import { useState } from "react";
 import { Container, Navbar } from "react-bootstrap";
-import {
-  AiOutlineLogout,
-  AiOutlineMenuUnfold,
-  AiOutlineUser,
-} from "react-icons/ai";
+import { AiOutlineLogout, AiOutlineMenuUnfold } from "react-icons/ai";
 import { BsArrowsFullscreen } from "react-icons/bs";
-import { useDispatch } from "react-redux";
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 //Internal Lib Import
 import { useTranslation } from "react-i18next";
 import Logo from "../assets/images/logo.png";
 import defaultUserAvatar from "../assets/images/user.png";
-import LanguageDropdown from "../components/languageDropdown";
 
 const Navigation = ({ openMenu, setOpenMenu, title = "Home" }) => {
   const { t } = useTranslation();
   const [isFullScreen, setIsFullScreen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(false);
-  const dispatch = useDispatch();
 
   const FullScreen = () => {
     if (isFullScreen === true) {
@@ -45,6 +38,8 @@ const Navigation = ({ openMenu, setOpenMenu, title = "Home" }) => {
     }
   };
 
+  const profileDetails = {};
+
   const logout = () => {};
 
   return (
@@ -65,9 +60,7 @@ const Navigation = ({ openMenu, setOpenMenu, title = "Home" }) => {
           </Navbar.Brand>
 
           <div className="float-right h-auto d-flex">
-            <div>
-              <LanguageDropdown />
-            </div>
+            <div></div>
             <button
               className="mx-2 icon-nav h6 px-3 btn btn-link"
               onClick={FullScreen}
@@ -75,12 +68,12 @@ const Navigation = ({ openMenu, setOpenMenu, title = "Home" }) => {
               <BsArrowsFullscreen />
             </button>
 
-            {true && (
+            {profileDetails && (
               <div className="user-dropdown">
                 <img
                   className="icon-nav-img icon-nav"
-                  src={"profileDetails?.photo" || defaultUserAvatar}
-                  alt={"profileDetails?.email"}
+                  src={profileDetails?.photo || defaultUserAvatar}
+                  alt={profileDetails?.email}
                   onClick={() => setOpenDropdown(!openDropdown)}
                 />
                 <div
@@ -93,21 +86,16 @@ const Navigation = ({ openMenu, setOpenMenu, title = "Home" }) => {
                   <div className="mt-4 text-center">
                     <img
                       className="icon-nav-img"
-                      src={"profileDetails?.photo" || defaultUserAvatar}
-                      alt={"profileDetails?.email"}
+                      src={profileDetails?.photo || defaultUserAvatar}
+                      alt={profileDetails?.email}
                     />
-                    <h6>{"profileDetails?.name"}</h6>
+                    <h6>{profileDetails?.name}</h6>
                     <hr className="user-dropdown-divider  p-0" />
                   </div>
-                  <NavLink
-                    to="/profile"
-                    className={({ isActive }) =>
-                      isActive ? "link-item-active" : "link-item"
-                    }
-                  >
+                  {/* <NavLink to="/profile" className={({ isActive }) => (isActive ? 'link-item-active' : 'link-item')}>
                     <AiOutlineUser className="link-item-icon" />
-                    <span className="link-item-caption">{t("profile")}</span>
-                  </NavLink>{" "}
+                    <span className="link-item-caption">{t('profile')}</span>
+                  </NavLink> */}{" "}
                   <span
                     onClick={logout}
                     className="link-item"
